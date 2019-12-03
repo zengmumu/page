@@ -1,0 +1,104 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title></title>
+  <script src="./jquery-2.0.2.js"></script>
+  
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+ 
+<span class=desc>获取“分享给朋友”按钮点击状态及自定义分享内容接口</span>
+<button id="onMenuShareAppMessage" class="btn btn_primary">
+                onMenuShareAppMessage
+</button> 
+<span class=desc>获取“分享到QQ”按钮点击状态及自定义分享内容接口</span>
+<button id=onMenuShareQQ class="btn btn_primary"> onMenuShareQQ </button> 
+ 
+
+<script>
+window.onload = function(){
+    $.support.cors = true;
+    // var url = location.href.split('#')[0];
+    var url = 'http://www.520mg.com';
+    $.ajax({
+        url: "./index.php",
+        type: "post",
+        typeType: "json",
+        data: {url:url},
+        async: false,
+        success: function(data) {
+            var _data = data;
+            var result = eval('('+ _data +')');
+            appid = result.appId;
+            timestamp = result.timestamp;
+            nonceStr = result.nonceStr;
+            signature = result.signature;
+        },
+    });
+    wx.config({
+        debug: false,
+        appId: appid,
+        timestamp: timestamp,
+        nonceStr: nonceStr,
+        signature: signature,
+        jsApiList: [
+            'onMenuShareAppMessage',
+            'onMenuShareTimeline',
+        ]
+    });
+    wx.ready(function() {
+        wx.checkJsApi({
+            jsApiList: [
+                'onMenuShareAppMessage',
+
+                'onMenuShareTimeline',
+            ]
+        })
+        var shareData = {
+            title: 'it学习好地方',
+            desc: '项目的描述',
+            link: 'http://www.520mg.com',
+            shareUrl: 'http://www.520mg.com',
+            imgUrl: 'http://pingtai.1qibang.cn/upload/photos/2019/07/31/2dd145a928d50e469a1fea415d9353e4.jpg',
+        };
+        wx.onMenuShareAppMessage(shareData); //分享好友
+        wx.onMenuShareTimeline(shareData);  //分享朋友圈
+
+
+
+ 
+
+    /* document.querySelector('#onMenuShareAppMessage').onclick = function () {
+      console.log("share");
+        wx.onMenuShareAppMessage({
+            title: '互联网之子',
+            desc: '在长大的过程中，我才慢慢发现，我身边的所有事，别人跟我说的所有事，那些所谓本来如此，注定如此的事，它们其实没有非得如此，事情是可以改变的。更重要的是，有些事既然错了，那就该做出改变。',
+            link: 'http://www.520mg.com',
+            imgUrl: 'http://www.520mg.com/templets/default/images/python.png',
+            
+            //trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                //alert('用户点击发送给朋友');
+            //},
+            success: function (res) {
+                alert('已分享');
+            },
+            cancel: function (res) {
+                alert('已取消');
+            },
+            fail: function (res) {
+                alert(JSON.stringify(res));
+            }
+        });
+        //alert('已注册获取“发送给朋友”状态事件');
+    }*/
+   })//wxready
+  }
+</script>
+</body>
+ 
+ </html>

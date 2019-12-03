@@ -1,0 +1,29 @@
+C<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+				.mark{ background-color: yellow; color: #fff;}
+				.border{ border:5px solid magenta;}
+	</style>
+	<script src="js/jquery-2.0.2.js"></script>
+	<script>
+		$(function(){
+			$("button").click(function(){
+//				$("h3").removeClass();
+//				$("h3").removeClass("mark");
+//				$("h3").toggleClass("mark");
+				alert($("h3").hasClass("mark2"));
+			})
+		})
+		
+	</script>
+</head>
+<body>
+	<button>切换</button>
+	<p><img src="images/1.gif" alt="" /></p>
+	<h3 class="mark border">this is a 文字</h3>
+	<p>this is a p <a href="">我是一个链接里面的<span>一小块</span></a></p>
+</body>
+</html>

@@ -1,0 +1,65 @@
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		// DOM 1.0 加载方式
+		/*
+			window.onload=init;
+			function init(){
+				alert("abc");
+			}
+			window.onload=init2;
+			function init2(){
+				alert("123");
+			}
+		*/
+		
+		// DOM 2.0 加载方式（W3C）
+		/*
+		window.addEventListener("load",init,false);
+		function init(){
+			alert("abc")
+		}
+		window.addEventListener("load",init2,false);
+		function init2(){
+			alert(123);
+		}*/
+		
+		
+		// ie早期版本 加载方式
+		/*
+		window.attachEvent("onload",init);
+		window.attachEvent("onload",init2);
+		function init(){
+			alert("abc")
+		}
+		function init2(){
+			alert(123);
+		}*/
+		
+		
+		// 兼容方式写法
+		function addEvent(elem,type,fn){
+			if(elem.addEventListener){
+				elem.addEventListener(type,fn,false);
+			}else if(elem.attachEvent){
+				elem.attachEvent("on"+type,fn);
+			}
+		}
+		
+		addEvent(window,"load",init1);	
+		addEvent(window,"load",init2);
+		function init1(){
+			alert("abc")
+		}
+		function init2(){
+			alert(123);
+		}
+		</script>
+	</head>
+	<body>
+		<h1>jQuery</h1>
+	</body>
+</html>

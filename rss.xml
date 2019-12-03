@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+<channel>
+<title>IT入门</title>
+<link>http://www.520mg.com</link>
+<description>一个免费IT入门培训平台。汇集了多家郑州IT培训机构， 提供专业培训指导，靠谱的UI培训学习挑选平台。</description>
+<language>zh_cn</language>
+<generator>IT入门</generator>
+<webmaster>zengstart@163.com</webmaster>
+<item>
+<title><![CDATA[输入某年某月某日，判断这一天是这一年的第几]]></title>
+<link>/plus/view.php?aid=8786</link>
+<category>基础语法</category>
+<pubdate>Tue,30Jul201900:20:41 +0800</pubdate>
+<description><![CDATA[arrayimport datetime def dayofyear(): year = input("请输入年份：") month = input("请输入月份：") day = input("请输入天：") date1 = datetime.date(year=int(year)，month=int(month)，day=int(day)) date2 = datetime.date(year=int(ye ... ]]></description>
+</item>
+<item>
+<title><![CDATA[python 里面如何生成随机数？]]></title>
+<link>/plus/view.php?aid=8785</link>
+<category>基础语法</category>
+<pubdate>Tue,30Jul201900:19:18 +0800</pubdate>
+<description><![CDATA[array在 Python 中用于生成随机数的模块是 random，在使用前需要 import. 如下例子可以酌情列举：random.random()：生成一个 0-1 之间的随机浮点数；random.uniform(a, b)：生成[a,b]之间的浮点数；random. ... ]]></description>
+</item>
+<item>
+<title><![CDATA[补充缺失的代码？]]></title>
+<link>/plus/view.php?aid=8780</link>
+<category>基础语法</category>
+<pubdate>Tue,30Jul201900:18:37 +0800</pubdate>
+<description><![CDATA[arraydef print_directory_contents(sPath): """ 这个函数接收文件夹的名称作为输入参数 返回该文件夹中文件的路径 以及其包含文件夹中文件的路径 """ # 补充代码 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[现在考虑有一个 jsonline 格式的文件 file.txt 大小约]]></title>
+<link>/plus/view.php?aid=8778</link>
+<category>基础语法</category>
+<pubdate>Tue,30Jul201900:16:13 +0800</pubdate>
+<description><![CDATA[array之前处理文件的代码如下所示 def get_lines(): l = [] with open(‘file.txt’，‘rb’) as f: for eachline in f: l.append(eachline) return l if __name__ == ‘__main__’: for e in get_lines(): process(e) #处理每一行数据 现 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[阅读下面的代码，写出 A0，A1 至 An 的最终值。]]></title>
+<link>/plus/view.php?aid=8773</link>
+<category>基础语法</category>
+<pubdate>Tue,30Jul201900:14:31 +0800</pubdate>
+<description><![CDATA[arraypre class="brush:python"> A0 = dict(zip(('a'，'b'，'c'，'d'，'e')，(1，2，3，4，5))) A1 = range(10) A2 = [i for i in A1 if i in A0] A3 = [A0[s] for s in A0] A4 = [i for i in A1 if i in A3] A5 = {i:i*i for i in A1} A6 = [[i，i*i] fo ... ]]></description>
+</item>
+<item>
+<title><![CDATA[你所遵循的代码规范是什么？请举例说明其要求]]></title>
+<link>/plus/view.php?aid=8801</link>
+<category>基础语法</category>
+<pubdate>Tue,30Jul201900:04:44 +0800</pubdate>
+<description><![CDATA[array5. 关于参数 5.1 不要用断言来实现静态类型检测。断言可以用于检查参数，但不应仅仅是进行静态类型检测。Python 是动态类型语言，静态类型检测违背了其设计思想。断言应该用于避免 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[你所遵循的代码规范是什么？请举例说明其要求]]></title>
+<link>/plus/view.php?aid=8800</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:57:49 +0800</pubdate>
+<description><![CDATA[array1. 变量 常量：大写加下划线 USER_CONSTANT。 私有变量 : 小写和一个前导下划线 _private_value。Python 中不存在私有变量一说，若是遇到需要保护的变量，使用小写和一个前导下划线。但这只 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[什么是 Python 的命名空间？]]></title>
+<link>/a/inter/pythontiku/jichuyufa/2019/0729/8799.html</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:57:01 +0800</pubdate>
+<description><![CDATA[array在 Python 中，所有的名字都存在于一个空间中，它们在该空间中存在和被操作——这就是命名空间。 它就好像一个盒子，每一个变量名字都对应装着一个对象。当查询变量的时候，会从 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[什么是 Python 自省？]]></title>
+<link>/plus/view.php?aid=8798</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:56:47 +0800</pubdate>
+<description><![CDATA[arrayPython 自省是 Python 具有的一种能力，使程序员面向对象的语言所写的程序在运行时,能够获得对象的类 Python 型。Python 是一种解释型语言，为程序员提供了极大的灵活性和控制力。 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[ 什么是 Python？]]></title>
+<link>/plus/view.php?aid=8797</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:55:48 +0800</pubdate>
+<description><![CDATA[array-Python 是一种编程语言，它有对象、模块、线程、异常处理和自动内存管理，可以加入其他语言的对比。 -Python 是一种解释型语言，Python 在代码运行之前不需要解释。 -Python 是动态类型 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[Python 中的作用域？]]></title>
+<link>/plus/view.php?aid=8796</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:54:08 +0800</pubdate>
+<description><![CDATA[arrayPython 中，一个变量的作用域总是由在代码中被赋值的地方所决定。当 Python 遇到一个变量的话它会按照这的顺序进行搜索： 本地作用域(Local)--->当前作用域被嵌入的本地作用域(Enclosin ... ]]></description>
+</item>
+<item>
+<title><![CDATA[关于 Python 程序的运行方面，有什么手段能提升性]]></title>
+<link>/plus/view.php?aid=8795</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:52:56 +0800</pubdate>
+<description><![CDATA[array1、使用多进程，充分利用机器的多核性能 2、对于性能影响较大的部分代码，可以使用 C 或 C++编写 3、对于 IO 阻塞造成的性能影响，可以使用 IO 多路复用来解决 4、尽量使用 Python 的内 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[Python2 与 Python3 的区别（二）？]]></title>
+<link>/plus/view.php?aid=8794</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:38:43 +0800</pubdate>
+<description><![CDATA[array3) 修改类差异 1. 浮点数除法操作符“/”和“//”的区别 “ / ”： Python2：若为两个整形数进行运算，结果为整形，但若两个数中有一个为浮点数，则结果为 浮点数； Python3:为真除法， ... ]]></description>
+</item>
+<item>
+<title><![CDATA[Python2 与 Python3 的区别（一）？]]></title>
+<link>/plus/view.php?aid=8793</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:29:10 +0800</pubdate>
+<description><![CDATA[array1) 核心类差异 1. Python3 对 Unicode 字符的原生支持。 Python2 中使用 ASCII 码作为默认编码方式导致 string 有两种类型 str 和 unicode，Python3 只支持 unicode 的 string。Python2 和 Python3 字节和字符对 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[Python 是如何进行类型转换的？]]></title>
+<link>/plus/view.php?aid=8792</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:28:43 +0800</pubdate>
+<description><![CDATA[array内建函数封装了各种转换函数，可以使用目标类型关键字强制类型转换，进制之间的转换可以用int(‘str’，base=’n’)将特定进制的字符串转换为十进制，再用相应的进制转换函数将十 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[ Python 中有日志吗?怎么使用?]]></title>
+<link>/plus/view.php?aid=8791</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:28:11 +0800</pubdate>
+<description><![CDATA[array有日志。 Python 自带 logging 模块，调用 logging.basicConfig()方法，配置需要的日志等级和相应的参数，Python 解释器会按照配置的参数生成相应的日志。 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[谈一下什么是解释性语言，什么是编译性语言?]]></title>
+<link>/plus/view.php?aid=8790</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:27:06 +0800</pubdate>
+<description><![CDATA[array计算机不能直接理解高级语言，只能直接理解机器语言，所以必须要把高级语言翻译成机器语言，计算机才能执行高级语言编写的程序。 解释性语言在运行程序的时候才会进行翻译。 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[ Python 是强语言类型还是弱语言类型？]]></title>
+<link>/plus/view.php?aid=8789</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:26:15 +0800</pubdate>
+<description><![CDATA[arraypython 是强类型的动态脚本语言。 强类型： 不允许不同类型相加。 动态： 不使用显示数据类型声明，且确定一个变量的类型是在第一次给它赋值的时候。 脚本语言： 一般也是解释型语 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[模块和包是什么]]></title>
+<link>/plus/view.php?aid=8788</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:25:36 +0800</pubdate>
+<description><![CDATA[array在 Python 中，模块是搭建程序的一种方式。每一个 Python 代码文件都是一个模块，并可以引用 其他的模块，比如对象和属性。 一个包含许多 Python 代码的文件夹是一个包。一个包可以包 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[打乱一个排好序的 list 对象 alist？]]></title>
+<link>/plus/view.php?aid=8787</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:24:59 +0800</pubdate>
+<description><![CDATA[arrayimport randomrandom.shuffle(alist) ... ]]></description>
+</item>
+<item>
+<title><![CDATA[__init__ 和__new__的区别]]></title>
+<link>/plus/view.php?aid=8784</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:23:28 +0800</pubdate>
+<description><![CDATA[arrayinit 在对象创建后，对对象进行初始化。 new 是在对象创建之前创建一个对象，并将该对象返回给 init。 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[赋值、浅拷贝和深拷贝的区别？]]></title>
+<link>/plus/view.php?aid=8783</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:21:15 +0800</pubdate>
+<description><![CDATA[array一、赋值 在 Python 中，对象的赋值就是简单的对象引用，这点和 C++不同，如下所示： a = [1,2,"hello",['python', 'C++']]b = a 在上述情况下，a 和 b 是一样的，他们指向同一片内存，b 不过是 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[常用的 Python 标准库都有哪些？]]></title>
+<link>/plus/view.php?aid=8782</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:20:18 +0800</pubdate>
+<description><![CDATA[arrayos 操作系统，time 时间，random 随机，pymysql 连接数据库，threading 线程，multiprocessing进程，queue 队列。 第三方库： django 和 flask 也是第三方库，requests，virtualenv，selenium，scrapy，xadmin， ... ]]></description>
+</item>
+<item>
+<title><![CDATA[在except中return后还会不会执行finally中的代码？怎]]></title>
+<link>/plus/view.php?aid=8781</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:19:53 +0800</pubdate>
+<description><![CDATA[array会继续处理 finally 中的代码；用 raise 方法可以抛出自定义异常。 except: #捕获所有异常 except: 异常名: #捕获指定异常 except:异常名 1, 异常名 2 : 捕获异常 1 或者异常 2 except:异常名,数据 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[read、readline 和 readlines 的区别?]]></title>
+<link>/plus/view.php?aid=8779</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:18:55 +0800</pubdate>
+<description><![CDATA[arrayread:读取整个文件。 readline：读取下一行，使用生成器方法。 readlines：读取整个文件到一个迭代器以供我们遍历 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[4G 内存怎么读取一个 5G 的数据？]]></title>
+<link>/plus/view.php?aid=8777</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:16:19 +0800</pubdate>
+<description><![CDATA[array方法一： 可以通过生成器，分多次读取，每次读取数量相对少的数据（比如 500MB）进行处理，处理结束后在读取后面的 500MB 的数据。 方法二： 可以通过 linux 命令 split 切割成小文件， ... ]]></description>
+</item>
+<item>
+<title><![CDATA[以下 Python 程序的输出？]]></title>
+<link>/plus/view.php?aid=8776</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:15:44 +0800</pubdate>
+<description><![CDATA[arrayfor i in range(5，0，-1):print(i) ... ]]></description>
+</item>
+<item>
+<title><![CDATA[考虑以下 Python 代码，如果运行结束，命令行中的]]></title>
+<link>/plus/view.php?aid=8775</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:14:47 +0800</pubdate>
+<description><![CDATA[arrayl = [] for i in xrange(10): l.append({‘num’:i}) print l 再考虑以下代码，运行结束后的结果是什么？ l = [] a = {‘num’:0} for i in xrange(10): a[‘num’] = i l.append(a) print 以上两段代码的运行结果是否相 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[ range 和 xrange 的区别？]]></title>
+<link>/plus/view.php?aid=8774</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:14:19 +0800</pubdate>
+<description><![CDATA[array两者用法相同，不同的是 range 返回的结果是一个列表，而 xrange 的结果是一个生成器，前者是直接开辟一块内存空间来保存列表，后者是边循环边使用，只有使用时才会开辟内存空间， ... ]]></description>
+</item>
+<item>
+<title><![CDATA[ 简述你对 input()函数的理解?]]></title>
+<link>/plus/view.php?aid=8772</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:12:56 +0800</pubdate>
+<description><![CDATA[array在 Python3 中，input()获取用户输入，不论用户输入的是什么，获取到的都是字符串类型的。 在 Python2 中有 raw_input()和 input(), raw_input()和 Python3 中的 input()作用是一样的，input()输入的是什 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[面这段代码的输出结果将是什么？请解释？]]></title>
+<link>/plus/view.php?aid=8771</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:12:03 +0800</pubdate>
+<description><![CDATA[arrayclass Parent(object) x = 1 class Child1(Parent): pass class Child2(Parent): pass print Parent.x, Childx, Childx Childx = 2 print parent.x, Childx, Childx parent.x = 3 print Parent.x, Childx, Childx 结果为： 1 1 1 #继承自父类的类属 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[print 调用 Python 中底层的什么方法?]]></title>
+<link>/plus/view.php?aid=8770</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:11:30 +0800</pubdate>
+<description><![CDATA[arrayprint 方法默认调用 sys.stdout.write 方法，即往控制台打印字符串。 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[a=1,b=2,不用中间变量交换 a 和 b 的值？]]></title>
+<link>/plus/view.php?aid=8769</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:10:55 +0800</pubdate>
+<description><![CDATA[array方法一： a = a+bb = a-ba = a-b 方法二： a = a^b b =b^a a = a^b 方法三： a,b = b,a ... ]]></description>
+</item>
+<item>
+<title><![CDATA[代码中要修改不可变数据会出现什么问题? 抛出什]]></title>
+<link>/plus/view.php?aid=8768</link>
+<category>基础语法</category>
+<pubdate>Mon,29Jul201923:09:44 +0800</pubdate>
+<description><![CDATA[array代码不会正常运行，抛出 TypeError 异常。 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[基本注意事项]]></title>
+<link>/plus/view.php?aid=8762</link>
+<category>面试中注意的问题</category>
+<pubdate>Mon,29Jul201910:52:48 +0800</pubdate>
+<description><![CDATA[array（1）要谦虚谨慎。 面试和面谈的区别之一就是面试时对方往往是多数人，其中不乏专家、学者，求职者在回答一些比较有深度的问题时，切不可不懂装懂，不明白的地方就要虚心请教 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[面试九忌（二）]]></title>
+<link>/plus/view.php?aid=8767</link>
+<category>面试中注意的问题</category>
+<pubdate>Mon,29Jul201910:50:35 +0800</pubdate>
+<description><![CDATA[array（5）忌提问幼稚。 在想考官提问时要考虑自己提的问题是否有价值或者主考官已经回答过或解释过。 千万别提一些很幼稚的问题，如：办公室有空调吗？你知道某某主任在哪里吗？ ... ]]></description>
+</item>
+<item>
+<title><![CDATA[面试九忌（一）]]></title>
+<link>/plus/view.php?aid=8766</link>
+<category>面试中注意的问题</category>
+<pubdate>Mon,29Jul201910:46:43 +0800</pubdate>
+<description><![CDATA[array（1）忌握手无力，过于靠近面试官。 时与主试者应恰如其分地轻轻一握，不要有气无力地被动握手，给对方一种精力不足，身体虚弱之感。 落 座后应与对方保持合适的距离，不能过分 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[面试时应注意的礼仪(一)]]></title>
+<link>/plus/view.php?aid=8764</link>
+<category>面试中注意的问题</category>
+<pubdate>Mon,29Jul201910:46:21 +0800</pubdate>
+<description><![CDATA[array（1）服饰要得体。 就服饰而言，应聘者在去求职面试前，必须精心选择自己的服饰。那就是服饰要与自己的身材、身份相符，表现出朴实、大方、明快、稳健的风格。在面试时，着装 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[面试时应注意的礼仪（二）]]></title>
+<link>/a/inter/mianshibaodian/mianshizhongzhuyidewenti/2019/0729/8765.html</link>
+<category>面试中注意的问题</category>
+<pubdate>Mon,29Jul201910:44:34 +0800</pubdate>
+<description><![CDATA[array（6）“听”的学问。 首先，要耐心。对对方提起的任何话题，你都应耐心倾听，不能表现出心不在焉或不耐烦的神色，要尽量让对方兴致勃勃地讲完，不要轻易打断或插话； 其次，要 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[面试时如何消除紧张感]]></title>
+<link>/plus/view.php?aid=8763</link>
+<category>面试中注意的问题</category>
+<pubdate>Mon,29Jul201910:36:33 +0800</pubdate>
+<description><![CDATA[array由于面试成功与否关系到求职者的前途，所以大学生面试时往往容易产生紧张情绪，有的大学生可能还由于过度紧张导致面试失败。所以紧张感在面试中是常见的。 紧张是应考者在考官 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[在五年的时间内，你的职业规划？]]></title>
+<link>/a/inter/mianshibaodian/renshimianshijiqiao/2019/0727/8723.html</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:45:31 +0800</pubdate>
+<description><![CDATA[array回答提示：一般公司高管或者副总喜欢问个人职业规划方面的问题。当然，说出其他一些你感兴趣的职位也是可以的，比如产品销售部经理，生产部经理等一些与你的专业有相关背景的 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[你对加班的看法？]]></title>
+<link>/plus/view.php?aid=8721</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:45:09 +0800</pubdate>
+<description><![CDATA[array回答提示：实际上好多公司问这个问题，并不证明一定要加班，只是想测试你是否愿意为公司奉献。回答样本：如果是工作需要我会义不容辞加班，我现在单身，没有任何家庭负担，可 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[你觉得你最大的优点是什么？]]></title>
+<link>/plus/view.php?aid=8719</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:44:43 +0800</pubdate>
+<description><![CDATA[array回答提示：沉着冷静、条理清楚、立场坚定、顽强向上、乐于助人和关心他人、适应能力和幽默感、乐观和友爱。我在之前的工作经历过高强度工作及项目实战，使我适合这份工作。要 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[主管领导说是他做的，你该怎样？]]></title>
+<link>/plus/view.php?aid=8761</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:41:26 +0800</pubdate>
+<description><![CDATA[array如果你做的一项工作受到上级领导的表扬，但你主管领导却说是他做的，你该怎样？ 回答提示：/h3> 我首先不会找那位上级领导说明这件事，我会主动找我的主管领导来沟通，因为沟通 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[工作出现失误给本公司造成经济损失，你该怎么]]></title>
+<link>/plus/view.php?aid=8760</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:40:35 +0800</pubdate>
+<description><![CDATA[array①我本意是为公司努力工作，如果造成经济损失，我认为首要的问题是想方设法去弥补或挽回经济损失。如果我无能力负责，希望公司帮助解决。 ②分清责任，各负其责，如果是我的责 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[意见与领导不一致]]></title>
+<link>/plus/view.php?aid=8759</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:39:30 +0800</pubdate>
+<description><![CDATA[array在完成某项工作时，你认为领导要求的方式不是最好的，自己还有更好的方法，你应该怎么做？ 回答提示： ①原则上我会尊重和服从领导的工作安排，同时私底下找机会以请教的口吻 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[上班后发现工作不合适]]></title>
+<link>/plus/view.php?aid=8758</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:38:09 +0800</pubdate>
+<description><![CDATA[array工作一段时间后发现工作不适合你，有两种情况： ①如果你确实热爱程序员这个职业，那你就要不断学习，虚心向领导和同事学习业务知识和处事经验，了解这个职业的精神内涵和职业 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[工作中你难以和同事、上司相处，你该怎么办？]]></title>
+<link>/plus/view.php?aid=8757</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:37:16 +0800</pubdate>
+<description><![CDATA[array①我会服从领导的指挥，配合同事的工作。 ②我会从自身找原因，仔细分析是不是自己工作做得不好让领导不满意，同事看不惯。还要看看是不是为人处世方面做得不好，如果是这样的 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[谈谈你过去的工作中，最令你受挫的事情？]]></title>
+<link>/plus/view.php?aid=8756</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:36:54 +0800</pubdate>
+<description><![CDATA[array这是针对求职者提出的问题，建议此时可以配合面试工作的特点作为主要依据来回答，如业务工作需要与人沟通，便可举出之前工作与人沟通的例子，经历了哪些困难，学习到哪些经验 ... ]]></description>
+</item>
+<item>
+<title><![CDATA[谈谈你做过的项目？]]></title>
+<link>/plus/view.php?aid=8755</link>
+<category>人事面试技巧</category>
+<pubdate>Sat,27Jul201912:36:17 +0800</pubdate>
+<description><![CDATA[array举一个你最有把握的例子，把来龙去脉说清楚，而不要说了很多却没有重点。 切忌夸大其词，把别人的功劳到说成自己的，很多主管为了确保要用的人是最适合的，会打电话向你的前一 ... ]]></description>
+</item>
+
+</channel>
+</rss> 

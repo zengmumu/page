@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			.tab_title{ border:1px solid gainsboro; float: left; padding: 15px;}
+			.tab_con{ clear: both; height: 350px; width: 400px; border:1px solid lightgray; }
+			.active{ color: #f30; border-color:#f30;}
+		</style>
+	</head>
+	<body>
+					<div class="tab">
+								<div class="tab_title">title1</div>
+								<div class="tab_title">title2</div>
+								<div class="tab_title">title3</div>
+								<div class="tab_con">tabcontent1</div>
+								<div class="tab_con">tabcontent2</div>
+								<div class="tab_con">tabcontent3</div>
+						
+					</div>
+		
+		<script src="js/jquery-1.4.2.min.js"></script>
+		<script src="js/jquery.tab.1.0.js"></script>
+		
+		<script>
+			$(".tab").tab({"effect":"slide","default":2,"titleName":".tab_title","contentName":".tab_con","speed":"fast"});
+			
+		</script>
+	</body>
+</html>

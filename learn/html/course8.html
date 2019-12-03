@@ -1,0 +1,693 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>Hello APP</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" href="../css/swiper.min.css">
+		<script type="text/javascript" src="../script/shCore.js"></script>
+		<script type="text/javascript" src="../script/shBrushJScript.js"></script>
+		<link type="text/css" rel="stylesheet" href="../css/shCoreDefault.css"/>
+		<script type="text/javascript">
+
+
+
+
+
+		</script>
+	<!-- 	<script type="text/javascript" src="../script/json.js"></script>
+	 -->
+		<script type="text/javascript" src="../script/chapterJS.js"></script>
+		<style type="text/css">
+			*{ margin: 0; padding: 0;-webkit-box-sizing:border-box; box-sizing:border-box;}
+			    html,body{
+			        height: 100%;
+			        background-color: #f5f5f5;
+			
+			    }
+			    body{ padding-top: 48px;}
+			    #wrap{
+			        height: 100%;
+			       /* display: -webkit-box;
+			        display: -webkit-flex;
+			        display: flex;
+			        -webkit-box-orient: vertical;
+			        -webkit-flex-flow: column;
+			               flex-flow: column;*/
+			    }
+			    #header{
+			        text-align: center; 
+			        color: #999;
+			        width: 100%;
+			        height: 48px; border-bottom: 1px solid #e0e0e0;
+			         display: -webkit-box;
+			        display: -webkit-flex;
+			        display: flex;
+			        font-size: small;
+			        position: fixed;
+			        left:0;
+			        top:0;
+			         -webkit-transition:bottom 1s ease;
+			        transition:bottom 1s ease;
+			         background-color: #f5f5f5;
+			         z-index: 15;
+			    }
+			    #header .back{ height: 48px; width: 48px; 
+			        background: url(../image/btn_back_normal.png) no-repeat center center; background-size: 65%;}
+			    .skin{height: 48px; width: 48px;}
+			
+			    .btn_dati_beiti_wrap{ /* border:;*/  -webkit-box-flex: 1; 
+			        -webkit-flex: 1;
+			        flex: 1;}
+			    .btn_dati_beiti{
+			        height: 29px; width:150px; height: 26px;
+			        margin-top: 10px;
+			        border:1px  solid #999;
+			        border-radius: 6px;
+			        -webkit-border-radius:6px;
+			        margin-left: auto;
+			        margin-right: auto;
+			        overflow: hidden;
+			    }
+			    .btn_dati,.btn_bei{ width: 50%;   display: block; float: left;height:27px; line-height: 27px;}
+			    
+			    .btn_dati.select,.btn_bei.select{ background-color: #999; 
+			        color: #fff;}
+			     .btn_bei.select{ background-color: #999; color: #fff;}
+			    h1{
+			        font-size: 20px; height: 44px; line-height: 44px; margin: 0em; color: #fff;
+			    }
+			  /*  #main{
+			        -webkit-box-flex: 1; 
+			        -webkit-flex: 1;
+			        flex: 1;
+			    }*/
+			    #footer{
+			            border-top: 1px solid #dedede;
+			    background-color: #fff;
+			    width: 100%;
+			    position: fixed;
+			    bottom: -460px;
+			    left: 0;
+			    z-index: 20;
+			     -webkit-transition:bottom 1s ease;
+			        transition:bottom 1s ease;
+			
+			   
+			   
+			}
+			   
+			    .f_head{ height: 45px;  width: 100%; line-height: 45px;  padding-left: 15px;
+			    padding-right: 15px; border-bottom: 1px solid #dedede;
+			    background-color: #fff; }
+			    .collection{ height: 45px; line-height:45px;float: left; padding-left:24px; background:url(../image/collection_n.png) no-repeat left center; background-size: 35%; color: #787878; font-size: small;}
+			    .collection.active{ background-image: url(../image/collection_a.png);}
+			    #counter{ float: right; height: 45px; line-height: 45px; color: #333333; font-size: small; /*padding-right: 4px;*/ position: static; width: auto;}
+			    .swiper-pagination-current{font-weight: bold; margin-right: -3px;}
+			    .swiper-pagination-total{ margin-left: -3px;}
+			    .q_list_btn{ float: right; height: 45px; width:45px;line-height: 45px; background:url(../image/q_list_btn_n.png) no-repeat center center; background-size: 40%; margin-right: 10px; font-size: small; }
+			    .f_wrong{ float: right; height: 45px; line-height: 45px; padding-left: 22px; font-size: small;
+			     background:url(../image/f_rong_d.png) no-repeat left center; background-size: 15px auto; color: #f25e5e;
+			        margin-right: 15px;}
+			      .f_right{ float: right; font-size: small;  margin-right: 25px; height: 45px; line-height: 45px; padding-left: 22px;
+			     background:url(../image/f_right_d.png) no-repeat left center; background-size: 15px auto; color: #18b4ed;}
+			    .f_body{width: 100%; height:460px; overflow: hidden; }
+			.swiper-container {
+			        width: 100%;
+			        height: 100%;
+			    }
+			
+			     .q_li_btn ul{ width: 100%; /* padding-left: 15px;
+			    padding-right: 15px;*/ display: -webkit-box;
+			        display: -webkit-flex;
+			        display: flex; 
+			        -webkit-box-pack:start;
+			        justify-content:flex-start;
+			        -webkit-box-lines:multiple;
+			        flex-wrap:wrap;
+			        -webkit-box-align:start;
+			        align-content:flex-start;
+			        
+			
+			        }
+			    .f_body h4{ height: 40px; line-height: 40px; clear:both; background-color: #f5f5f5; color: #787878; font-weight: normal;  padding-left: 15px;
+			    padding-right: 15px; width: 100%;}
+			     .q_li_btn li{ height: 45px; width: 45px; line-height: 45px; border-radius: 50%; -webkit-border-radius: 50%; border:1px solid #f4f4f5; text-align: center;margin-right: 10px;margin-left: 10px; margin-top: 10px;margin-bottom: 10px; color: #999;}   
+			   
+			    .q_li_btn li.right{ color:#18b4ed; background-color: #e7f7fd; border:1px solid #21b7ee;}
+			    .q_li_btn li.wrong{ color:#f25e5e; background-color: #fce8e8; border:1px solid #f25e5e;}
+			      .swiper-container1 {
+			        width: 100%;
+			        height: 100%;
+			    }
+			   .swiper-container1 .swiper-slide {
+			       
+			        height: auto;
+			        -webkit-box-sizing: border-box;
+			        box-sizing: border-box;
+			        
+			    }
+			.swiper-container {
+			        width: 100%;
+			        height: auto;
+			        background-color: transparent;
+			        margin: 0px auto;
+			    }
+			    .swiper-slide {
+			      
+			      
+			       
+			       
+			        height: 100%;
+			        min-height: 480px;
+			        border-left: 1px solid #e0e0e0;
+			    }
+			
+			    #main{  width: 100%;  margin-top: 0px; margin-bottom: 45px; background-color: #f5f5f5; position: relative;z-index: 10;}
+			.block-shiti{ padding:15px; color: #333;}
+			.timu-content{ margin-bottom: 15px;}
+			.que-type{ padding: 1px; border:1px solid #18b4ed; color: #18b4ed; font-size: small; line-height: 18px; height: 18px;}
+			.que-c{ line-height: 1.7em; display: inline;}
+			.ans-option,.ans-option2{ min-height: 30px; line-height: 30px; margin-top: 15px;}
+			.ans-option2{ margin-bottom: 70px; width: 70%; margin-left: 50px;margin-top: 45px;}
+			.xu{ height: 30px; width:30px; font-style: normal; line-height: 28px; border-radius: 30px;-webkit-border-radius: 30px; background-color: #fff; text-align: center; border:1px solid #d0d0d0; display: block; margin-right: 4px; float: left; font-weight: bold;}
+			.ti{font-style: normal;}
+			.btn-st-sub,.btn-show-answer{ height: 35px; line-height: 35px; width: 70%; margin-left: auto; margin-right: auto;-webkit-border-radius:4px; border-radius: 4px; background-color: #18b4ed; color: #fff; float: none; display: block; margin-top: 15px; }
+			.answer-content{ margin-top: 55px; line-height: 1.7em;}
+			.line-fege{ border-bottom:1px solid #b5b5b5; margin-bottom: 20px;}
+			.line-fege span{ width: 6rem; text-align: center; display: block; background-color: #f5f5f5; margin-left: auto; margin-right: auto; position: relative; top:0.45em;}
+			.a-title{ border-left:4px solid #18b4ed ; padding-left: 7px; margin-top: 35px; margin-bottom: 15px;}
+			.tongji-content h4,.tongji-content p{ padding-left: 11px;}
+			.tongji-content p{ color: #999;}
+			.t-all{ color: #666;}
+			.t-wrong{color:#f25e5e;}
+			.t-right{color:#18b4ed;}
+			
+			.seeAnswer .select .xu{ background-color: #f25e5e; border-color: #f25e5e; text-indent:-9999em; position: relative; display: inline-block; text-indent: -999999px;}
+			.seeAnswer .select .xu:before{ content:"×"; text-indent: 0;
+			    color: #fff;
+                position: absolute;
+			    display: block; height: 28px; line-height: 28px; width: 28px; text-align: center; font-size: larger;  border:none; transform:none;-webkit-transform:none; left:0; top:0;}
+            .seeAnswer .select.dui .xu,.select .xu{ background-color: #b5bdc2; color: #fff;}
+            .seeAnswer .dui .xu{ background-color: #18b4ed; border-color: #18b4ed; color: #fff;}
+
+			/*.seeAnswer .dui .xu{ background-color: #18b4ed; border-color: #18b4ed; text-indent:-9999em; position: relative;}*/
+            .seeAnswer .dui.select .xu{ background-color: #18b4ed; border-color: #18b4ed; text-indent:-9999em; position: relative;}
+            .seeAnswer .dui.select .xu:before{content:""; text-indent: 0;
+                color: #fff;
+                display: block; width: 12px; height: 6px; border-left: 2px solid #fff; border-bottom: 2px solid #fff;  transform:rotate(-45deg) translate(-0%,-100%); -webkit-transform:rotate(-45deg) translate(-0%,-100%);position: absolute; left:50%; top:50%; }
+
+			/* .seeAnswer .dui .xu:before,.select .xu:before{content:""; text-indent: 0;
+                color: #fff;
+                display: block; width: 12px; height: 6px; border-left: 2px solid #fff; border-bottom: 2px solid #fff;  transform:rotate(-45deg) translate(-0%,-100%); -webkit-transform:rotate(-45deg) translate(-0%,-100%);position: absolute; left:50%; top:50%; } */
+                .tiankong{margin-bottom: 50px; height: 35px; line-height: 35px; margin-left: 15px; border-bottom: 2px solid #18b4ed;  outline: none;}
+			.select .xm{  background-color: #18b4ed; color: #fff; }
+			.explain-p textarea{ width: 90%; height: 50px; outline: none;}
+			.explain-p blockquote{ padding: 3px; border-left:3px solid #CE3131;}
+			.ans-option4{ display: none;}
+			pre{overflow:auto  !important; display:block; }
+			.explain-p{ overflow: auto; width: 100%; white-space:pre-wrap;}
+			pre{overflow:auto  !important; display:block;  width: 100% !important; white-space:pre-wrap !important;; }
+			.explain-p pre{overflow:auto  !important; display:block; }
+			.ans-option4>div{ overflow:auto  !important; display:block; width: 100% !important;white-space:pre-wrap !important;;}
+			.ans-option4 img ,.explain-p img{ max-width: 100% !important; }
+			.syntaxhighlighter table td.code{overflow:auto  !important;}
+		</style>
+		
+
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="header">
+				<span class="back"></span>
+				<div class="btn_dati_beiti_wrap">
+					<div class="btn_dati_beiti">
+						<span class="btn_dati select">答题模式</span>
+
+						<span class="btn_bei ">背题模式</span>
+					</div>
+				</div>
+				<div class="skin"></div>
+			</div>
+			<div id="main">
+				<div class="swiper-container  seeAnswer">
+					<div class="swiper-wrapper ">
+						<div class="swiper-slide">
+							<div class="block-shiti">
+								<p class="timu-content">
+									<span class="que-type">多选题</span>
+									<span class="que-c">林某驾车以110公里/小时的速度在城市道路行驶，与一辆机动车追尾后弃车逃离被群众拦下。经鉴定，事发时林某血液中的酒精浓度为135.8毫克/百毫升。林某的主要违法行为是什么？</span>
+								</p>
+								<div class="media-container"></div>
+								<div class="answer-container " data-item="answer-container">
+									<ul>
+										<li class="ans-option " data-answer="16"><i class="xu">A</i><i class="ti">疲劳驾驶</i></li>
+										<li class="ans-option dui" data-answer="32"><i class="xu">B</i><i class="ti">醉酒驾驶</i></li>
+										<li class="ans-option dui" data-answer="64"><i class="xu">C</i><i class="ti">肇事逃逸</i></li>
+										<li class="ans-option dui" data-answer="128"><i class="xu">D</i><i class="ti">超速驾驶</i></li>
+									</ul>
+
+									<button type="button" class="btn-st-sub">确认答案</button>
+								</div>
+								<div class="answer-content">
+									<div class="line-fege"><span>试题详解</span></div>
+									<h3 class="a-title">考点</h3>
+									<div class="explain-p">
+										<pre>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa</pre>
+										<p>
+											<strong>闭包</strong>（<code>closure</code>）是<code>Javascript</code>语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。</p>
+										<h2>
+											闭包的特性</h2>
+										<p>
+											<strong>闭包有三个特性：</strong></p>
+<pre>
+<code>1.函数嵌套函数
+	2.函数内部可以引用外部的参数和变量
+	3.参数和变量不会被垃圾回收机制回收</code></pre>
+										<h2>
+											闭包的定义及其优缺点</h2>
+										<p>
+											<code>闭包</code> 是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量</p>
+										<p>
+											闭包的缺点就是常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。</p>
+										<p>
+											闭包是<code>javascript</code>语言的一大特点，主要应用闭包场合主要是为了：设计私有的方法和变量。</p>
+										<p>
+											一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同！</p>
+										<h2>
+											嵌套函数的闭包</h2>
+<pre class="brush:js; toolbar: false; auto-links: false;">
+<code>   function aaa() {
+	var a = 1;
+	return function(){
+	alert(a++)
+	};
+	}
+	var fun = aaa();
+	fun();// 1 执行后 a++，，然后a还在~
+	fun();// 2
+	fun = null;//a被回收！！
+</code></pre>
+										<p>
+											<strong>闭包</strong>会使变量始终保存在内存中，如果不当使用会增大内存消耗。</p>
+										<h2>
+											<code>javascript</code>的垃圾回收原理</h2>
+										<p>
+											（1）、在<code>javascript</code>中，如果一个对象不再被引用，那么这个对象就会被<code>GC</code>回收；<br />
+											（2）、如果两个对象互相引用，而不再被第<code>3</code>者所引用，那么这两个互相引用的对象也会被回收。</p>
+										<h2>
+											使用闭包的好处</h2>
+										<p>
+											那么使用闭包有什么好处呢？使用闭包的好处是：</p>
+<pre>
+<code>1.希望一个变量长期驻扎在内存中
+	2.避免全局变量的污染
+	3.私有成员的存在
+</code></pre>
+										<h2>
+											一、全局变量的累加</h2>
+<pre class="brush:js; toolbar: false; auto-links: false;">
+var a = 1;
+function abc(){
+        a++;
+        alert(a);
+}
+abc();              //2
+abc();            //3
+</pre>
+										<h2>
+											二、局部变量</h2>
+<pre class="brush:js; toolbar: false; auto-links: false;">
+
+function abc(){
+        var a = 1;
+        a++;
+        alert(a);
+}
+abc();                       //2
+abc();                    //2
+</pre>
+										<p>
+											那么怎么才能做到变量a既是局部变量又可以累加呢？</p>
+										<h2>
+											三、局部变量的累加</h2>
+<pre>
+function outer(){
+        var x=10;
+        return function(){             //函数嵌套函数
+                x++;
+                alert(x);
+        }
+}
+var y = outer();              //外部函数赋给变量y;
+y();                 //y函数调用一次，结果为11，相当于outer()()；
+y();                //y函数调用第二次，结果为12，实现了累加
+</pre>
+										<h2>
+											函数声明与函数表达式</h2>
+										<p>
+											在js中我们可以通过关键字<code>function</code>来声明一个函数：</p>
+<pre class="brush:js; toolbar: false; auto-links: false;">
+function abc(){
+        alert(123);
+}
+abc();
+</pre>
+										<p>
+											我们也可以通过一个&quot;()&quot;来将这个声明变成一个表达式：</p>
+<pre>
+(function (){
+        alert(123);
+})();                   //然后通过()直接调用前面的表达式即可，因此函数可以不必写名字；
+</pre>
+										<h2>
+											四、模块化代码，减少全局变量的污染</h2>
+<pre class="brush:js; toolbar: false; auto-links: false;">
+var abc = (function(){      //abc为外部匿名函数的返回值
+        var a = 1;
+        return function(){
+                a++;
+                alert(a);
+        }
+})();
+abc();    //2 ；调用一次abc函数，其实是调用里面内部函数的返回值
+abc();    //3
+</pre>
+										<h2>
+											五、私有成员的存在</h2>
+<pre class="brush:js; toolbar: false; auto-links: false;">
+var aaa = (function(){
+        var a = 1;
+        function bbb(){
+                a++;
+                alert(a);
+        }
+        function ccc(){
+                a++;
+                alert(a);
+        }
+        return {
+                b:bbb,             //json结构
+                c:ccc
+        }
+})();
+aaa.b();     //2
+aaa.c()      //3
+</pre>
+										<h2>
+											六.使用匿名函数实现累加</h2>
+<pre class="brush:js; toolbar: false; auto-links: false;">
+<code>//使用匿名函数实现局部变量驻留内存中，从而实现累加
+
+	&lt;script type=&quot;text/javascript&quot;&gt;
+
+	function box(){
+	var age = 100;
+	return function(){          //匿名函数
+	age++;
+	return age;
+	};
+
+	}
+	var b = box();
+	alert(b());
+	alert(b());    //即alert(box()())；
+	alert(b());
+	alert(b);            //     function () {
+	//   age++;
+	// return age;
+	//       }
+
+	b = null；  //解除引用，等待垃圾回收
+</code></pre>
+										<p>
+											<code>过度使用闭包会导致性能的下降。函数里放匿名函数，则产生了闭包</code></p>
+										<h2>
+											<code>七、在循环中直接找到对应元素的索引</code></h2>
+<pre class="brush:js; toolbar: false; auto-links: false;">
+<code><code>   &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+	&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+	&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot;&gt;
+	&lt;head&gt;
+	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot; /&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;script&gt;
+	window.onload = function(){
+	var aLi = document.getElementsByTagName(&#39;li&#39;);
+	for (var i=0;i&lt;aLi.length;i++){
+	aLi[i].onclick = function(){        //当点击时for循环已经结束
+	alert(i);
+	};
+	}
+	}
+	&lt;/script&gt;
+
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;ul&gt;
+	&lt;li&gt;123&lt;/li&gt;
+	&lt;li&gt;456&lt;/li&gt;
+	&lt;li&gt;789&lt;/li&gt;
+	&lt;li&gt;010&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+</code></code></pre>
+										<h2>
+											<code>八、使用闭包改写上面代码</code></h2>
+<pre>
+<code><code>    &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+	&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+	&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot;&gt;
+	&lt;head&gt;
+	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot; /&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;script&gt;
+	window.onload = function(){
+	var aLi = document.getElementsByTagName(&#39;li&#39;);
+	for (var i=0;i&lt;aLi.length;i++){
+	(function(i){
+	aLi[i].onclick = function(){
+	alert(i);
+	};
+	})(i);
+	}
+	};
+	&lt;/script&gt;
+
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;ul&gt;
+	&lt;li&gt;123&lt;/li&gt;
+	&lt;li&gt;456&lt;/li&gt;
+	&lt;li&gt;789&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+</code></code></pre>
+										<h2>
+											<code>九.内存泄露问题</code></h2>
+										<p>
+											<code>由于<code>IE</code>的<code>js</code>对象和<code>DOM</code>对象使用不同的垃圾收集方法，因此闭包在<code>IE</code>中会导致内存泄露问题，也就是无法销毁驻留在内存中的元素</code></p>
+<pre class="brush:js; toolbar: false; auto-links: false;">
+<code><code>function closure(){
+	var oDiv = document.getElementById(&#39;oDiv&#39;);//oDiv用完之后一直驻留在内存中
+	oDiv.onclick = function () {
+	alert(&#39;oDiv.innerHTML&#39;);//这里用oDiv导致内存泄露
+	};
+	}
+	closure();
+	//最后应将oDiv解除引用来避免内存泄露
+	function closure(){
+	var oDiv = document.getElementById(&#39;oDiv&#39;);
+	var test = oDiv.innerHTML;
+	oDiv.onclick = function () {
+	alert(test);
+	};
+	oDiv = null;
+	}
+</code></code></pre>
+
+									</div>
+									<h3 class="a-title">统计</h3>
+									<div class="tongji-content">
+										<h4>我的错误率</h4>
+										<p>共做过<span class="t-all">8</span>次,做错<span class="t-wrong">2</span>次,做对<span class="t-right">6</span>次</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<!-- Add Pagination -->
+					<!--   <div class=""></div> -->
+					<!-- Add Arrows -->
+					<!--  <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+				</div>
+			</div>
+			<div id="footer">
+				<div class="f_head">
+					<span class="collection">收藏</span>
+					<span class="counter swiper-pagination" id="counter"></span>
+					<span class="q_list_btn"></span>
+					<div class="f_wrong">0</div>
+					<div class="f_right">0</div>
+				</div>
+				<div class="f_body">
+					<div class="swiper-container1">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+
+								<div class="q_li_btn">
+
+									<ul class="clearfix">
+
+									</ul>
+								</div>
+								<!-- q_li_btned -->
+
+							</div>
+							<!-- slide ed -->
+						</div>
+						<!-- wrapper ed -->
+
+						<div class="swiper-scrollbar"></div>
+					</div>
+					<!-- container ed -->
+
+					<!-- f_body ed -->
+				</div>
+
+			</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+		<script src="../script/swiper.min.js"></script>
+	<script src="../script/test.js"></script>
+<script src="../script/zepto.min.js">
+
+	</script>
+	
+
+	
+	
+	<script>
+
+apiready = function(){
+	if(api.pageParam==""||api.pageParam==undefined||api.pageParam==null){
+			setTimeout(function(){
+				alert( "还没有内容先去做题吧！");
+			api.closeWin({
+				    name: api.winName
+				});
+
+			},200)
+	
+	}else if(api.pageParam.type==undefined||api.pageParam==null){
+
+
+
+		new Test(api.pageParam);
+	api.hideProgress();
+
+ SyntaxHighlighter.highlight();
+
+	}else{		
+api.showProgress({
+    style: 'default',
+    animationType: 'fade',
+    title: '努力加载中...',
+    text: '先喝杯茶...',
+    modal: false
+});
+
+api.ajax({
+    url:'http://www.520mg.com/wap3.php?type='+api.pageParam.type,
+    method:'get',
+
+},function(ret, err){
+ /* if (ret) {
+         api.alert({msg:JSON.stringify(ret)});
+    } else {
+         api.alert({msg:JSON.stringify(err)});
+    }*/
+    if(ret.data==""||ret.data==undefined||ret.data==null){
+			setTimeout(function(){
+				alert( "还没有这个科目的题目，稍后更新");
+			api.closeWin({
+				    name: api.winName
+				});
+
+			},200)
+	
+	}
+    ret.data.sort(down);
+
+	new Test(ret.data);
+	api.hideProgress();
+
+ SyntaxHighlighter.highlight();
+
+		
+	
+   
+})//ajax
+ }//else
+
+}//api red ed
+		 
+		
+//end;
+//getCollection ed
+
+
+/*function getCollection(){
+    var favorite=JSON.parse(localStorage.getItem("favorite"));
+    var collection=[];  
+
+    for(var k in favorite){
+        var qId=favorite[k];
+        
+        for(var j in question.data){
+            
+            if(favorite[k]==question.data[j].questionId){
+            collection.push(question.data[j]);  
+            }
+        }
+        console.log(collection)
+        
+    }
+    return collection;
+  
+
+}*/
+
+ function down(x, y) {
+            return (x.typeid < y.typeid) ? -1 : 1
+ 
+        }
+SyntaxHighlighter.defaults['gutter'] = false;
+ SyntaxHighlighter.highlight();
+	</script>
+<script>
+	
+
+ 	
+
+
+
+
+
+   
+
+    
+
+</script>
+
+</html>

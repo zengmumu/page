@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.b{ border: 2px solid red;}
+	</style>
+	<script src="js/jquery-1.4.2.min.js"></script>
+	<script>
+		$(function(){
+			$("button").click(function(){
+				var btn=$(this).clone(true);
+				//true 还会复制事件
+				btn.insertAfter($(this));
+			})
+				
+		
+			
+			
+		})
+	</script>
+</head>
+<body>
+		<button>按钮</button>
+
+		
+			<div class="b">
+				<h2>this 我是h2</h2>
+			</div>
+			<p>thi is  a p</p>
+			<p>itemp1</p>
+			<p>itemp2</p>
+			<p>itemp3</p>
+			<p>itemp4</p>
+			<p>itemp5</p>
+			<p>itemp6</p>
+			<p>itemp7</p>
+			<p>itemp8</p>
+			<p>itemp9</p>
+			<p>itemp10</p>
+</body>
+</html>

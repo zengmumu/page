@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html ng-app="examApp">
+	<head>
+		<meta charset="UTF-8">
+		<title ng-bind="$root.data.course.typename">IT入门教程</title>
+    <meta name="description" description="内容涵盖 python、php、前端、UI设计、photoshop、vue的基础教程和面试题目 ">
+		
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui,viewport-fit=cover">    
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="IT入门教程">
+    <link rel="apple-touch-icon" href="/uploads/it/python/python.png">
+    <!-- <meta name="msapplication-TileImage" content="/static/img/icons/msapplication-icon-144x144.png"> -->
+     <script src="./script/api.js"></script>
+    <meta name="msapplication-TileColor" content="#000000">
+		 <style>
+         	ion-content{
+  overflow-scroll: true;
+}
+
+.scroll-content {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;}
+
+.selectable {
+  -webkit-user-select: auto;
+}
+
+*{
+  -webkit-touch-callout:default;
+  -webkit-user-select:auto;
+  -khtml-user-select:text;
+  -moz-user-select:text;
+  -ms-user-select:text;
+  user-select:text;
+  -o-user-select:default;
+}
+* {-webkit-user-select:auto;}
+/*注意：在html页面设置*/
+
+.selectable {
+  -webkit-user-select: text;
+}
+.selectable *{
+	  -webkit-user-select: text !important;
+}
+    
+  .nav-course a{
+      text-decoration: none;
+      color:#484848;
+      font-size:0.6em;
+      text-align: center;
+      border-left:1px solid #f0f0f0;
+      border-bottom:1px solid #f0f0f0;
+      margin-left: -1px;
+      margin-bottom: -1px;
+     }  
+  .nav-course a img{
+    width: 50%;
+    clear: both;
+    display: block;
+    margin: 3px auto;
+    margin-top: 6px;
+    border-radius: 10%;
+    overflow: hidden;
+  }  
+   .nav-course a span{
+    display: block;
+    margin-bottom:5px;
+   } 	
+         </style>
+    
+	</head>
+	<body ng-controller="mainCtrl" class=""  >
+		
+        <ion-side-menus >
+  <!-- 中间内容 -->
+  <ion-side-menu-content drag-content="false" >
+     <ion-nav-view>  
+     	正在加载中...              
+     </ion-nav-view>    
+  </ion-side-menu-content>
+    
+  <!-- 左侧菜单 -->
+  <ion-side-menu side="left">
+    <ion-content>
+    <div class="user-box bg-positive ">
+    	<div class="avatar" ng-bind="data.user.M_UserName|limitTo:1"></div>
+      	<span ng-bind="data.user.M_UserName|limitTo:15"></span>
+      	<div class="r jf"><span ng-bind="'积分:'+data.user.M_Scores"></span></div>
+     	<div class="row">
+      		<div class="col-75 col-center text-left"><span ng-bind="data.user.fields.email"></span><br/></div> 
+	      	<div class="col-25"> 
+	      		<button class="button button-clear button-positive" ng-click="loginOut()" ng-bind="switchName(data.user.M_UserName)"></button>
+	      	</div>
+      	</div>
+     </div>  
+
+     <div class="row row-wrap nav-course">
+         <a href="/it/#/main/2" class="col-33"  menu-toggle="left">
+          <img src="images/icon/py.jpg" width="35%" alt="">
+          <span>python</span> 
+         </a>
+        <a href="/it/#/main/269" class="col-33 menu-toggle="left" >
+        <img src="images/icon/vue.jpg" width="35%" alt="">
+          <span>VUE</span> 
+        </a>
+        <a href="/it/#/main/397" class="col-33"  menu-toggle="left">
+          <img src="images/icon/java.jpg" width="35%" alt="">
+          <span>java</span> 
+         </a>
+        <a href="/it/#/main/367" class="col-33"  menu-toggle="left">
+          <img src="images/icon/c.jpg" width="35%" alt="">
+          <span>C语言</span> 
+         </a>
+        <a href="/it/#/main/357" class="col-33"  menu-toggle="left">
+         <img src="images/icon/dj.jpg" width="35%" alt="">
+          <span>Django</span> 
+       </a>
+        <a href="/it/#/main/307" class="col-33" menu-toggle="left" >
+          <img src="images/icon/html5.jpg" width="35%" alt="">
+          <span>HTML</span> 
+        </a>
+        <a href="/it/#/main/314" class="col-33" menu-toggle="left" >
+         <img src="images/icon/css3.jpg" width="35%" alt="">
+          <span>CSS</span> 
+        </a>
+        <a href="/it/#/main/322" class="col-33" menu-toggle="left" >
+        <img src="images/icon/js.jpg" width="35%" alt="">
+          <span>JS</span> 
+        </a>
+       
+        <a href="/it/#/main/272" class="col-33" menu-toggle="left" >
+          <img src="images/icon/html.jpg" width="35%" alt="">
+          <span>ES6</span> 
+        </a>
+        <a href="/it/#/main/296" class="col-33" menu-toggle="left" >
+         <img src="images/icon/react.jpg" width="35%" alt="">
+          <span>React</span>
+        </a>
+        <a href="/it/#/main/334" class="col-33" menu-toggle="left" >
+          <img src="images/icon/jq.jpg" width="35%" alt="">
+          <span>jQuery</span>
+        </a>
+        <a href="/it/#/main/373" class="col-33" menu-toggle="left" >
+          <img src="images/icon/SQL.gif" width="35%" alt="">
+          <span>SQL</span>
+        </a>
+        <a href="/it/#/err2" class="col-33" menu-toggle="left" >
+           <img src="images/icon/feed.svg" width="35%" alt="">
+          <span>反馈</span></a>
+         <a href="" class="col-33" ng-click="share()">
+           <img src="images/icon/share.svg" width="18%" alt="">
+          <span>分享</span></a>
+     </div>
+       <div class="list">
+
+       	 
+       			<!--<a href="/" class="item"> ← 返回IT入门首页</a>-->
+       		  
+             <!--  <a href="/it/#/main/357" class="item"  menu-toggle="left">Django教程</a>
+              <a href="/it/#/main/307" class="item" menu-toggle="left" >html教程</a>
+              <a href="/it/#/main/314" class="item" menu-toggle="left" >css教程</a>
+              <a href="/it/#/main/322" class="item" menu-toggle="left" >js教程</a>
+							<a href="/it/#/main/269" class="item" menu-toggle="left" >Vue教程</a>
+							<a href="/it/#/main/272" class="item" menu-toggle="left" >ES6教程</a>
+							<a href="/it/#/main/296" class="item" menu-toggle="left" >React教程</a>
+              <a href="/it/#/main/334" class="item" menu-toggle="left" >jquery教程</a> -->
+   		      	<!-- <a href="/it/#/err2" class="item" menu-toggle="left" >报错</a> -->
+   		      	<!-- <a href="" class="item" ng-click="share()">分享</a> -->
+              <!-- <a href="#" class="bds_more item" data-cmd="more"></a>
+              <a href="#" class="bds_qzone item" data-cmd="qzone" title="分享到QQ空间">分享到QQ空间</a> -->
+              <!-- <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> -->
+              <!-- <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a> -->
+              <!-- <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a> -->
+              
+   		      	
+
+       </div>
+       </ion-content>
+  </ion-side-menu>
+
+  <!-- 右侧菜单 -->
+ 
+</ion-side-menus>
+		<link rel="stylesheet" href="./css/ionic.min.css"/>
+		<script src="./js/ionic.bundle.min.js"></script>
+		<script src="./script/exam_app.js"></script>
+		<script src="./script/service.js"></script>	
+		<script src="./sh/shCore.js"></script>
+    <script src="./sh/shBrushXml.js"></script>
+    <script src="./sh/shAutoloader.js"></script>
+    <link rel="stylesheet" href="./sh/shCoreDefault.css"/>
+ 
+
+	 
+ 
+         <script>
+         	function downLoadCss(url){
+        	var elem = document.createElement("link");
+        	elem.rel = "stylesheet";
+        	elem.type = "text/css";
+        	elem.href = url;
+        	document.body.appendChild(elem);
+    		}
+         	function downLoadJs(url){
+       			var elem = document.createElement("script");
+        		elem.src = url;
+       		 	document.body.appendChild(elem);
+   			 }
+          setTimeout(function(){          
+          
+          downLoadJs("./js/jquery-2.1.3.min.js");
+        },2000);
+
+/*    		setTimeout(function(){        	
+        	downLoadJs("./sh/shCore.js")
+//      	downLoadJs("./sh/shCore2.js")
+        	downLoadCss("sh/shCoreDefault.css");
+//      	downLoadJs("./sh/shBrushJScript.js");
+//      	downLoadJs("./sh/shBrushXml.js");
+    		},1000);
+    		
+    		setTimeout(function(){        	
+        	
+        	downLoadJs("./sh/shBrushXml.js");
+    		},2000);
+    		*/
+
+         </script>
+      <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?77857c56c6ef2fafe2a2135178b8d24f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> 
+<script>
+  
+</script> 
+	</body>
+</html>

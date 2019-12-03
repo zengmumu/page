@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+.fi {
+	position: fixed;
+	height: 50px;
+	line-height: 50px;
+	background-color: #fefefe;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+ul {
+	list-style: none;
+}
+body {
+	background-color: #f0f0f0;
+	padding-top: 50px;
+}
+.fi .container {
+	width: 1000px;
+	margin: 0 auto;
+}
+.container ul li {
+	float: left;
+	width: 120px;
+	text-align: center;
+}
+/*电梯*/
+#elevator{ position: fixed; right: 15px; bottom:50px; display: none;}
+.elevator li {
+width: 30px;
+height: 30px;
+line-height: 30px;
+text-align: center;
+overflow: hidden;
+margin-top: -1px;
+cursor: pointer;
+}
+
+.elevator li a {
+display: block;
+width: 30px;
+height: 30px;
+margin: 0 auto;
+color: #625351;
+font-size: 14px;
+font-family: Arial;
+background:  0 0 no-repeat;
+}
+.elevator li a:hover,.elevator li.active a {
+color: #fff;
+text-decoration: none;
+background: #c81623;
+}
+.elevator li a:hover .en,.elevator li.active a .en{ display: none;}
+.elevator li a:hover .cn,.elevator li.active a .cn{ display: block;}
+
+.elevator li .etitle {
+display: none;
+width: 30px;
+height: 30px;
+color: #fff;
+font-size: 12px;
+}
+
+.active {
+	background-color: #ff3;
+}
+.sc{height: 600px;}
+.sc:nth-of-type(2n+1){ background-color: yellow;}
+.f4{ height: 1000px;}
+.line{ height: 1px; background-color:red; position: fixed; left: 0; top: 50%; width: 100%; z-index: 10000;}
+</style>
+<!--<script type="text/javascript" src="></script>-->
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+<script type="text/javascript">
+
+
+//单击 li 让 li里面  a href 对应的 div 滚动到相应的位置
+//	1,div距离顶部的距离
+//	2,滚条滚动的高度
+//	1==2;
+//li添加class active  以前的ative 去掉
+
+$(function(){
+	$(".fi li a").click(function(e){
+		e.preventDefault()
+		$(window).unbind("scroll",checkScroll);//单击取消监听
+		var href=$(this).attr("href");//求出里面的href
+		console.log(href);
+		$(this).parent().siblings(".active").removeClass("active");
+		//他的爹的兄弟有active 去掉active；
+		$(this).parent().addClass("active");//给a的爹加active		
+		var  offT=$(href).offset().top;//对应的div 距离顶部的距离
+		$("body,html").animate({"scrollTop":offT-50},600,function(){
+			$(window).bind("scroll",checkScroll);//动画完再监听
+		});
+		
+		
+		//让滚动条滚动到对应距离
+		
+	})
+	
+//1监听窗口滚动
+//2 滚动距离 与div距离定不距离 对照，让对应div 的id 相对应的a 的父亲添加  active 其他去掉active
+//	div 距离 OffT 
+//	scrollT
+$(window).bind("scroll",checkScroll);//监听滚动
+
+	function checkScroll(){
+		var st=$(window).scrollTop();//拿到滚动的距离
+		var id;//存一个空的id值
+		$(".sc").each(function (index,elem){//循环每一个第
+			var  offT=$(this).offset().top;//拿到每个div距离顶部的距离；
+			if(st>=offT-51){//滚动的距离大于 该div距离顶部的距离  （对应的div）
+				console.log($(this));
+				id=$(this).attr("id");//获取他的id值
+//				return false;
+			}
+//			console.log(id);
+		})
+		$("a[href=#"+id+"]").parent().siblings(".active").removeClass("active");
+		//id值对应的a 的父亲的兄弟有active 去掉active 
+		$("a[href=#"+id+"]").parent().addClass("active")
+		//id值对应的a 的父亲添加active 
+		
+	}
+})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</script>
+</head>
+
+<body>
+<div class="fi">
+  <div class="container">
+    <ul>
+      <li class="active"><a href="#sc1">第一屏</a></li>
+      <li><a href="#sc2">第二屏</a></li>
+      <li><a href="#sc3">第三屏</a></li>
+      <li><a href="#sc4">第四屏</a></li>
+      <li><a href="#sc5">第五屏</a></li>
+      <li><a href="#sc6">第六屏</a></li>
+      <li><a href="#sc7">第七屏</a></li>
+    </ul>
+  </div>
+</div>
+<div class="sc" id="sc1">
+  <h1>1</h1>
+</div>
+<div class="sc" id="sc2">
+  <h1>2</h1>
+</div>
+<div class="sc" id="sc3">
+  <h1>3</h1>
+</div>
+<div class="sc f4" id="sc4">
+  <h1>4</h1>
+</div>
+<div class="sc"  id="sc5">
+  <h1>5</h1>
+</div>
+<div class="sc"  id="sc6">
+  <h1>6</h1>
+</div>
+<div class="sc" id="sc7">
+  <h1>7</h1>
+</div>
+<div id="elevator" class="elevator">
+  <ul>
+    <li class="handler active"><a href="javascript:;">1F</a></li>
+    <li class="handler" ><a href="javascript:;"><span class="en">2F</span><span class="cn">二楼</span></span></a></li>
+    <li class="handler" ><a href="javascript:;">3F</a></li>
+    <li class="handler" ><a href="javascript:;">4F</a></li>
+    <li class="handler" ><a href="javascript:;">5F</a></li>
+    <li class="handler " ><a href="javascript:;">6F</a></li>
+    <li class="handler" ><a href="javascript:;">7F</a></li>
+    
+  </ul>
+</div>
+<p class="line"></p>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	
+</style>
+<script src="jquery-1.8.3.min.js"></script>
+<script src="jquery.according.js"></script>
+<script src="jquery.dialog.js"></script>
+<script>
+
+
+
+
+$(function(){
+		  
+// $("#acc").accordion();
+// $("#acc2").accordion({"start":2});	
+// var opt1={"name":"mumu","age":"18"};
+// var opt2={"name":"zql","job":"teacher"};
+// var opt3=$.extend({},opt1,opt2);
+// console.log(opt3);	
+$(".d1").dialog({"content":"我是一个傲娇的妮儿","title":"我是一个好标题"});
+// $(":header").dialog({"content":"我是h3啊啊"}) ;   
+	
+
+$(".d2").dialog({"module":"#login","mask":true});
+ $(".d5").dialog({"module":"#login"})
+	   })
+
+</script>
+<style>
+*{ margin:0; padding:0;}
+body{ padding:50px;}
+.module{ width: 500px; height: 300px; background-color: #fff;  box-shadow:0 0 8px #999; position: fixed; left: 50%; top:50%; transform:translate(-50%,-50%);  color: #484848; border-radius: 8px 8px 0 0; overflow: hidden;}
+.module h3{ height:35px; line-height:35px; border-bottom:1px solid #f6f6f6 ; text-align: center; }
+.module>.close{ position: absolute; right: 0; top: 0; height: 35px; line-height:35px; width: 35px; text-align: center; cursor: pointer;}
+.module>.close:hover{ color: lightcoral;}
+.module>.mod_body{ padding: 25px;}
+#login{width: 400px; height: 300px; background-color: #fff;  box-shadow:0 0 8px #999; position: fixed; left: 50%; top:50%; transform:translate(-50%,-50%);  display: none; background-color: #fff; z-index: 20;}
+.mod_body input{ height: 35px; width: 70%; line-height:35px; box-sizing: border-box;}
+.mod_body label{ width: 60px; display: inline-block; text-align: right; padding-right: 15px;}
+.mod_body p{ margin-top:10px;}
+.mod_body .sub{ margin-left: 75px;}
+#mask{ width: 100%; height: 100%; position:fixed; background-color: #000; opacity: .3; left: 0; top:0; z-index: 10;}
+
+</style>
+</head>
+
+<body>
+<span class="d1">弹出来</span>
+	<em class="d2">登陆</em> <em class="d2">登陆2</em>
+<div class="d5">d5</div>
+<div id="login" class="module">
+	<div class="close">&times;</div>
+	<h3>登陆</h3>
+	<div class="mod_body">
+		<p><label>用户名:</label><input type="text" /></p>
+		<p><label>密码:</label><input type="password" /></p>
+		<p><input type="submit" value="登陆" class="sub" /></p>
+	</div>
+</div>
+</body>
+</html>

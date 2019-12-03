@@ -1,0 +1,146 @@
+1. vuex 的具体方法
+1.1 store	存储数据
+1.2 mutation 更改数据
+1.3 action   更数据可以异步
+1.4 getter   相当 computed 方法
+1.5 module   模块 store 分成多个模块
+
+在vue组件里面调用
+mapStore
+mapMutation
+mapAction
+mapGetters
+
+把mapStore mapGetters 在computed展开 当数据用
+把mapMutation mapAction 在methods 展开
+当方法用
+map是提供的一个便捷方法
+disatch("action")
+
+======Promise
+中文 委托
+用处：
+1. 为了延迟 执行方法 （ajax，setTimeOut）
+2. 需要回调 ，等待数据成功后执行 一个回调函数
+
+$.ajax({
+	url:
+	type:
+	success:fun1
+})
+
+function fun1（数据）{
+	执行数据
+	$.ajax({
+
+	}}
+}
+
+
+es6里面提供了写好的Promise
+
+var p = new Promise(function(reslove,reject){
+	setTimeout(function(){
+		//reslove("我三秒好才给你")
+		// reject("失败数据")
+	},3000)
+})
+
+p.then(function(res){
+		//获取成功的数据
+	},function(err){
+		//失败的数据
+})
+
+
+var p = new Promise(function(reslove,reject){
+	var Img = document.createElement("img");
+	Img.src ="xxxx.jpg";
+	//加载需要时间的，也有可能失败
+	Img.onload=function(){
+		reslove(Img);
+	}
+	Img.onError=function(){
+	reject("图片加载失败")
+}
+
+})
+
+p.then(function(res){
+		//就是返回的说
+	   document.body.append(res);
+	},function(err){
+		//失败的数据
+		console.log(err)
+})
+
+
+/// 如果有三张图片哪张加载快显示哪张
+promise  里面的 race 方法
+
+/// 如果有三张图片三张都加载完毕才显示
+
+promise  里面的 all 方法
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+	<input type="file" id="file">
+	<input type="button" id="btn" value="上传">
+	<script>
+		$(function(){
+			$("#btn").click(function(){
+				var formData = new FormData();
+				console.log($("#file")[0].files[0])
+				formData.append("file",$("#file")[0].files[0]);
+				formData.append('sizeid',123);  //添加其他参数
+				var reader = new FileReader();
+				reader.readAsDataURL($("#file")[0].files[0]);
+				reader.onload = function(e) {
+      
+        		    var  Img = document.createElement("img");
+					Img.width=70;
+        			Img.src = e.target.result;
+        			document.body.append(Img);
+   			 	};
+
+				$.ajax({
+					url:"ajax.php",
+					type:"POST",
+					data:formData,
+					processData: false, // 告诉jQuery不要去处理发送的数据
+    				contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+    				xhr:function(){
+    					var myxhr = $.ajaxSettings.xhr();  
+
+    				    if(myxhr.upload){ //检查upload属性是否存在 
+    				    	
+    					 myxhr.upload.addEventListener('progress',pre, false); 
+						}
+    					return myxhr;
+    				}
+				})
+				.done(function(){
+					alert("上传成功");
+				})
+			})
+
+			function pre (e){
+			console.log(e.loaded/e.total*100);
+			}
+		})
+		
+	</script>
+
+
+</body>
+</html>

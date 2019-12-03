@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:global.cfg_webname/}_IT入门培训_免费代码学习</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<link href="{dede:global.cfg_templets_skin/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+<style>
+	
+.news{ width: 100%; height: 170px;}
+.news .title{ height: 35px; font-size: 18px; color: #333;}
+	
+.news .dis{ font-size: 12px; color: #777; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.3em;
+    -webkit-line-clamp: 2;
+    max-height: 2.6em;
+    margin-bottom: 10px;
+}
+.news.hast .picwrap{ background-color: #f5faff; height: 160px; margin-top: 0px;}
+.picwrap img{vertical-align: middle; }
+#uc_digg  ul{background: url({dede:global.cfg_templets_skin/}/images/number-range.gif) 5px 15px no-repeat; padding-right: 0;}
+#uc_digg  ul a{ clear: both; font-size: 13px; display: block; overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap}
+#uc_digg  li{ background-color: transparent; height: 46px; line-height: 16px;}
+#uc_digg  li span{ font-size: 12px; color: #bbb;}
+.list-group-item{ border:none; border-bottom:1px solid #f6f6f6; margin-bottom: 0;}
+.list-group-item a{ color: #777;}
+h3 a{ color: #333; font-size: 18px;}
+h3 .more{ color: #999; font-size: 12px; float: right;}
+.block{ box-shadow: 0 3px 5px rgba(230,243,255.7); border-radius: 6px; overflow: hidden; margin-bottom: 30px;  height: 394px;}
+.padding20{ padding: 20px;}
+.f1 li a{ color: #777; font-size: 12px; }
+.f1 li{ height: 38px;}
+@media only screen and (max-width: 768px) {
+	.news{ width: 100%; height: 120px;}
+	
+	.news.hast .picwrap{ background-color: #f5faff; height: 110px; margin-top: 0px; display: table-cell;}
+	.news .dis{ font-size: 12px; color: #777; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.3em;
+    -webkit-line-clamp: 2;
+    max-height: 2.6em;
+    margin-bottom: 10px;
+	}
+
+	.block{ height: auto;}
+}
+
+.form-group .col-md-3,.form-group .col-md-9{ padding-left: 5px; padding-right: 5px; font-size: 12px;}
+.form-group .col-md-9{ padding-right: 15px;}
+#uc_member .form-control{ height: 24px;}
+ #uc_member .row{ margin-bottom: 10px;}
+.vad{ width: 40%; display:inline-block;}
+.index .userinfo .welcome{ width: auto;}
+</style>
+</head>
+<body class="index">
+{dede:include filename="head2.htm"/}
+<!-- /header -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			
+			<div class="onenews"> 
+				{dede:arclist flag='h'  orderby='pubdate' limit='0,1' infolen='230'}
+    				<h2><a href="[field:arcurl/]">[field:title/]</a></h2>
+    				<p>[field:info/]...<a href="[field:arcurl/]">[查看全文]</a></p>
+   				 {/dede:arclist} 
+			</div>
+			<!-- /onenews -->
+			<div class=" "> {dede:arclist flag='h'   orderby='pubdate' limit='1,4'}
+   				 <div class=''><a href="[field:arcurl/]">[field:title/]</a></div>
+    			{/dede:arclist} 
+			</div>
+   			<!--/头条-->
+			<h4>图文资讯</h4>
+			<ul>
+				{dede:arclist row=10 orderby='pubdate' type='image'  }
+				<li>
+					
+				<a class="news [field:litpic runphp='yes']	if(@me=='')		@me='';	else@me='hast';	[/field:litpic]" href='plus/view.php?aid=[field:id/]'>
+										<div class="text">
+											<div class="title">[field:title/]</div>
+											<div class="dis">[field:description/]</div>
+											<div class="time">[field:pubdate function="MyDate('Y-m-d',@me)"/]&nbsp;&nbsp;</div>
+										</div>
+
+										<div class="picwrap">
+											<img src="[field:litpic/]">
+										</div>
+
+				</a>
+				</li>
+				{/dede:arclist}
+			</ul>
+			<div class="row padding20">
+				{dede:channelartlist  typeid='8,27,133,177'}
+				<div class="col-md-6 block">
+					<h3>	<a href="/plus/list.php?tid={dede:field name='id'/}">{dede:field name='typename'/} </a>  <a class="more" href="plus/list.php?tid={dede:field name='id'/}">查看更多 &raquo;</a></h3>					
+				   
+					<ul class="list-group">{dede:arclist titlelen='60' row='8'}
+						<li class="list-group-item"> <a href="/plus/view.php?aid=[field:id/]" class="am-list-item-hd">[field:title /]</a></li>
+					{/dede:arclist}
+					</ul>
+					
+				</div>
+				{/dede:channelartlist}
+			</div>
+		
+			
+   		 </div>
+		   	
+		
+		 <!-- /pleft -->
+ <div class="col-md-3">
+ 	
+ 	<div class="panel panel-default">
+  <div class="panel-heading">互动中心     <a href="#" _for="uc_digg">踩踩</a>& <a href="#" _for="uc_comment">评论</a> </span> </div>
+  <div class="panel-body">
+     <!--<div id="loading"> 正在载入,请稍候... </div>-->
+     <div id="uc_digg" class="">
+     	<ul class="list-group-item">
+      {dede:arclist orderby='scores' row='8' subday='30' titlelen='42'}
+      <li class="list-group-item"> <a href="[field:arcurl/]">[field:title/]</a> <span><small>点击:</small>[field:click/]</span> <span><small>评价:</small>[field:scores/]</span></li>
+      {/dede:arclist}
+     </ul>
+     </div>
+     <div id="uc_comment">
+     	<ul class=" list-group">
+      {dede:feedback row='5' titlelen='24' infolen='80'}
+      <li class="list-group-item"> <small><a href="#" class="username">[field:username function="(@me=='guest' ? '游客' : @me)"/]</a> 评论 <a href="[field:global.cfg_phpurl/]/feedback.php?aid=[field:aid/]" class="title">[field:title/]</a></small>
+       <p>[field:msg/]</p>
+      </li>
+      {/dede:feedback}
+     </ul>
+     </div>
+  
+   
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">推荐内容</div>
+  <div class="panel-body">
+    <ul class="list-group list-group-item">
+      {dede:arclist flag='c' titlelen=42 row='16' tagid='dedecms' pagesize='8'}
+      <li class='dotline'><a href="[field:arcurl/]">[field:title/]</a></li>
+      {/dede:arclist}
+     </ul>
+  </div>
+</div>
+ 	
+ 	
+<div class="panel panel-default">
+  <div class="panel-heading">本月热点</div>
+  <div class="panel-body">
+     <ul class=" list-group">
+      {dede:arclist sort='hot' subday='30' titlelen=42 row=6}
+      <li class='list-group-item'><a href="[field:arcurl/]">[field:title/]</a></li>
+      {/dede:arclist}
+     </ul>
+     
+     
+  </div>
+</div>
+ 
+ </div>
+ <!-- /pleft -->
+	</div>
+</div>
+
+
+<script src="{dede:global.cfg_cmsurl/}/m/assets/js/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+	$(function(){
+		CheckLogin();
+		var imgs = document.querySelectorAll(".picwrap img");
+		for(var i=0;i<imgs.length;i++){
+			console.log(imgs[i].naturalHeight,imgs[i].href)
+			if(imgs[i].naturalWidth/imgs[i].naturalHeight>1&&imgs[i].naturalWidth/imgs[i].naturalHeight<2.5){
+				imgs[i].style.width="auto";
+				imgs[i].style.height="100%"
+			}else{
+				imgs[i].style.width="100%";
+				imgs[i].style.height="auto"
+			}
+		}
+	})
+</script>
+{dede:include filename="footer.htm"/}
+</body>
+</html>

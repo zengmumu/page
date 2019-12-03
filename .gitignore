@@ -1,0 +1,14 @@
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+a
+phpMyadmin
+data/tplcache
+dedeabc
+1712
+install
+phpMyAdmin
+data
+v

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="js/jquery-2.0.2.js"></script>
+	<script>
+		$(function(){
+			$("button").click(function(){
+				/*fast  normal 400   slow	600
+				.show/hide(s时间,回调函数)
+				$("p").hide(200,function(){
+					alert("我执行完毕了");
+				});
+				*/
+//				$("p").toggle(600);
+			 /*  $("p").fadeOut("slow",fn1);
+			   function fn1(){
+			   	alert("I am finished")
+			   }*/
+//			  $("p").fadeToggle();
+//			$("p").fadeTo(200,.3);
+//			$("p").slideUp(500,function(){ alert("goodluck")});
+			$("p").slideToggle();
+			})
+		})
+		
+	</script>
+</head>
+<body>
+	<button>切换</button>
+	<p><img src="images/1.gif" alt="" /></p>
+</body>
+</html>

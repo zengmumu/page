@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		
+		<title></title>
+			<style>
+			*{ margin: 0; padding: 0;}	
+			ul{ list-style: none;}
+			.slider{ width: 586px; height: 150px;border:5px solid red; overflow: hidden; position: relative;}
+			.wrap{ width: 4150px; height: 150px; position: relative;}
+			.wrap ul{ position: relative; left:0;}
+			.wrap ul li{ float: left;}
+			.contrl{ position: absolute; right:0; bottom:15px;}
+			.contrl li{ width: 20px; height: 20px; line-height:20px; text-align: center; color: #fff; background-color: goldenrod; float:left; margin-right: 5px; cursor: pointer;}
+			.contrl li.active,.contrl li:hover{ background-color:#FFFF00;}
+			.pre,.next{ position:absolute; top: 40%; width: 30px; height: 30px; background-color: rgba(255,255,255,.4); line-height: 30px; text-align: center; cursor: pointer;}
+			.pre:hover,.next:hover{background-color: rgba(255,255,255,1); }
+			.pre{left:10px;}
+			.next{right:10px;}
+				
+			</style>
+			
+			<script src="js/jquery-1.4.2.min.js"></script>
+			
+			<script>
+			//单击第几个移动到对应的第几张图片
+			//让高亮的li 对应  index
+			// index 纪录当前第几张
+			// setIndex()
+//			   找到是第几个li单击   切换幻灯片
+			// goslider()
+			   //切换到相对应的位置
+			
+			
+				$(function(){
+					var  index=0;//默认第0张;
+					var  interId;//控制自动播放
+					$(".contrl li").bind("click",setIndex)
+					function setIndex(){
+						var num=$(".contrl li").index($(this));//找到第几个li被单击
+						index=num;						
+						goslider();
+					}
+					function goslider(){
+//						alert("我现在切到第"+index+"张幻灯片");
+						$(".wrap").animate({"left":-586*index},600);
+						$(".contrl li.active").removeClass("active");
+						$(".contrl li:eq("+index+")").addClass("active");
+					}
+					function auto(){
+						interId=setInterval(function(){
+							index++;
+							if(index>4){index=0;}
+							goslider();
+						},3000)
+					}
+					$(".slider").hover(function(){
+						clearInterval(interId);
+					},function(){
+						auto();	
+					}).trigger("mouseleave");
+					$(".next").click(function(){
+						index++;
+						if(index>4){ index=0;}	
+						goslider()
+					})
+					$(".pre").click(function(){
+						index--;
+						if(index<0){ index=4;}
+						goslider()
+					})
+				})//jquery ed
+				
+			</script>
+	</head>
+	<body>
+		<div class="slider">
+			<div class="wrap">
+			<ul>
+				<li><a href=""><img src="images/1.gif" alt="" /></a></li>
+				<li><a href=""><img src="images/2.gif" alt="" /></a></li>
+				<li><a href=""><img src="images/3.gif" alt="" /></a></li>
+				<li><a href=""><img src="images/4.gif" alt="" /></a></li>
+				<li><a href=""><img src="images/5.gif" alt="" /></a></li>
+			</ul>
+			
+			</div>
+			<span class="pre"><</span>
+			<span class="next">></span>
+			<ul class="contrl">
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+	</body>
+</html>

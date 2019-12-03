@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+ul,li,a{ margin:0; padding:0; list-style:none; text-decoration:none; color:#444;}
+
+a:visited{color:#444;}
+a:hover{ color:#000;}
+li{ height:30px; line-height:30px; border-bottom:1px dashed #444; width:200px;}
+li a{ display:block; height:30px; line-height:30px; padding-left:25px; background-image:url(pkg_comm_z527307bd.png); background-repeat:no-repeat;}
+.pdf{ background-position:0 -2px;}
+.fl{ background-position:0 -255px;}
+.pptx{ background-position:0 -440px;}
+.txt{ background-position:0 -160px;}
+.html{background-position:0 -347px;}
+</style>
+<script type="text/javascript" src="jquery-1.4.js">
+</script>
+<script type="text/javascript">
+$(function(){
+	$("a[href$=html]").addClass("html");
+	$("a[href$=txt]").addClass("txt");
+	$("a[href^=./]").addClass("fl");
+	
+})
+
+
+</script>
+
+</head>
+
+<body>
+<h3>jquery 属性过虑资料下载</h3>
+<ul>
+<li><a href="./课件" target="_blank" > 课件</a></li>
+<li><a href="精通JavaScript.pdf"  target="_blank"> 参考书</a></li>
+<li><a href="课件/第二章jQuery选择器.pptx" target="_blank">第二章jQuery选择器</a></li>
+<li><a href="filter.txt" target="_blank" >选择器总结</a></li>
+<li><a href="filter.html" target="_blank" >案例1</a></li>
+<li><a href="taotest2.html" target="_blank">案例2</a></li>
+</ul>
+</body>
+</html>

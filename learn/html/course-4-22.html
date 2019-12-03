@@ -1,0 +1,730 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>Hello APP</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" href="../css/swiper.min.css">
+		<script src="../script/json.js"></script>
+		<style type="text/css">
+			*{ margin: 0; padding: 0;-webkit-box-sizing:border-box; box-sizing:border-box;}
+			    html,body{
+			        height: 100%;
+			        background-color: #f5f5f5;
+			
+			    }
+			    body{ padding-top: 48px;}
+			    #wrap{
+			        height: 100%;
+			       /* display: -webkit-box;
+			        display: -webkit-flex;
+			        display: flex;
+			        -webkit-box-orient: vertical;
+			        -webkit-flex-flow: column;
+			               flex-flow: column;*/
+			    }
+			    #header{
+			        text-align: center; 
+			        color: #999;
+			        width: 100%;
+			        height: 48px; border-bottom: 1px solid #e0e0e0;
+			         display: -webkit-box;
+			        display: -webkit-flex;
+			        display: flex;
+			        font-size: small;
+			        position: fixed;
+			        left:0;
+			        top:0;
+			         -webkit-transition:bottom 1s ease;
+			        transition:bottom 1s ease;
+			         background-color: #f5f5f5;
+			         z-index: 15;
+			    }
+			    #header .back{ height: 48px; width: 48px; 
+			        background: url(../image/btn_back_normal.png) no-repeat center center; background-size: 65%;}
+			    .skin{height: 48px; width: 48px;}
+			
+			    .btn_dati_beiti_wrap{ /* border:;*/  -webkit-box-flex: 1; 
+			        -webkit-flex: 1;
+			        flex: 1;}
+			    .btn_dati_beiti{
+			        height: 29px; width:150px; height: 26px;
+			        margin-top: 10px;
+			        border:1px  solid #999;
+			        border-radius: 6px;
+			        -webkit-border-radius:6px;
+			        margin-left: auto;
+			        margin-right: auto;
+			        overflow: hidden;
+			    }
+			    .btn_dati,.btn_bei{ width: 50%;   display: block; float: left;height:27px; line-height: 27px;}
+			    
+			    .btn_dati.select,.btn_bei.select{ background-color: #999; 
+			        color: #fff;}
+			     .btn_bei.select{ background-color: #999; color: #fff;}
+			    h1{
+			        font-size: 20px; height: 44px; line-height: 44px; margin: 0em; color: #fff;
+			    }
+			  /*  #main{
+			        -webkit-box-flex: 1; 
+			        -webkit-flex: 1;
+			        flex: 1;
+			    }*/
+			    #footer{
+			            border-top: 1px solid #dedede;
+			    background-color: #fff;
+			    width: 100%;
+			    position: fixed;
+			    bottom: -460px;
+			    left: 0;
+			    z-index: 20;
+			     -webkit-transition:bottom 1s ease;
+			        transition:bottom 1s ease;
+			
+			   
+			   
+			}
+			   
+			    .f_head{ height: 45px;  width: 100%; line-height: 45px;  padding-left: 15px;
+			    padding-right: 15px; border-bottom: 1px solid #dedede;
+			    background-color: #fff; }
+			    .collection{ height: 45px; line-height:45px;float: left; padding-left:24px; background:url(../image/collection_n.png) no-repeat left center; background-size: 35%; color: #787878; font-size: small;}
+			    #counter{ float: right; height: 45px; line-height: 45px; color: #333333; font-size: small; /*padding-right: 4px;*/ position: static; width: auto;}
+			    .swiper-pagination-current{font-weight: bold; margin-right: -3px;}
+			    .swiper-pagination-total{ margin-left: -3px;}
+			    .q_list_btn{ float: right; height: 45px; width:45px;line-height: 45px; background:url(../image/q_list_btn_n.png) no-repeat center center; background-size: 40%; margin-right: 10px; font-size: small; }
+			    .f_wrong{ float: right; height: 45px; line-height: 45px; padding-left: 22px; font-size: small;
+			     background:url(../image/f_rong_d.png) no-repeat left center; background-size: 15px auto; color: #f25e5e;
+			        margin-right: 15px;}
+			      .f_right{ float: right; font-size: small;  margin-right: 25px; height: 45px; line-height: 45px; padding-left: 22px;
+			     background:url(../image/f_right_d.png) no-repeat left center; background-size: 15px auto; color: #18b4ed;}
+			    .f_body{width: 100%; height:460px; overflow: hidden; }
+			.swiper-container {
+			        width: 100%;
+			        height: 100%;
+			    }
+			
+			     .q_li_btn ul{ width: 100%;  padding-left: 15px;
+			    padding-right: 15px; display: -webkit-box;
+			        display: -webkit-flex;
+			        display: flex; 
+			        -webkit-box-pack:start;
+			        justify-content:flex-start;
+			        -webkit-box-lines:multiple;
+			        flex-wrap:wrap;
+			        -webkit-box-align:start;
+			        align-content:flex-start;
+			        
+			
+			        }
+			    .f_body h4{ height: 40px; line-height: 40px; clear:both; background-color: #f5f5f5; color: #787878; font-weight: normal;  padding-left: 15px;
+			    padding-right: 15px;}
+			     .q_li_btn li{ height: 45px; width: 45px; line-height: 45px; border-radius: 50%; -webkit-border-radius: 50%; border:1px solid #f4f4f5; text-align: center;margin-right: 10px; margin-top: 10px;margin-bottom: 10px; color: #999;}   
+			   
+			    .q_li_btn li.right{ color:#18b4ed; background-color: #e7f7fd; border:1px solid #21b7ee;}
+			    .q_li_btn li.wrong{ color:#f25e5e; background-color: #fce8e8; border:1px solid #f25e5e;}
+			      .swiper-container1 {
+			        width: 100%;
+			        height: 100%;
+			    }
+			   .swiper-container1 .swiper-slide {
+			       
+			        height: auto;
+			        -webkit-box-sizing: border-box;
+			        box-sizing: border-box;
+			        
+			    }
+			.swiper-container {
+			        width: 100%;
+			        height: auto;
+			        background-color: transparent;
+			        margin: 0px auto;
+			    }
+			    .swiper-slide {
+			      
+			      
+			       
+			       
+			        height: 100%;
+			        min-height: 480px;
+			        border-left: 1px solid #e0e0e0;
+			    }
+			
+			    #main{  width: 100%;  margin-top: 0px; margin-bottom: 45px; background-color: #f5f5f5; position: relative;z-index: 10;}
+			.block-shiti{ padding:15px; color: #333;}
+			.timu-content{ margin-bottom: 15px;}
+			.que-type{ padding: 1px; border:1px solid #18b4ed; color: #18b4ed; font-size: small; line-height: 18px; height: 18px;}
+			.que-c{ line-height: 1.7em; display: inline;}
+			.ans-option,.ans-option2{ height: 30px; line-height: 30px; margin-top: 15px;}
+			.ans-option2{ margin-bottom: 70px; width: 70%; margin-left: 50px;margin-top: 45px;}
+			.xu{ height: 30px; width:30px; font-style: normal; line-height: 28px; border-radius: 30px;-webkit-border-radius: 30px; background-color: #fff; text-align: center; border:1px solid #d0d0d0; display: block; margin-right: 4px; float: left; font-weight: bold;}
+			.ti{font-style: normal;}
+			.btn-st-sub{ height: 35px; line-height: 35px; width: 70%; margin-left: auto; margin-right: auto;-webkit-border-radius:4px; border-radius: 4px; background-color: #18b4ed; color: #fff; float: none; display: block; margin-top: 15px; }
+			.answer-content{ margin-top: 55px; line-height: 1.7em;}
+			.line-fege{ border-bottom:1px solid #b5b5b5; margin-bottom: 20px;}
+			.line-fege span{ width: 6rem; text-align: center; display: block; background-color: #f5f5f5; margin-left: auto; margin-right: auto; position: relative; top:0.45em;}
+			.a-title{ border-left:4px solid #18b4ed ; padding-left: 7px; margin-top: 35px; margin-bottom: 15px;}
+			.tongji-content h4,.tongji-content p{ padding-left: 11px;}
+			.tongji-content p{ color: #999;}
+			.t-all{ color: #666;}
+			.t-wrong{color:#f25e5e;}
+			.t-right{color:#18b4ed;}
+			
+			.seeAnswer .select .xu{ background-color: #f25e5e; border-color: #f25e5e; text-indent:-9999em; position: relative; display: inline-block; text-indent: -999999px;}
+			.seeAnswer .select .xu:before{ content:"×"; text-indent: 0;
+			    color: #fff;
+                position: absolute;
+			    display: block; height: 28px; line-height: 28px; width: 28px; text-align: center; font-size: larger;  border:none; transform:none;-webkit-transform:none; left:0; top:0;}
+            .seeAnswer .select.dui .xu,.select .xu{ background-color: #b5bdc2; color: #fff;}
+            .seeAnswer .dui .xu{ background-color: #18b4ed; border-color: #18b4ed; color: #fff;}
+
+			/*.seeAnswer .dui .xu{ background-color: #18b4ed; border-color: #18b4ed; text-indent:-9999em; position: relative;}*/
+            .seeAnswer .dui.select .xu{ background-color: #18b4ed; border-color: #18b4ed; text-indent:-9999em; position: relative;}
+            .seeAnswer .dui.select .xu:before{content:""; text-indent: 0;
+                color: #fff;
+                display: block; width: 12px; height: 6px; border-left: 2px solid #fff; border-bottom: 2px solid #fff;  transform:rotate(-45deg) translate(-0%,-100%); -webkit-transform:rotate(-45deg) translate(-0%,-100%);position: absolute; left:50%; top:50%; }
+
+			/* .seeAnswer .dui .xu:before,.select .xu:before{content:""; text-indent: 0;
+                color: #fff;
+                display: block; width: 12px; height: 6px; border-left: 2px solid #fff; border-bottom: 2px solid #fff;  transform:rotate(-45deg) translate(-0%,-100%); -webkit-transform:rotate(-45deg) translate(-0%,-100%);position: absolute; left:50%; top:50%; } */
+                .tiankong{margin-bottom: 50px; height: 35px; line-height: 35px; margin-left: 15px; border-bottom: 2px solid #18b4ed; width: 50%; outline: none;}
+			.select .xm{  background-color: #18b4ed; color: #fff; }
+			.explain-p textarea{ width: 90%; height: 50px; outline: none;}
+			.explain-p blockquote{ padding: 3px; border-left:3px solid #CE3131;}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="header">
+				<span class="back"></span>
+				<div class="btn_dati_beiti_wrap">
+					<div class="btn_dati_beiti">
+						<span class="btn_dati select">答题模式</span>
+
+						<span class="btn_bei ">背题模式</span>
+					</div>
+				</div>
+				<div class="skin"></div>
+			</div>
+			<div id="main">
+				<div class="swiper-container  seeAnswer">
+					<div class="swiper-wrapper ">
+						<!--<div class="swiper-slide">
+							<div class="block-shiti">
+								<p class="timu-content">
+									<span class="que-type">多选题</span>
+									<span class="que-c">林某驾车以110公里/小时的速度在城市道路行驶，与一辆机动车追尾后弃车逃离被群众拦下。经鉴定，事发时林某血液中的酒精浓度为135.8毫克/百毫升。林某的主要违法行为是什么？</span>
+								</p>
+								<div class="media-container"></div>
+								<div class="answer-container " data-item="answer-container">
+									<ul>
+										<li class="ans-option " data-answer="16"><i class="xu">A</i><i class="ti">疲劳驾驶</i></li>
+										<li class="ans-option dui" data-answer="32"><i class="xu">B</i><i class="ti">醉酒驾驶</i></li>
+										<li class="ans-option dui" data-answer="64"><i class="xu">C</i><i class="ti">肇事逃逸</i></li>
+										<li class="ans-option dui" data-answer="128"><i class="xu">D</i><i class="ti">超速驾驶</i></li>
+									</ul>
+
+									<button type="button" class="btn-st-sub">确认答案</button>
+								</div>
+								<div class="answer-content">
+									<div class="line-fege"><span>试题详解</span></div>
+									<h3 class="a-title">考点</h3>
+									<div class="explain-p">
+										<p>行为一“以110公里/小时的速度在城市道路行驶”属于超速驾驶；二：“与一辆机动车追尾后弃车逃离”属于肇事逃逸；三：“血液中的酒精浓度为135.8毫克/百毫升”是醉酒驾驶。</p>
+									</div>
+									<h3 class="a-title">统计</h3>
+									<div class="tongji-content">
+										<h4>我的错误率</h4>
+										<p>共做过<span class="t-all">8</span>次,做错<span class="t-wrong">2</span>次,做对<span class="t-right">6</span>次</p>
+									</div>
+								</div>
+							</div>
+
+						</div>-->
+
+					</div>
+					<!-- Add Pagination -->
+					<!--   <div class=""></div> -->
+					<!-- Add Arrows -->
+					<!--  <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+				</div>
+			</div>
+			<div id="footer">
+				<div class="f_head">
+					<span class="collection">收藏</span>
+					<span class="counter swiper-pagination" id="counter"></span>
+					<span class="q_list_btn"></span>
+					<div class="f_wrong">0</div>
+					<div class="f_right">0</div>
+				</div>
+				<div class="f_body">
+					<div class="swiper-container1">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+
+								<div class="q_li_btn">
+
+									<ul class="clearfix">
+
+									</ul>
+								</div>
+								<!-- q_li_btned -->
+
+							</div>
+							<!-- slide ed -->
+						</div>
+						<!-- wrapper ed -->
+
+						<div class="swiper-scrollbar"></div>
+					</div>
+					<!-- container ed -->
+
+					<!-- f_body ed -->
+				</div>
+
+			</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+
+	<script src="../script/swiper.min.js">
+	</script>
+	<script src="../script/zepto.min.js">
+	</script>
+	<script>
+		var swiper1 = new Swiper('.swiper-container1', {
+		        scrollbar: '.swiper-scrollbar',
+		        direction: 'vertical',
+		        slidesPerView: 'auto',
+		        mousewheelControl: true,
+		        freeMode: true,
+		       
+		         
+      
+		    });
+		 
+		
+		$(function(){	
+//////////////////////////////////////////创建HTML			
+function creatHTML(){
+	// 内容
+	var str="";
+    var str2="";
+	$.each(question.data, function(index, item){
+if(item.optionType==3){
+str+='<div class="swiper-slide" data-answer="'+item.answer+'">';	
+}else{
+str+='<div class="swiper-slide">';
+}
+str+='<div class="block-shiti">';
+str+='<p class="timu-content">';
+if(item.optionType==2){
+str+='<span class="que-type">多选题</span>';
+}
+if(item.optionType==3){
+str+='<span class="que-type">填空题</span>';
+}
+if(item.optionType==1){
+str+='<span class="que-type">单选题</span>';
+}
+str+='<span class="que-c">'+item.question+'</span>';
+str+='</p>';
+str+='<div class="media-container"></div>';
+str+='<div class="answer-container " data-item="answer-container">';
+str+='<ul>';
+if(item.optionType==2||item.optionType==1){
+
+str+='<li class="ans-option " data-answer="16"><i class="xu">A</i><i class="ti">'+item.optionA+'</i></li>';
+str+='<li class="ans-option" data-answer="32"><i class="xu">B</i><i class="ti">'+item.optionB+'</i></li>';
+str+='<li class="ans-option" data-answer="64"><i class="xu">C</i><i class="ti">'+item.optionC+'</i></li>';
+str+='<li class="ans-option" data-answer="128"><i class="xu">D</i><i class="ti">'+item.optionD+'</i></li>';
+
+}
+if(item.optionType==3){
+str+='<li class="ans-option2" ><i class="xu">答</i><input type="text" class="tiankong" /><li/>';
+}
+str+='</ul>';
+
+
+str+='<button type="button" class="btn-st-sub">确认答案</button>';
+str+='</div>';
+str+='<div class="answer-content">';
+str+='<div class="line-fege"><span>试题详解</span></div>';
+str+='<h3 class="a-title">考点</h3>';
+str+='<div class="explain-p">';
+str+=item.explain;
+str+='</div>';
+str+='<h3 class="a-title">统计</h3>';
+str+='<div class="tongji-content">';
+str+='<h4>我的错误率</h4>';
+str+='<p>共做过<span class="t-all"></span>次,做错<span class="t-wrong"></span>次,做对<span class="t-right"></span>次</p>';
+str+='</div>';
+str+='</div>';
+str+='</div>';
+str+='</div>';
+    str2+='<li>'+(index+1)+'</li>';
+})
+$(".swiper-container .swiper-wrapper").html(str);
+$(".q_li_btn ul").html(str2);
+}//creatHTML ed		
+//////////////////////////////////////////检测答案
+function checkAnswer(){
+$.each(question.data, function(index, item){
+	var ans=$(".swiper-container .swiper-wrapper .swiper-slide").get(index);
+//	alert($(ans));
+var ans_option=$(ans).find(".ans-option");
+ans_option=$(ans_option);
+
+
+	if(item.answer==48){
+        $(ans_option[0]).addClass("dui");
+		$(ans_option[1]).addClass("dui");
+	}
+	if(item.answer==80){
+		$(ans_option[0]).addClass("dui");
+		$(ans_option[2]).addClass("dui");
+	}
+	if(item.answer==144){
+		$(ans_option[0]).addClass("dui");
+		$(ans_option[2]).addClass("dui");
+	}
+	if(item.answer==96){
+		$(ans_option[1]).addClass("dui");
+		$(ans_option[2]).addClass("dui");
+	}
+	if(item.answer==160){
+		$(ans_option[1]).addClass("dui");
+		$(ans_option[3]).addClass("dui");
+	}
+	if(item.answer==192){
+		$(ans_option[2]).addClass("dui");
+		$(ans_option[3]).addClass("dui");
+	}
+	if(item.answer==240){
+		$(ans_option[0]).addClass("dui");
+		$(ans_option[1]).addClass("dui");
+		$(ans_option[2]).addClass("dui");
+		$(ans_option[3]).addClass("dui");
+	}
+	if(item.answer==112){
+		$(ans_option[0]).addClass("dui");
+		$(ans_option[1]).addClass("dui");
+		$(ans_option[2]).addClass("dui");
+		
+	}
+	if(item.answer==176){
+		$(ans_option[0]).addClass("dui");
+		$(ans_option[1]).addClass("dui");
+	
+		$(ans_option[3]).addClass("dui");
+	}
+	if(item.answer==224){
+		
+		$(ans_option[1]).addClass("dui");
+		$(ans_option[2]).addClass("dui");
+		$(ans_option[3]).addClass("dui");
+	}
+	if(item.answer==208){
+		$(ans_option[0]).addClass("dui");
+	
+		$(ans_option[2]).addClass("dui");
+		$(ans_option[3]).addClass("dui");
+	}
+
+      if(item.answer==16){          
+        $(ans_option[0]).addClass("dui");
+       
+    }
+     if(item.answer==32){          
+        $(ans_option[1]).addClass("dui");
+       
+    }
+    if(item.answer==64){          
+        $(ans_option[2]).addClass("dui");
+       
+    }
+    if(item.answer==128){          
+        $(ans_option[3]).addClass("dui");
+       
+    }
+})
+}
+creatHTML()
+checkAnswer()
+//////////////////////////////////////////创建滑块
+var swiper = new Swiper('.swiper-container', {
+		       
+		        pagination: '.swiper-pagination',
+		        paginationType: 'fraction',
+		        onInit: function(swiper){
+		         	if(localStorage.getItem("lastslide")){
+     				 swiper.slideTo(localStorage.getItem("lastslide"));  
+					}else{ swiper.slideTo(0,1,true);}
+
+                    if(localStorage.getItem("f_wrong")){
+                       
+                        $(".f_wrong").html(localStorage.getItem("f_wrong"));
+                    }else{
+                         $(".f_wrong").html("0");
+                    }
+                     if(localStorage.getItem("f_right")){
+                        $(".f_right").html(localStorage.getItem("f_right"));
+                    }else{
+                       $(".f_right").html("0"); 
+                    }
+		         }
+		    });		
+//////////////////////////////////////////获取当前 slider
+var slider=swiper.slides[swiper.activeIndex];
+//////////////////////////////////////////按钮列表单击
+$(".q_list_btn").click(function(){
+		
+		    var t=$("#footer").css("bottom");
+		   
+		    if(t=="0px"){
+		     $("#footer").css("bottom","-460px");   
+		    }else{
+		      $("#footer").css("bottom","0px");      
+		    }
+		})
+//////////////////////////////////////////背题单击
+(".btn_bei").click(function(){
+		    $(this).addClass("select");
+		     $(".btn_dati").removeClass("select");
+		     $(".swiper-container").addClass("seeAnswer");
+		     $(".answer-content").show();
+		     $(".ans-option2,.ans-option").hide();
+		})
+//////////////////////////////////////////答题单击
+$(".btn_dati").click(function(){
+		    $(this).addClass("select");
+		     $(".btn_bei").removeClass("select");
+		     $(".swiper-container").removeClass("seeAnswer");
+		     $(".answer-content").hide();
+		     $(".ans-option").removeClass("select");
+		     $(".btn-st-sub").show();
+		     $(".seeAnswer").removeClass("seeAnswer");
+		     swiper.slides[swiper.activeIndex].check=undefined;
+		}).trigger("click");
+//////////////////////////////////////////答题项目单击
+$(".ans-option").click(function(){
+			  
+		    $(this).toggleClass("select");
+            var ans=$(".swiper-container .swiper-wrapper .swiper-slide").get(swiper.activeIndex);
+
+             var ans_option=$(ans).find(".dui");
+             var btn_st_sub=$(ans).find(".btn-st-sub");
+             if(ans_option.length==1){
+             $(btn_st_sub).trigger("click");   
+
+             }
+
+		})
+//////////////////////////////////////////下面按钮列表单击
+$(".f_body li").click(function(){
+$(".q_list_btn").trigger("click");
+$(".btn_dati").trigger("click");
+swiper.slideTo($(this).index());
+})//li click 
+//////////////////////////////////////////保存最后滑动这一张
+swiper.on('SlideChangeEnd', function(swiper){
+        var index=swiper.activeIndex;
+        window.localStorage.setItem("lastslide",index);
+        })
+//////////////////////////////////////////返回上一页
+$(".back").click(function(){
+    api.closeWin("main");
+})
+//////////////////////////////////////////确定按钮单击项目单击	
+$(".btn-st-sub").click(function(){
+		    var pa=$(this).parents(".swiper-slide");
+			pa.addClass("seeAnswer");
+			$(this).hide();
+		// if($(slider).attr("data-answer")==$("tiankong"))
+	if($(slider).find(".tiankong").val()==$(slider).attr("data-answer")){
+
+
+swiper.slides[swiper.activeIndex].check=true;	
+$(".ans-option2").addClass("dui");		
+	}else{
+
+swiper.slides[swiper.activeIndex].check=false;	
+$(".ans-option2").addClass("select");		
+	}
+
+
+
+		pa.find(".dui").each(function(){
+//			
+		    if(!$(this).hasClass("select")){
+		    	// alert("dui meixuan wan/ ");
+		       var oldCheck=swiper.slides[swiper.activeIndex].oldCheck
+		       
+		        if(oldCheck==false){
+		
+		            }
+		        if(oldCheck==true){
+		            var old=parseInt($(".f_wrong").html());
+		             $(".f_wrong").html(old+1);
+		             var old2=parseInt($(".f_right").html());
+		             $(".f_right").html(old2-1);
+		                }
+		        if(oldCheck==undefined){
+		        
+		            var old=parseInt($(".f_wrong").html());
+		            $(".f_wrong").html(old+1);}
+		        	
+		            swiper.slides[swiper.activeIndex].check=false;
+		            return false;
+		            }
+		    
+		       
+		
+		    })
+		if(swiper.slides[swiper.activeIndex].check!=false){
+		
+		pa.find(".select").each(function(){
+		
+		    if(!$(this).hasClass("dui")){
+  	// alert("xuan mei you dui");
+		        var oldCheck=swiper.slides[swiper.activeIndex].oldCheck
+		       
+		        if(oldCheck==false){
+		
+		            }
+		        if(oldCheck==true){
+		            var old=parseInt($(".f_wrong").html());
+		             $(".f_wrong").html(old+1);
+		             var old2=parseInt($(".f_right").html());
+		             $(".f_wright").html(old2-1);
+		                }
+		        if(oldCheck==undefined){
+		        
+		            var old=parseInt($(".f_wrong").html());
+		            $(".f_wrong").html(old+1);}
+		        	
+		             swiper.slides[swiper.activeIndex].check=false;
+		            return false;
+		            }
+		   
+		})// each ed
+		}//if ed;
+		var oldCheck=swiper.slides[swiper.activeIndex].oldCheck;
+		var check=swiper.slides[swiper.activeIndex].check;
+		
+		if( check!=false){
+			// alert("duile")
+			if(oldCheck==undefined){ 
+		    var old2=parseInt($(".f_right").html());    
+		     $(".f_right").html(old2+1);
+		     swiper.slides[swiper.activeIndex].check=true;
+		 	} 
+		 	if(oldCheck==false){ //错了；
+		    var old=parseInt($(".f_wrong").html());
+		    $(".f_wrong").html(old-1);
+		    var old2=parseInt($(".f_right").html());
+		    $(".f_right").html(old2+1); } 
+			swiper.slides[swiper.activeIndex].oldCheck=true;
+			
+			$(".f_body li").eq(swiper.activeIndex).removeClass().addClass("right");
+		if (slider.rightT == undefined) {
+					if(localStorage.getItem("activeWR")){
+							var obj=JSON.parse(localStorage.getItem("activeWR"));
+						if( obj[swiper.activeIndex]){
+						  if( obj[swiper.activeIndex].right){
+						  	slider.rightT=obj[swiper.activeIndex].right+1;
+						  	
+						  }else{slider.rightT = 1; }
+						}else{slider.rightT = 1; }
+					}else{slider.rightT = 1; }
+				
+		} else {
+	slider.rightT++;
+}
+		setTimeout(function(){swiper.slideNext();},500);
+
+		
+//		window.localStorage.setItem("activeWR",)
+		}else{
+			
+			swiper.slides[swiper.activeIndex].oldCheck=false;
+			$(".f_body li").eq(swiper.activeIndex).removeClass().addClass("wrong");
+//slider.wrongT==undefined?slider.wrongT=1:slider.wrongT++;
+if(slider.wrongT==undefined){
+	if(localStorage.getItem("activeWR")){
+		var obj=JSON.parse(localStorage.getItem("activeWR"));
+		
+						if(obj[swiper.activeIndex]){
+							console.log(obj[swiper.activeIndex]);
+							
+						  if(obj[swiper.activeIndex].wrong){
+						  	slider.wrongT=obj[swiper.activeIndex].wrong+1;
+						  }else{slider.wrongT= 1; }
+						}else{slider.wrongT = 1; }
+					}else{slider.wrongT = 1; }//wrongT
+}else{
+	slider.wrongT++;
+}
+$(slider).find(".answer-content").show();
+
+// $(".ans-option").not(".dui").addClass("select");
+		}
+
+if(slider.allT==undefined){
+	if(localStorage.getItem("activeWR")){
+		var obj=JSON.parse(localStorage.getItem("activeWR"));
+						if(obj[swiper.activeIndex]){
+						  if(obj[swiper.activeIndex].all){
+						  	slider.wrongT=obj[swiper.activeIndex].all+1;
+						  }else{slider.allT = 1; }
+						}else{slider.allT  = 1; }
+					}else{slider.allT  = 1; }//wrongT
+}else{
+	slider.allT++;
+}
+alert(slider.allT);
+
+	
+	if(localStorage.getItem("activeWR")){
+activeWR=JSON.parse(localStorage.getItem("activeWR"));
+
+	}else{
+	activeWR={};
+		alert("kong");
+	}
+
+
+if(slider.allT==undefined){slider.allT=0}
+if(slider.rightT==undefined){slider.rightT=0}
+if(slider.wrongT==undefined){slider.wrongT=0}
+			$(".t-all").eq(swiper.activeIndex).html(slider.allT);
+			$(".t-right").eq(swiper.activeIndex).html(slider.rightT);
+			$(".t-wrong").eq(swiper.activeIndex).html(slider.wrongT);
+			alert(slider.allT+"--"+slider.rightT+"--"+slider.wrongT)
+			if(activeWR[swiper.activeIndex]){
+				activeWR[swiper.activeIndex].right=slider.rightT;
+				
+				activeWR[swiper.activeIndex].all=slider.allT;
+			    activeWR[swiper.activeIndex].wrong=slider.wrongT;
+			}else{
+				activeWR[swiper.activeIndex]={};
+				activeWR[swiper.activeIndex].right=slider.rightT;
+				activeWR[swiper.activeIndex].all=slider.allT;
+			    activeWR[swiper.activeIndex].wrong=slider.wrongT;
+			}
+
+			localStorage.setItem("activeWR",JSON.stringify(activeWR));
+
+
+window.localStorage.setItem("f_right",parseInt($(".f_right").html()));
+window.localStorage.setItem("f_wrong",parseInt($(".f_wrong").html()));
+		})//click;
+	
+		})//end;
+	</script>
+
+</html>

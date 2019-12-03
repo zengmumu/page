@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+.fi {
+	position: fixed;
+	height: 50px;
+	line-height: 50px;
+	background-color: #fefefe;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+ul {
+	list-style: none;
+}
+body {
+	background-color: #f0f0f0;
+	padding-top: 50px;
+}
+.fi .container {
+	width: 1000px;
+	margin: 0 auto;
+}
+.container ul li {
+	float: left;
+	width: 120px;
+	text-align: center;
+}
+/*电梯*/
+#elevator{ position: fixed; right: 15px; bottom:50px; display: none;}
+.elevator li {
+width: 30px;
+height: 30px;
+line-height: 30px;
+text-align: center;
+overflow: hidden;
+margin-top: -1px;
+cursor: pointer;
+}
+
+.elevator li a {
+display: block;
+width: 30px;
+height: 30px;
+margin: 0 auto;
+color: #625351;
+font-size: 14px;
+font-family: Arial;
+background:  0 0 no-repeat;
+}
+.elevator li a:hover,.elevator li.active a {
+color: #fff;
+text-decoration: none;
+background: #c81623;
+}
+.elevator li a:hover .en,.elevator li.active a .en{ display: none;}
+.elevator li a:hover .cn,.elevator li.active a .cn{ display: block;}
+
+.elevator li .etitle {
+display: none;
+width: 30px;
+height: 30px;
+color: #fff;
+font-size: 12px;
+}
+
+.active {
+	background-color: #ff3;
+}
+.sc{height: 600px;}
+.sc:nth-of-type(2n+1){ background-color: yellow;}
+.f4{ height: 1000px;}
+.line{ height: 1px; background-color:red; position: fixed; left: 0; top: 50%; width: 100%; z-index: 10000;}
+</style>
+<!--<script type="text/javascript" src="></script>-->
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+<script type="text/javascript">
+
+
+//单击 li 让 li里面  a href 对应的 div 滚动到相应的位置
+//	1,div距离顶部的距离
+//	2,滚条滚动的高度
+//	1==2;
+//li添加class active  以前的ative 去掉
+
+$(function(){
+	$(".fi li a").bind("click",gofloor);
+	function gofloor(){
+		var href=$(this).attr("href");//求出href
+		var offT=$(href).offset().top;//求出href 对应 div 距顶部的距离
+		$("body,html").animate({"scrollTop":offT-50},600);
+		
+		//滚动的距离 和 求出href 对应 div 距顶部的距离对应
+	}
+})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</script>
+</head>
+
+<body>
+<div class="fi">
+  <div class="container">
+    <ul>
+      <li class="active"><a href="#sc1">第一屏</a></li>
+      <li><a href="#sc2">第二屏</a></li>
+      <li><a href="#sc3">第三屏</a></li>
+      <li><a href="#sc4">第四屏</a></li>
+      <li><a href="#sc5">第五屏</a></li>
+      <li><a href="#sc6">第六屏</a></li>
+      <li><a href="#sc7">第七屏</a></li>
+    </ul>
+  </div>
+</div>
+<div class="sc" id="sc1">
+  <h1>1</h1>
+</div>
+<div class="sc" id="sc2">
+  <h1>2</h1>
+</div>
+<div class="sc" id="sc3">
+  <h1>3</h1>
+</div>
+<div class="sc f4" id="sc4">
+  <h1>4</h1>
+</div>
+<div class="sc"  id="sc5">
+  <h1>5</h1>
+</div>
+<div class="sc"  id="sc6">
+  <h1>6</h1>
+</div>
+<div class="sc" id="sc7">
+  <h1>7</h1>
+</div>
+<div id="elevator" class="elevator">
+  <ul>
+    <li class="handler active"><a href="javascript:;">1F</a></li>
+    <li class="handler" ><a href="javascript:;"><span class="en">2F</span><span class="cn">二楼</span></span></a></li>
+    <li class="handler" ><a href="javascript:;">3F</a></li>
+    <li class="handler" ><a href="javascript:;">4F</a></li>
+    <li class="handler" ><a href="javascript:;">5F</a></li>
+    <li class="handler " ><a href="javascript:;">6F</a></li>
+    <li class="handler" ><a href="javascript:;">7F</a></li>
+    
+  </ul>
+</div>
+<p class="line"></p>
+</body>
+</html>

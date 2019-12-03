@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+				.mark{ background-color: yellow; color: #fff;}
+				.border{ border:5px solid magenta;}
+	</style>
+	<script src="js/jquery-2.0.2.js"></script>
+	<script>
+		$(function(){
+			$("button").click(function(){
+//				$("button").next().addClass("mark");
+//				$("button").next("h3").addClass("mark");
+//				$("button").nextAll("h3").addClass("mark");
+//				$("h3").siblings().addClass("mark");
+//				$("span").parent().parent().parent().addClass("mark");
+//				$("span").parents("div").addClass("mark");
+//				$("div").find("span").addClass("mark");
+				$("div").children("span").addClass("mark");
+
+			})
+		})
+		
+	</script>
+</head>
+<body>
+	<button>切换</button>
+	<h3 class="border">this is a 文字</h3>
+	<p><img src="images/1.gif" alt="" /></p>
+	
+	<div>this id bug<div class="border"><p>this is a p <a href="">我是一个链接里面的<span>一小块</span></a></p></div>
+	<p>I am a p</p>
+	</div>
+</body>
+</html>

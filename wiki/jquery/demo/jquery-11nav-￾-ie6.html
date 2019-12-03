@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<style type="text/css">
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dt,dl,dd{margin:0;padding:0;border:0;font-size:12px;font-family:"微软雅黑";}
+
+ul li{ list-style:none;}
+
+.nav{ width:980px; height:34px;margin-top:23px; margin:0 auto; }
+.nav ul{width:980px; height:34px; background: #069;}
+.nav ul li{width:140px; height:34px; background:  #069; float:left; position:relative;}
+.nav ul li a{width:140px; height:34px; line-height:34px; text-align:center; display:block; color:#FFF; font-size:14px; text-decoration:none;}
+.nav ul li a:hover{ background-color:rgb(31,201,244);}
+.nav ul li ul{ position:absolute; left:0px; top:34px; width:140px; height:auto; display:none; }
+.nav ul li ul li{ float:none; position:relative;}
+.nav ul li ul li ul{ left:140px; top:0px; width:140px;}
+
+
+
+
+</style>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+
+<script type="text/javascript">
+$(function(){
+	//只要 li（有ul）被hover 让里面的ul 下拉显示
+	//只要 li（有ul）被out  让里面的ul 隐藏
+/*	$("li:has(ul)").mouseover(function(){
+		var myul=$(this).children("ul");
+			if(myul.is(":animated")){
+				myul.stop(true,true);
+			}
+			myul.slideToggle()
+	})
+	.mouseout(function(){
+		var myul=$(this).children("ul");
+			if(myul.is(":animated")){
+				myul.stop(true,true);
+			}
+			//1true 停止队列动画
+			//2，true 回到结束状态
+			myul.slideToggle()
+	})*/
+	
+	
+	$("li:has(ul)").hover(function(){
+		var myul=$(this).children("ul");
+		if(myul.is(":animated")){
+				myul.stop(true,true);
+			}
+		myul.slideToggle()//第一次显示 第二次隐藏，第三次显示
+	})
+	
+	
+})
+	
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+
+<div class="nav" id="navigation">
+       <ul>
+         <li><a href="#">网站首页</a></li>
+         <li><a href="#">关于我们</a>
+                        <ul>
+                            <li><a href="#">企业文化</a></li>
+                            <li><a href="#">企业文化</a></li>
+                            <li><a href="#">企业文化</a></li>
+                        </ul>
+         </li>
+         <li><a href="#">新闻资讯</a></li>
+         <li><a href="#">产品中心</a>
+                        <ul>
+							<li><a>消防器材</a>
+                            	<ul>
+									<li><a href="#">照明系列</a></li>
+									<li><a href="#">防护系列</a></li>
+									<li><a href="#">破拆系列</a></li>
+									<li><a href="#">救生系列</a></li>
+									<li><a href="#">警戒系列</a></li>
+									<li><a href="#">其它系列</a></li>
+								</ul>
+                            </li>
+							
+							<li><a>工矿企业产品</a>
+                            	 <ul>
+									<li><a href="#">照明系列</a></li>
+									<li><a href="#">机电设备系列 </a></li>
+									<li><a href="#">产品配件系列</a></li>
+								</ul>                                
+					     	</li>
+				       </ul>			
+         </li>
+         <li><a href="#">招贤纳士</a></li>
+         <li><a href="#">客户留言</a></li>
+         <li><a href="#">联系我们</a></li> 
+       </ul>
+     </div>   
+</body>
+</html>

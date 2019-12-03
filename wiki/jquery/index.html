@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>jquery教程-曾庆林</title>
+    <meta name="description" content="完整的jquery入门教程，包含jquery实战案例，jq知识点讲解，jquery选择器，jquery Dom操作，jquery动画，jQuery事件几个主要的大项">
+
+   <meta name="keywords" content="jquery视频教程，jquery入门教程，jq初级视频教程">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/mui.min.css" />
+	<style>
+		.mui-table-view-cell.mui-collapse .mui-table-view .mui-table-view-cell{
+			padding-left: 16px;
+			font-size: 14px;
+			line-height: 30px;
+			color: #555;
+		}
+		.mui-table-view-cell.mui-collapse .mui-table-view .mui-table-view-cell .mui-btn{
+			font-size: 12px;
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+		.mui-btn-outlined.mui-btn-grey{color: #aaa; position: relative;z-index: 5;}
+		.modal-title{ position:relative;left: -60px;}
+		.mui-navigate-right{ line-height: 32px;}
+		.btn-ppt{
+			float: right;
+    		margin-right: 25px;
+    		line-height: 32px;
+    		padding-top: 3px;
+		}
+		.article{ 
+			padding-left: 0;
+			padding-right: 0;
+			}
+		.btn-ppt .mui-btn{ padding: 3px 4px; font-size: 12px;}
+		@media (min-width: 768px){
+			.modal-dialog {
+			    width: 820px;
+			    margin: 30px auto;
+			}
+		}
+		.toolbar{ display: none;}
+		@media screen and (max-width: 768px) {
+			.modal .mui-btn.mui-btn-grey{ padding: 3px 0px; width: 26px; font-size: 8px;}
+			.modal-body{ padding: 5px;}
+			.btn-text{ display: none;}
+			/*.toogleSource{ display: none;}*/
+			pre table .code,.syntaxhighlighter .code{ font-size: 12px !important;}
+			.modal-title{ font-size: 12px; left: -20px;}
+			.mui-table-view-cell{ padding: 5px 15px;}
+			.mui-table-view-cell.mui-collapse .mui-collapse-content{ padding-top: 4px;}
+			.mui-navigate-right{ font-size: 14px; color: #282828;}
+		}
+		.syntaxhighlighter{ margin-top: 0 !important;margin-bottom: 0 !important;}
+		
+		
+	</style>
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+ 
+
+    </head>
+    <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+	    <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+	          <a class="navbar-brand" href="/">曾庆林</a>
+	    </div>
+	    <div id="navbar" class="collapse navbar-collapse">
+	        <ul class="nav navbar-nav navbar-right">
+	        	<li ><a href="http://www.520mg.com" target="_blank">首页</a></li>
+	        	<li ><a href="http://www.520mg.com/wiki/jquery/index.html" target="_blank">jquery教程</a></li>
+	        	<li ><a href="http://www.qingkt.com" target="_blank">UI视频教程</a></li>
+	        	<li ><a href="http://qingkt.com/a/course/" target="_blank">前端教程</a></li>
+	        	
+	      	</ul>
+	    </div>
+    <!--/.nav-collapse --> 
+    </div>
+</nav>
+<div >
+<div class="container article">
+<ul class="mui-table-view">
+	<li class="mui-table-view-cell mui-collapse">
+		<div class="mui-navigate-right">
+			第一章jQuery介绍	
+			<span class="btn-ppt">
+				<a href="ppt/第一章jQuery介绍.ppt" class="mui-btn mui-btn-green mui-btn-outlined">ppt下载</a>						
+			</span>														
+		</div>					
+		<div class="mui-collapse-content mui-table-view">
+			
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-01-ready.mp4" data-toggle="modal" data-target=".mytan" >$(document).ready()</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-01-ready.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-02-ready.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-02-ready.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-02-%24()%20jquery-js.mp4" data-toggle="modal" data-target=".mytan" >
+					$符号-jQuery与js相互转换</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-02-%24()%20jquery-js.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-03-$().html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-03-$().html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-03-jquery%E5%B0%8F%E6%A1%88%E4%BE%8B.mp4" data-toggle="modal" data-target=".mytan" >
+					简单的切换动画案例</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-03-jquery%E5%B0%8F%E6%A1%88%E4%BE%8B.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-04-案例.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-04-案例.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			
+		</div>
+	</li>
+	<li class="mui-table-view-cell mui-collapse">
+		<div class="mui-navigate-right">
+			第二章选择器	
+			<span class="btn-ppt">
+				<a href="ppt/第二章jQuery选择器.pptx" class="mui-btn mui-btn-green mui-btn-outlined">ppt下载</a>						
+			</span>														
+		</div>					
+		<div class="mui-collapse-content mui-table-view">
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-04-%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8.mp4" data-toggle="modal" data-target=".mytan" >
+					选择器-基本选择器</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-04-%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-05-选择器-基本选择器.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-05-选择器-基本选择器.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-05-%e5%9f%ba%e6%9c%ac%e8%bf%87%e6%bb%a4%e9%80%89%e6%8b%a9%e5%99%a81.mp4" data-toggle="modal" data-target=".mytan" >
+					选择器-过滤选择器</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-05-%e5%9f%ba%e6%9c%ac%e8%bf%87%e6%bb%a4%e9%80%89%e6%8b%a9%e5%99%a81.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-06-选择器-过滤选择器.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-06-选择器-过滤选择器.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-07.1-tab%E5%88%87%E6%8D%A2.mp4" data-toggle="modal" data-target=".mytan" >
+					选择器-可见性选择器</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-07.1-tab%E5%88%87%E6%8D%A2.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程1</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-07.2-tab%e5%88%87%e6%8d%a2.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程2</span>
+					</a>
+					<a href="demo/jquery-07-可见选择器.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-07-可见选择器.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-08-%e5%b1%9e%e6%80%a7%e8%bf%87%e6%bb%a4%e9%80%89%e6%8b%a9%e5%99%a8.mp4" data-toggle="modal" data-target=".mytan" >
+					选择器-属性过滤</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-08-%e5%b1%9e%e6%80%a7%e8%bf%87%e6%bb%a4%e9%80%89%e6%8b%a9%e5%99%a8.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-08-属性过滤filter_st.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-08-属性过滤filter_st.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-09-jq%e5%ad%90%e5%85%83%e7%b4%a0%e8%bf%87%e6%bb%a4%e9%80%89%e6%8b%a9%e5%99%a8.mp4" data-toggle="modal" data-target=".mytan" >
+					选择器-子元素过滤</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-09-jq%e5%ad%90%e5%85%83%e7%b4%a0%e8%bf%87%e6%bb%a4%e9%80%89%e6%8b%a9%e5%99%a8.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-09-子元素过滤.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-09-子元素过滤.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-10.1hover-%e5%af%bc%e8%88%aa.mp4" data-toggle="modal" data-target=".mytan" >
+					案例-导航</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-10.1hover-%e5%af%bc%e8%88%aa.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程1</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-11.1-%e5%88%87%e6%8d%a2%e9%9a%90%e8%97%8f%e4%ba%8e%e6%98%be%e7%a4%ba%e5%af%bc%e8%88%aa1.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程2</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-11.2-%e5%88%87%e6%8d%a2%e9%9a%90%e8%97%8f%e4%ba%8e%e6%98%be%e7%a4%ba%e5%af%bc%e8%88%aa1.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程3</span>
+					</a>
+					
+					<a href="demo/jquery-11nav-导航-兼容ie6.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-11nav-导航-兼容ie6.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+		</div>
+	</li>
+	<li class="mui-table-view-cell mui-collapse">
+		<div class="mui-navigate-right">
+			第三章 jquery文档处理	
+			<span class="btn-ppt">
+				<a href="ppt/第三讲 jQuery文档处理1.ppt" class="mui-btn mui-btn-green mui-btn-outlined">ppt下载</a>						
+			</span>														
+		</div>					
+		<div class="mui-collapse-content mui-table-view">
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-12-%e5%85%83%e7%b4%a0%e7%9a%84%e5%86%85%e5%ae%b9%e8%8e%b7%e5%8f%96%e5%92%8c%e8%ae%be%e7%bd%ae.mp4" data-toggle="modal" data-target=".mytan" >
+					元素的内容获取和设置</span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-12-%e5%85%83%e7%b4%a0%e7%9a%84%e5%86%85%e5%ae%b9%e8%8e%b7%e5%8f%96%e5%92%8c%e8%ae%be%e7%bd%ae.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-13-html-text.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-13-html-text.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+				<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-13-%e5%85%83%e7%b4%a0class%e6%93%8d%e4%bd%9c.mp4" data-toggle="modal" data-target=".mytan" >
+					元素class操作 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-13-%e5%85%83%e7%b4%a0class%e6%93%8d%e4%bd%9c.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-14-add.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-14-add.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+				<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-14-%e5%85%83%e7%b4%a0%e5%85%b3%e7%b3%bb%e8%8a%82%e7%82%b9.mp4" data-toggle="modal" data-target=".mytan" >
+					元素关系节点 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-14-%e5%85%83%e7%b4%a0%e5%85%b3%e7%b3%bb%e8%8a%82%e7%82%b9.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程1</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-15.1%e5%85%83%e7%b4%a0%e5%85%b3%e7%b3%bb%e8%8a%82%e7%82%b9.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程2</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-15.2元素关系节点.mp4
+						" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程3</span>
+					</a>
+					<a href="demo/jquery-15-元素节点关系的查找.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				    <a href="" target="_blank" data-source="demo/jquery-15-元素节点关系的查找.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+				<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-16-单击切换显示隐藏.mp4" data-toggle="modal" data-target=".mytan" >
+					案例-单击简化菜单 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-16-单击切换显示隐藏.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-16-简化案例.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-16-简化案例.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-16-单击切换显示隐藏.mp4" data-toggle="modal" data-target=".mytan" >
+					动画-animate </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-16-单击切换显示隐藏.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-17-aimate.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-17-aimate.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-19-全选前缀.mp4" data-toggle="modal" data-target=".mytan" >
+					案例-全选 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-19-全选前缀.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程1</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-20-全选.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程2</span>
+					</a>
+					<a href="demo/jquery-19-全选.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-19-全选.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-21-内容插入.mp4" data-toggle="modal" data-target=".mytan" >
+					文档操作-内部插入 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-21-内容插入.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-20-文档操作-插入-创建.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-20-文档操作-插入-创建.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-22-外部插入.mp4" data-toggle="modal" data-target=".mytan" >
+					文档操作-外部插入-复制 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-22-外部插入.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-21-文档操作-外部插入.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-21-文档操作-外部插入.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-23-删除和替换.mp4" data-toggle="modal" data-target=".mytan" >
+					文档操作-删除与替换 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-23-删除和替换.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-22-克隆.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-22-克隆.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-24-包装与解包装.mp4" data-toggle="modal" data-target=".mytan" >
+					文档操作-包装与解包装 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-24-包装与解包装.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-23-包装与解包装.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-23-包装与解包装.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/" data-toggle="modal" data-target=".mytan" >
+					文档操作-val与表单 </span>
+				<span class="mui-pull-right">
+					
+					<a href="demo/jquery-23-包装与解包装.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-23-包装与解包装.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			
+			
+		</div>
+	</li>
+	<li class="mui-table-view-cell mui-collapse">
+		<div class="mui-navigate-right">
+			第四章 距离与位置
+			<span class="btn-ppt">
+				<a href="" class="mui-btn mui-btn-green mui-btn-outlined">ppt下载</a>						
+			</span>														
+		</div>					
+		<div class="mui-collapse-content mui-table-view">
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-26.1-offset.mp4" data-toggle="modal" data-target=".mytan" >
+					距离位置-offset </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-26.1-offset.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程1</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-26.2-offset.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程2</span>
+					</a>
+					<a href="demo/jquery-25-offset.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-25-offset.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-27-scrollTop.mp4" data-toggle="modal" data-target=".mytan" >
+					案例-回到顶部 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-27-scrollTop.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-26-回到顶部.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="jquery-26-回到顶部.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-28-距离相关.mp4" data-toggle="modal" data-target=".mytan" >
+					距离位置-距离相关 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-28-距离相关.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-26-回到顶部.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="jquery-26-回到顶部.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-29-jquery宽高获取.mp4" data-toggle="modal" data-target=".mytan" >
+					距离位置-宽高 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-29-jquery宽高获取.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-27-元素的宽高.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-27-元素的宽高.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			
+		</div>
+	</li>
+	<li class="mui-table-view-cell mui-collapse">
+		<div class="mui-navigate-right">
+			第五章 事件	
+			<span class="btn-ppt">
+				<a href="ppt/第四章jQuery中的事件和动画.ppt" class="mui-btn mui-btn-green mui-btn-outlined">ppt下载</a>						
+			</span>														
+		</div>					
+		<div class="mui-collapse-content mui-table-view">
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-32-bind-unbind.mp4" data-toggle="modal" data-target=".mytan" >
+					事件bind-unbind </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-32-bind-unbind.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-28-事件.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-28-事件.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-33-trigger.mp4" data-toggle="modal" data-target=".mytan" >
+					trigger </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-33-trigger.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-29-trigger-模拟.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-29-trigger-模拟.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-34-阻止事件冒泡，与默认事件.mp4" data-toggle="modal" data-target=".mytan" >
+					冒泡与阻止默认事件 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jquery/video/jq-34-阻止事件冒泡，与默认事件.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-29-trigger-模拟.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-29-trigger-模拟.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-30.1-无缝滚动.mp4" data-toggle="modal" data-target=".mytan" >
+					案例-无缝滚动 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-30.1-无缝滚动.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-30.2-无缝滚动.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程2</span>
+					</a>
+					<a href="demo/jquery-30-无缝滚动.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-30-无缝滚动.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-36.1-全屏滚动.mp4" data-toggle="modal" data-target=".mytan" >
+					案例-全屏滚动定位 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-36.1-全屏滚动.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-36.2-全屏滚动.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程2</span>
+					</a>
+					
+					<a href="demo/jquery-33-全屏滚动.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-33-全屏滚动.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-37.1-全屏滚动.mp4" data-toggle="modal" data-target=".mytan" >
+					案例-全屏滚动定位2 </span>
+				<span class="mui-pull-right">
+				
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-37.1-全屏滚动.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程3</span>
+					</a>
+					<a href="" target="_blank" data-video="https://raw.githubusercontent.com/zengmumu/web/master/jq-37.2-全屏滚动.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程4</span>
+					</a>
+					<a href="demo/jquery-33-全屏滚动.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-33-全屏滚动.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			<!--cell ed-->
+		</div>
+	</li>
+	<!--<li class="mui-table-view-cell mui-collapse">
+		<div class="mui-navigate-right">
+			第四章选择器	
+			<span class="btn-ppt">
+				<a href="ppt/第二章jQuery选择器.pptx" class="mui-btn mui-btn-green mui-btn-outlined">ppt下载</a>						
+			</span>														
+		</div>					
+		<div class="mui-collapse-content mui-table-view">
+			
+			<div  class="mui-table-view-cell">
+				<span class="cell-info toogleVideo" data-video="http://www.qingkt.com/v/102/bootstrap3-03-01-modal-1538029243.mp4" data-toggle="modal" data-target=".mytan" >
+					案例-全屏滚动定位 </span>
+				<span class="mui-pull-right">
+					<a href="" target="_blank" data-video="http://www.qingkt.com/v/102/bootstrap3-03-01-modal-1538029243.mp4" class="mui-btn mui-btn-outlined mui-btn-primary toogleVideo"  data-toggle="modal" data-target=".mytan">
+						<i class="glyphicon  glyphicon-play-circle"></i>
+						<span class="btn-text">视频教程</span>
+					</a>
+					<a href="demo/jquery-33-全屏滚动.html" target="_blank" class="mui-btn mui-btn-outlined mui-btn-grey">
+						<i class="mui-icon-extra mui-icon-extra-classroom" style="font-size:14px ;"></i>
+						<span class="btn-text">案例演示</span></a>
+				  
+				    <a href="" target="_blank" data-source="demo/jquery-33-全屏滚动.html" class="mui-btn mui-btn-outlined mui-btn-grey toogleSource"  data-toggle="modal" data-target=".mytan">
+				    	<i class="mui-icon mui-icon-eye"></i>
+				    	<span class="btn-text">查看源码</span></a>
+				</span>
+			</div>
+			
+		</div>
+	</li>-->
+			
+</ul>
+ </div>   
+</div>  
+<!--container ed-->
+<!--modal-->
+<!--模块-->
+
+<div class="modal fade bs-example-modal-sm mytan" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    		<div class="modal-header">
+    			<span class="video-down-btn mui-pull-left">
+    				<a class="mui-btn mui-btn-grey mui-btn-outlined down-video" href="">
+    					<i class="mui-icon mui-icon-download" style="font-size: 14px;"></i>    					
+    				</a>
+    			</span>
+    			
+    			
+	    			<span class="mui-pull-left coder-btns">
+		    			<button class="mui-btn mui-btn-grey mui-btn-outlined coder-js">js</button>
+		    			<button class="mui-btn mui-btn-grey mui-btn-outlined coder-html">html</button>
+		    			<button class="mui-btn mui-btn-grey mui-btn-outlined coder-css">css</button>
+	    			</span>
+    			
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">视频播放</h4>
+      </div>
+      <div class="modal-body">
+    		<video id="video" src="../../video/jq-01-ready.mp4" width="100%"  poster="static/images/pre.gif" controls="controls" autoplay="true" >
+    			
+    		</video>
+    		<div class="pre">
+    			<pre class='brush:js;'></pre>
+    		</div>
+      		
+      </div>
+     
+    </div>
+  </div>
+<!--弹出模块-->
+<link rel="stylesheet" href="static/css/shCoreDefault.css" />
+<link rel="stylesheet" href="static/css/styles/shThemeFadeToGrey.css" />
+<script src="../../js/jquery.js"></script> 
+<script src="../../js/bootstrap.min.js"></script>
+<script src="static/js/mui.js"></script>
+<script src="static/js/shCore.js"></script>
+<script src="static/js/shBrushJScript.js"></script>
+<script src="static/js/shBrushXml.js"></script>
+
+<script src="static/js/shBrushCss.js "></script>
+<style>
+	.syntaxhighlighter{ 
+		margin-top: 0 !important;
+		margin-bottom: 0 !important; 
+		background-color:#383838 !important;
+		}
+	.syntaxhighlighter .line.alt1,
+	.syntaxhighlighter .line.alt2{
+		background-color:#383838 !important;
+		
+	}
+</style>
+<script>
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			$(function(){
+				$(".toogleVideo").click(function(){
+					var ti=$(this).parent().parent().find(".cell-info").html();
+					var src=$(this).attr("data-video");
+					$(".modal-title").html(ti+'视频教程');
+					$(".video-down-btn").show();
+					$(".video-down-btn .down-video").attr("href",src);
+					$(".coder-btns").hide();
+					$("#video").show();
+					$(".modal-body .pre").hide()
+					$("#video").attr("src",src).trigger("click");
+				})
+				var coder;
+				$(".toogleSource").click(function(){
+					var ti=$(this).parent().parent().find(".cell-info").html();
+					$(".modal-title").text(ti+'源码')
+					var src=$(this).attr("data-source");
+					$("#video").hide();
+					$(".video-down-btn").hide();
+					$(".video-down-btn a").attr("href","");
+					$(".coder-btns").show();
+					$(".modal-body .pre").show();
+					
+					$.get(src).success(function(res){
+						coder=res;
+						var obj=$("<div id='coder' style='display:none'></div>")
+						obj.html(res);						
+//						$(".modal-body .pre pre").text(res);
+						$(".modal-body .pre").text("");
+						$(".modal-body .pre").append("<pre class='brush:js;'></pre>");
+						$(".modal-body .pre pre").text(obj.find("script:not([src])").html());	
+						SyntaxHighlighter.defaults['gutter'] = false;
+						SyntaxHighlighter.highlight();	
+					})
+					
+					
+				})
+				$(".coder-js").click(function(){
+					
+					var obj=$("<div id='coder' style='display:none'></div>");
+					obj.html(coder);					
+						
+					$(".modal-body .pre").text("");
+					$(".modal-body .pre").append("<pre class='brush:js;'></pre>");
+					$(".modal-body .pre pre").text(obj.find("script:not([src])").html());	
+					SyntaxHighlighter.defaults['gutter'] = false;						
+					SyntaxHighlighter.highlight();	
+				})
+				$(".coder-css").click(function(){
+					var obj=$("<div id='coder' style='display:none'></div>");
+					obj.html(coder);					
+					$(".modal-body .pre").text("");
+					$(".modal-body .pre").append("<pre class='brush:css;'></pre>");
+					$(".modal-body .pre pre").text(obj.find("style").html());	
+					SyntaxHighlighter.defaults['gutter'] = false;						
+					SyntaxHighlighter.highlight();	
+				})
+				$(".coder-html").click(function(){
+					var obj=$("<div id='coder' style='display:none'></div>");
+					obj.html(coder);
+					$(".modal-body .pre").text("");
+					$(".modal-body .pre").append("<pre class='brush:xml;'></pre>");
+					$(".modal-body .pre pre").text(obj.html());	
+					SyntaxHighlighter.defaults['gutter'] = false;						
+					SyntaxHighlighter.highlight();	
+				})
+			})
+			
+
+// SyntaxHighlighter.highlight();			
+</script>
+<div style="display:none">
+	
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8a47d1da4c549706691aaab4bb7d0e39";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</div>
+</body>
+</html>

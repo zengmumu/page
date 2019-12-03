@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+	<input type="file" id="file">  
+	<!-- 上传控件 -->
+	<input type="button" id="btn" value="上传">
+	<!-- 单击上传按钮 -->
+	<script>
+		$(function(){
+			// 单击按钮发起上传
+			$("#btn").click(function(){
+				// 文件图片上传格式 
+				var formData = new FormData();
+				console.log($("#file")[0].files[0])
+				formData.append("file",$("#file")[0].files[0]);
+				
+				$.ajax({
+					url:"ajax.php",
+					type:"POST",
+					data:formData,
+					processData: false, // 告诉jQuery不要去处理发送的数据
+    				contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+				})
+				.done(function(){
+					alert("上传成功");
+				})
+			})
+		})
+	</script>
+
+
+</body>
+</html>

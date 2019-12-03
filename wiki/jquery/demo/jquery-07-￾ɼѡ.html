@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				padding: 50px;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			.tabs .tab-title {
+				height: 35px;
+				line-height: 35px;
+				border: 1px solid #aaa;
+				padding-left: 15px;
+				padding-right: 15px;
+				float: left;
+				margin-right: 15px;
+				position: relative;
+				z-index: 10;
+			}
+			
+			.tabs .active{border-bottom-color:#fff; color: #F80;}
+			.tabs .tab-content {
+				clear: both;
+				border: 1px solid #aaa;
+				padding: 25px;
+				width: 450px;
+				height: 300px;
+				display: none;
+				position: relative;
+				top: -1px;
+				z-index: 0;
+			}
+			#tab2 .tab-content{width: 800px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="tab1" class="tabs">
+			<ul>
+				<li class="tab-title active">li1</li>
+				<li class="tab-title">li2</li>
+				<li class="tab-title">li3</li>
+			</ul>
+			<div class="tab-content" style="display: block;">内容1</div>
+			<div class="tab-content" >内容2</div>
+			<div class="tab-content">内容3</div>
+		</div>
+	<script src="js/jquery-1.4.2.min.js"></script>
+		<script>
+		//[1] 单击第几个，显示第几个，以前显示的隐藏
+		$(function(){
+			$(".tab-title").click(function(){
+				//以前显示的现在隐藏
+				$(".tab-content:visible").hide();
+				// 求出是第几个
+				var num=$(".tab-title").index($(this));
+				$(".tab-content:eq("+num+")").show();
+				//之前有.active li 去掉active
+				//当前li 添加actvie
+				$(".active").removeClass("active");
+				$(this).addClass("active");
+			
+			})
+		})
+		</script>
+		
+
+	</body>
+
+</html>

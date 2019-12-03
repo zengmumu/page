@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <script src="script/data.js"></script>
+     <script src="script/zepto.min.js"></script>
+    <style>
+        /*
+            iscroll
+        */
+        #wrapper {
+            position: relative;
+            z-index: 1;
+            height: 35px;
+            width: 90%;
+            overflow: hidden;
+
+        }
+
+        #scroller {
+            position: absolute;
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            width: 200%;
+            /*-webkit-transform: translateZ(0);
+            transform: translateZ(0);*/
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -webkit-text-size-adjust: none;
+        }
+
+        #scroller ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: -webkit-box
+        }
+
+        #scroller li {
+            width: 10%;
+            line-height: 35px;
+            font-size: 14px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /*
+            iscroll
+        */
+        .nav_active {
+            color: #DC282E;
+            font-size: 16px !important;
+        }
+
+        nav {
+            width: 100%;
+            display: -webkit-box;
+            background-color: #F6F6F6;
+        }
+
+        .arrow_down {
+            display: block;
+            background-size: 15px;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 15px;
+            background-image: url('image/channel_nav_arrow@2x.png');
+            -webkit-box-flex: 1;
+            -webkit-transform: rotate(180deg);
+            -webkit-transition: All .5s ease;
+        }
+
+        .arrow_up {
+            -webkit-transform: rotate(0deg);
+            -webkit-transition: All .5s ease;
+        }
+
+        .switchNav {
+            position: relative;
+            width: 90%;
+            line-height: 35px;
+            text-indent: 10px;
+        }
+
+        .navTips {
+            width: 70px;
+            height: 15px;
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            font-size: 12px;
+            line-height: 16px;
+            color: #DE0000;
+            margin-top: 2px;
+            border: 1px solid;
+            border-radius: 10px;
+        }
+
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+        }
+
+        .login-user {
+            background-image: url("image/user_weiboimage_netease@2x.png") !important;
+        }
+        .control div{  height: 43px; line-height: 43px; font-size: 22px;}
+        li{ height: 50px; line-height: 50px;}
+    </style>
+</head>
+<body tapmode="" onclick="">
+<ul class="vlist"></ul>
+
+
+    <script>
+
+// localStorage.clear();
+apiready=function(){ 
+    //data=getData();
+   alert(api.pageParam.id);
+
+// open();
+}
+$(function(){
+        var s="";
+        
+    for(var k in vlist.data){
+        s+='<li onclick="openPage(\''+vlist.data[k].url+'\')">'+vlist.data[k].title+'</li>';
+    }
+    $(".vlist").html(s);
+
+    })
+
+ function openPage(str){
+    
+    api.openWin({
+            name: 'videoMain',
+            url: 'html/win_video.html',
+            // bounces:false,
+            rect: {
+                x: 0,
+                y: 0,
+                w: api.winWidth,
+                h: 320
+            },
+            pageParam:{vurl:str},
+        })
+
+    
+}  
+
+</script>
+</body>
+</html>

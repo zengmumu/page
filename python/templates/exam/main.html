@@ -1,0 +1,21 @@
+<div ng-controller="indexCtrl" class="index-chapter course{{data.course.id}}" >
+
+<div class=" bar bar-header bar-positive" style="height: {{180-sc.t}}px">
+      
+         <button menu-toggle="left" class="button button-left button-icon icon ion-navicon"></button>
+
+           <h2 class="title" style=" margin-top: {{27.5-sc.t*37/180}}px">
+           <span class="courseImg" style="height: {{20-sc.t+60}}px; opacity: {{(20-sc.t)/20}};" ng-if="80-sc.t>0" ></span>
+           {{data.course.typename}}</h2>  
+
+    </div>
+     <ion-content class="has-header has-footer article-ion" overflow-scroll='false' on-scroll="handelScroll()">
+      
+        <div class="chapters" ng-repeat="item in chapters" ng-class-odd="'cha-odd'" ng-class-even="'cha-even'" ng-class="{'last':$last}">
+     
+            <a class="chapter"  id="chapters{{$index}}" ng-class="{'unlock':item.unlock,'delock':item.delock}" ng-click=changeState(item,$index)>
+        {{item.typename}}
+      </a>
+        </div>
+      </ion-content>
+</div>

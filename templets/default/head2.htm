@@ -1,0 +1,49 @@
+<script>
+var reMethod = "POST",pwdmin = 4;
+</script>
+<div class="header_top">
+	<div class="center container index">
+		<span id="time" class="time hidden-xs">免费IT入门培训学习平台</span>
+		<div class="toplinks">
+			<span id="_login">
+				<a class="" data-toggle="modal" data-target="#myModal">登陆</a>
+				<a class="" data-toggle="modal" data-target="#myModal2">注册</a>
+			</span>
+			</div>
+	</div>
+</div>
+
+<div class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
+	       
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+			<a class="navbar-brand visible-xs" href='{dede:global.cfg_cmsurl/}/'><span>曾庆林-IT入门</span></a>
+		</div>
+		<div class="collapse navbar-collapse" id="nav">
+			<ul class="nav navbar-nav">
+				<li >
+					<a href="/">首页</a>
+				</li>
+				<li >
+					<a href="/it">it入门</a>
+				</li>
+			 
+
+				{dede:channel   type="top" row='2' orderby='sortrank' currentstyle="
+				<li  class='hover'><a href='~typelink~'><span>~typename~</span></a> </li>"}
+				 <li><a href='[field:typelink/]'><span>[field:typename/]</span></a> </li>
+				{/dede:channel}
+
+				 
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+

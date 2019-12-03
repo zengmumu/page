@@ -1,0 +1,35 @@
+<div ng-controller="indexCtrl">
+
+<ion-side-menus can-drag="true" >
+  <!-- 中间内容 -->
+  <ion-side-menu-content >
+  	 <div class=" bar bar-header bar-positive">
+      
+         <button menu-toggle="left" class="button button-left button-icon icon ion-navicon"></button>
+           <h2 class="title">python</h2>  
+
+    </div>
+	 <ion-content class="has-header has-footer article-ion" overflow-scroll='false'>
+	 	<div class="chapters" ng-repeat="item in chapters" ng-class-odd="'cha-odd'" ng-class-even="'cha-even'" ng-class="{'last':$last}">
+     
+			<a class="chapter"  id="chapters{{$index}}" ng-class="{'unlock':item.unlock}" ng-click=changeState(item,$index)>
+        {{item.typename}}
+      </a>
+	 	</div>
+	 </ion-content>
+  </ion-side-menu-content>
+	
+  <!-- 左侧菜单 -->
+  <ion-side-menu side="left">
+
+  <div class="user-box bg-positive ">
+   <div class="avatar">{{data.user.M_UserName|limitTo:1}}</div>
+  <div>{{data.user.M_UserName|limitTo:15}} <div class="r jf">积分:{{data.user.M_Scores}}</div></div>
+  <div class="row"><div class="col-75 col-center text-left"> {{data.user.fields.email}}<br/></div> <div class="col-25"> <button class="button button-clear button-positive" ng-click="loginOut()">{{switchName(data.user.M_UserName)}}</button></div></div>
+   </div>
+  </ion-side-menu>
+
+  <!-- 右侧菜单 -->
+ 
+</ion-side-menus>
+</div>

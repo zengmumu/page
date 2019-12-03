@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <script src="script/json.js"></script>
+    <style type="text/css">
+   /*  html,body{
+       height: 100%;
+   } */
+   /* #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        text-align: center; background-color: #81a9c3; color: #fff;
+        width: 100%;
+    }
+    #header h1{
+        font-size: 20px; height: 44px; line-height: 44px; margin: 0em; color: #fff;
+    }
+    #main{
+        -webkit-box-flex: 1; 
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #footer{
+        height: 30px; line-height: 30px;
+        background-color: #81a9c3; 
+        width: 100%;
+        text-align: center;
+    }
+    #footer h5{
+        color: white;
+    }
+    .con{font-size: 28px; text-align: center;}*/
+
+    *{ margin: 0; padding: 0;-webkit-box-sizing:border-box; box-sizing:border-box;}
+    html,body{
+                    height: 100%;
+                    background-color: #f5f5f5;
+            
+                }
+    .practice{ height: 120px; background:#fff url(image/practices.png) no-repeat left top; background-size: 24px auto;}
+    .practice li{ width: 25%; float: left; border-right:1px solid  #f5f5f5; height: 120px; text-align: center;}
+    .b_title{ height: 50px; line-height:50px; margin-top: 15px; }
+    .color_b{ width: 50%; height: 6px; margin: 0px auto; margin-right: auto; background-color: #40bcff; }
+    .counter{ margin-top: 10px;}
+    .banner{ height:160px; background: url(image/banner2.jpg) no-repeat center center; background-size:100%  auto ;}
+
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+   <div class="block practice">
+       <ul>
+           <li onclick="js()" class="css"><p class="b_title">js面试题</p>
+            <p class="color_b color_l"></p>
+            <p class="counter">0</p>
+            </li>
+          <li onclick="favorite()" class="css"><p class="b_title">我的收藏</p>
+            <p class="color_b color_l"></p>
+            <!-- <p class="counter">0</p> -->
+            </li>
+           <li onclick="myerr()" class="css"><p class="b_title">我的错题</p>
+            <p class="color_b color_l"></p></li>
+          <li onclick="mychapter()" class="css"><p class="b_title">章节练习</p>
+            <p class="color_b color_l"></p></li>
+       </ul>
+   </div> 
+  
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+    <script src="script/zepto.min.js">
+    </script>
+<script type="text/javascript">
+// localStorage.clear();
+
+  question.data.sort(down);
+    apiready = function(){
+		console.log("Hello APICloud");
+
+        // var header = $api.byId('header');
+        //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+
+        // var headerPos = $api.offset(header);
+        // var main = $api.byId('main');
+        // var mainPos = $api.offset(main);
+       
+        }
+
+       // api.execScript({
+       //          name:"root",
+       //          script:"checkUserId()"
+       //      }); 
+        // openw('main','html/course.html')
+     function js(){
+     openw('jstest','html/course.html',question.data)
+     
+     }
+      function favorite(){
+       var data=getCollection("favorite");
+//     alert(data.length);
+     openw('favorite','html/course.html',data)
+     
+     }
+       function myerr(){
+       var data=getCollection("wrongCollection");
+//     alert(data.length);
+     openw('myerr','html/course.html',data)
+     
+     }
+     function mychapter(){
+         openw('chapter','html/chapter.html',{})
+
+     }
+     // api.openWin({
+     //     name: 'winname',
+     //     url: 'winurl',
+     //     bounces: false,
+     //     pageParam: {key : 'value'}
+     // });
+
+     function openw(name,url,param){
+             api.openWin({
+            name: name,
+            url: url,         
+            rect: {
+                x: 0,
+                y: 0,
+                w: api.winWidth,
+                h: api.winHeight
+            },
+            pageParam:param
+
+        })
+    }
+
+    $(function(){
+if(localStorage.getItem("f_right")){
+
+    var r=parseInt(localStorage.getItem("f_right"));
+    var w=parseInt(localStorage.getItem("f_wrong"));
+  
+$(".css .counter").html(r+w);
+}
+
+    });
+function getCollection(name){
+    var obj=JSON.parse(localStorage.getItem(name));
+    var collection=[];  
+
+    for(var k in obj){
+        var qId=obj[k];
+        
+        for(var j in question.data){
+            
+            if(obj[k]==question.data[j].questionId){
+            collection.push(question.data[j]);  
+            }
+        }
+       
+        
+    }
+    return collection;
+//  alert(collection);
+
+}
+
+
+
+ function down(x, y) {
+            return (x.chapterId < y.chapterId) ? -1 : 1
+ 
+        }
+       
+</script>
+
+</html>

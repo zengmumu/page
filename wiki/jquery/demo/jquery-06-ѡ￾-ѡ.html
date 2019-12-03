@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>侧边导航</title>
+ <style type="text/css">
+  *{ margin:0; padding:0;}
+ ul{ list-style:none;}
+ a{ text-decoration:none;}
+ a:hover{ text-decoration:underline;}
+ .aside{ width:250px;  border:1px solid #e3e3e3;  height:575px;}
+ .aside .menu-main{ margin-top:45px; margin-left:30px; padding-left:25px;}
+ .aside .menu-main li h3 a{ font-size:18px; color:#252525;}
+ .aside .menu-main ul{ list-style:square; margin-left:20px; color:#bfc1c8; font-size:12px;}
+ .aside .menu-main ul li a{ color:#777;}
+  .aside .menu-main >li{ margin-bottom:40px;}
+    .aside .menu-main li ul li{ height:25px; line-height:25px;}
+. aside .menu-main ul .active{ color:#25c4fa;}
+.mark{ background-color:rgb(255,253,0); border:1px solid red; padding: 5px;}
+div{ padding:5px;}
+</style>
+<script src="js/jquery-1.4.2.min.js"></script>
+<script>
+$(function(){
+////$("li li:first").addClass("mark");	
+//$("li li:last").addClass("mark");
+//$("li li:even").addClass("mark");
+//$("li li:eq(3)").addClass("mark");
+//$("li li:gt(3)").addClass("mark");
+//$("li li:lt(3)").addClass("mark");
+//$(":header").addClass("mark");
+
+//$(":header:not(.tx)").addClass("mark");
+//$(":parent").addClass("mark");
+//$("li:has(ul) h3").click(function(){
+//	$(this).next().slideToggle();
+//
+//})
+//$("li li:contains('安全')").addClass("mark");
+//})
+</script>
+
+
+</head>
+
+<body>
+
+<!--侧边导航-->
+<button>触发器	</button>
+<div class="aside">
+  <ul class="menu-main">
+    <li>
+      <h3 rel="8" style=""><a href="#">账号管理</a></h3>
+      <ul class="gl">
+        <li ><a href="#">管理游戏</a></li>
+        <li class="check"><a href="#">修改通行证密码</a></li>
+        <li ><a href="#">完善个人资料</a></li>
+        <li><a href="#">防沉迷认证</a></li>
+        <li><a href="#">完善个人资料</a></li>
+        <li><a href="#">防沉迷认证</a></li>
+      </ul>
+    
+    </li>
+    <li>
+      <h3  class="tx"><a href="#">账号安全</a></h3>
+      <ul>
+        <li><a href="#">账号安全设置</a></li> 
+           
+      </ul>
+    </li>
+    <li>
+      <h3><a href="#">账号安全</a></h3>
+      <ul>
+       <p>this is p</p> 
+        <li><a href="#">账号安全设置</a></li> 
+       
+         <li><a href="#">账号安全设置</a></li> 
+         <p>this is p</p>
+          <li><a href="#">账号安全设置</a></li> 
+            <p>this is p</p>     
+      </ul>
+    </li>
+     <li>
+      <h3><a href="#">密保管理</a></h3>
+    	<p>this is a p</p>
+    </li>
+     <li>
+      <h3><a href="#">密保管理</a></h3>
+      <ul>
+        <li><a href="#">密保卡</a></li>    
+         <li><a href="#">手机令牌</a></li>       
+      </ul>
+    </li>
+  </ul>
+</div>
+<div></div>
+
+<p id="lastp">12465457adsfa</p>
+<p></p>
+<p>you wenzi <span>hello</span></p>
+<h5>this is h5 last</h5>
+</body>
+</html>

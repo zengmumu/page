@@ -1,0 +1,161 @@
+<!DOCTYPE html5>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<!-- <link href="{dede:global.cfg_templets_skin/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" /> -->
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}">
+<!--<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="{dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>-->
+<link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="{dede:global.cfg_cmsurl/}/m/assets/js/jquery.min.js"></script>
+<style>
+	.position{ color: #ddd;}
+.position a{ color: #777;}
+.listbox{ width: auto;}
+#time{float:left;}
+.toplinks{float: right;}
+.padding{ padding: 15px; }
+.nopadding{padding: 0;}
+.norpadding{padding-right: 0;}
+.mb30{margin-bottom: 30px;}
+.pagination .thisclass a{background-color: #0E90D2 !important; color:#fff;}
+.typeson{padding: 0 15px; margin-bottom: 15px;}
+
+.typeson span{
+		display: inline-block;
+		width: 100%;
+	    background-color: #fff;
+    	font-size: 16px;
+    	text-align: center;
+   	 	line-height: 44px;
+    	border: 2px solid #fff;
+    	font-weight: 800;
+    	box-shadow: 0 1px 2px #ccc;
+    	transition: 0.6s all ease;
+}
+.typeson:hover span{
+	border-color: #0E90D2;
+}
+.typeson.active span{
+	color: #0E90D2;
+}
+.text-light{ color:#ccc;font-size: 0.6em; }
+@media screen and (max-width:720px) {
+	.typeson{padding: 0px;}
+}
+.block{ display: block; }
+.arc-list li{ margin-bottom: 35px; }
+.one{
+
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+   }
+
+.two{
+ text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;	
+}
+
+</style>
+</head>
+<body class="articlelist" style="background-color: #f6f6f6;">
+{dede:include filename="head2.htm"/}
+<!-- /header -->
+<div class="container">
+
+ <div class="position" style="margin:0;  padding-top:1em; padding-bottom: 1em; font-size:1em;"> {dede:field name='position'/}</div>
+  <!-- /place -->
+  
+ <div class="row">
+ 	
+ 		<div class="col-md-9 c-bg">
+
+ 		<!-- 	<div class="row">
+			
+			</div> -->
+			<div class="row padding ">
+				 {dede:channel type='son' currentstyle="<a href='~typeurl~' class='col-xs-4 col-md-3 typeson active'><span>~typename~</span></a>
+			      "}
+			      <a href='[field:typeurl/]' class="col-xs-4 col-md-3 typeson"><span>[field:typename/]</span></a>
+			      {/dede:channel}
+			</div>
+			
+			   <ul class="list-unstyled arc-list">
+			    {dede:list pagesize='10' orderby="id" orderway="asc"}
+			    <li> 
+			      <a href="[field:arcurl/]" class="h4 block"  style="clear: both;">[field:title/]</a> 
+			      <p class="small text-light">
+			      	 <span class="pull-left">  [field:pubdate function="MyDate('Y/m/d',@me)"/] <small>点击：</small>[field:click/] </span> 
+			      </p>
+			      <p class="text-muted small two" style="clear: both;"> [field:description/]</p>     
+			    </li>
+			    {/dede:list}
+			   </ul>
+			
+			   <ul class="pagelist pagination">
+			    {dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5"/}
+			   </ul>
+			  
+			  
+ 		</div>
+ 		<div class="col-md-3">
+ 			
+ 			<div class="panel panel-default">
+  					<div class="panel-heading">入门教程</div>
+  					<div class="panel-body">
+  						<ul class="list-unstyled">
+					      {dede:channel reid="7" typeid="7" currentstyle="
+					      <li><a href='~typelink~' class='thisclass'>~typename~</a></li>
+					      "}
+					      <li><a href='[field:typeurl/]'>[field:typename/]</a></li>
+					      {/dede:channel}
+				     </ul>
+  					</div>
+   			</div>
+   			<a type="button" class="btn btn-success btn-block mb30" href="/source">学习资料下载</a>
+   			<div class="row">
+   				<div class="col-xs-4  norpadding">
+   					<img src="/source/images/ewm.jpg" width="100%" alt="">
+   				</div>
+   				<div class="col-xs-8 small">
+   				<p>扫描关注微信躺着学</p>
+   				<p>QQ交流:565189854</p>
+   				<p>UI&前端:728789100</p>
+   				</div>
+   			</div>
+   			
+ 		</div>
+ 	</div>
+ </div>
+  
+  
+  
+
+
+
+{dede:include filename="footer.htm"/}
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	
+<!-- /footer -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?77857c56c6ef2fafe2a2135178b8d24f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

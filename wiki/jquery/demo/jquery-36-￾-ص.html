@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.toTop{ display: block;width: 60px; height: 60px; line-height: 60px; text-align: center; background-color: dodgerblue; color: #fff; position:fixed; right: 0; top: 350px; }
+	</style> 
+	<script src="js/jquery-1.4.2.min.js"></script>
+	<script src="js/jquery.toTop1.0.js"></script>
+	<script>
+	//当滚动条的距离大于一个屏幕的高时出现 否则 隐藏
+			/*$(function(){
+				$(window).scroll(function(){
+					var scrollT=$(window).scrollTop();
+					var wh=$(window).height();//浏览器窗口的高
+					if(scrollT>wh){
+						$(".toTop").fadeIn();
+					}else{
+						$(".toTop").fadeOut();
+					}
+				})
+				
+				$(".toTop").click(function(){
+					$("html,body").animate({"scrollTop":0},600);
+//					设置 html，body 的scrollTop的动画值到0 600毫秒
+					
+				})
+			})*/
+			
+			$(function(){
+				$(".toTop").toTop({time:1000});
+				$("p:gt(30)").toTop();
+			})
+	
+	</script>
+</head>
+<body>		<h3>回到顶部</h3>
+			
+			<p>line1</p>
+			<p>line2</p>
+			<p>line3</p>
+			<p>line4</p>
+			<p>line5</p>
+			<p>line6</p>
+			<p>line7</p>
+			<p>line8</p>
+			<p>line9</p>
+			<p>line10</p>
+			<p>line11</p>
+			<p>line12</p>
+			<p>line13</p>
+			<p>line14</p>
+			<p>line15</p>
+			<p>line16</p>
+			<p>line17</p>
+			<p>line18</p>
+			<p>line19</p>
+			<p>line20</p>
+			<p>line21</p>
+			<p>line22</p>
+			<p>line23</p>
+			<p>line24</p>
+			<p>line25</p>
+			<p>line26</p>
+			<p>line27</p>
+			<p>line28</p>
+			<p>line29</p>
+			<p>line30</p>
+			<p>line31</p>
+			<p>line32</p>
+			<p>line33</p>
+			<p>line34</p>
+			<p>line35</p>
+			<p>line36</p>
+			<p>line37</p>
+			<p>line38</p>
+			<p>line39</p>
+			<p>line40</p>
+			<p>line41</p>
+			<p>line42</p>
+			<p>line43</p>
+			<p>line44</p>
+			<p>line45</p>
+			<p>line46</p>
+			<p>line47</p>
+			<p>line48</p>
+			<p>line49</p>
+			<p>line50</p>
+			<span class="toTop">TOP</span>
+</body>
+</html>

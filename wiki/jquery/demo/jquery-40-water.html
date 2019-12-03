@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{ margin: 0; padding: 0;}
+			ul{ list-style: none;}
+			#water img{ width: 260px; height: auto;}
+			#water{ width:1100px; margin-left: auto; margin-right:auto ; position: relative;}
+			#water li{ position: absolute; left: 0; top: 0;}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<ul id="water">
+			<li><img src="pic/pic1.jpg" alt="" /></li>
+			<li><img src="pic/pic2.jpg" alt="" /></li>
+			<li><img src="pic/pic3.jpg" alt="" /></li>
+			<li><img src="pic/pic4.jpg" alt="" /></li>
+			<li><img src="pic/pic5.jpg" alt="" /></li>
+			<li><img src="pic/pic6.jpg" alt="" /></li>
+			<li><img src="pic/pic7.jpg" alt="" /></li>
+			<li><img src="pic/pic8.jpg" alt="" /></li>
+			<li><img src="pic/pic9.jpg" alt="" /></li>
+			<li><img src="pic/pic10.jpg" alt="" /></li>
+			<li><img src="pic/pic11.jpg" alt="" /></li>
+			<li><img src="pic/pic12.jpg" alt="" /></li>
+			<li><img src="pic/pic13.jpg" alt="" /></li>
+			<li><img src="pic/pic14.jpg" alt="" /></li>
+			<li><img src="pic/pic15.jpg" alt="" /></li>
+			<li><img src="pic/pic16.jpg" alt="" /></li>
+			<li><img src="pic/pic17.jpg" alt="" /></li>
+			<li><img src="pic/pic18.jpg" alt="" /></li>
+			<li><img src="pic/pic19.jpg" alt="" /></li>
+			<li><img src="pic/pic20.jpg" alt="" /></li>
+			<li><img src="pic/pic21.jpg" alt="" /></li>
+			<li><img src="pic/pic22.jpg" alt="" /></li>
+			<li><img src="pic/pic23.jpg" alt="" /></li>
+			<li><img src="pic/pic24.jpg" alt="" /></li>
+			<li><img src="pic/pic25.jpg" alt="" /></li>
+			<li><img src="pic/pic26.jpg" alt="" /></li>
+			<li><img src="pic/pic27.jpg" alt="" /></li>
+			<li><img src="pic/pic28.jpg" alt="" /></li>
+			<li><img src="pic/pic29.jpg" alt="" /></li>
+			<li><img src="pic/pic30.jpg" alt="" /></li>
+			<li><img src="pic/pic31.jpg" alt="" /></li>
+			<li><img src="pic/pic32.jpg" alt="" /></li>
+			<li><img src="pic/pic33.jpg" alt="" /></li>
+			<li><img src="pic/pic34.jpg" alt="" /></li>
+			<li><img src="pic/pic35.jpg" alt="" /></li>
+			<li><img src="pic/pic36.jpg" alt="" /></li>
+			<li><img src="pic/pic37.jpg" alt="" /></li>
+			<li><img src="pic/pic38.jpg" alt="" /></li>
+			<li><img src="pic/pic39.jpg" alt="" /></li>
+			<li><img src="pic/pic40.jpg" alt="" /></li>
+			<li><img src="pic/pic41.jpg" alt="" /></li>
+			<li><img src="pic/pic42.jpg" alt="" /></li>
+			<li><img src="pic/pic43.jpg" alt="" /></li>
+			<li><img src="pic/pic44.jpg" alt="" /></li>
+			<li><img src="pic/pic45.jpg" alt="" /></li>
+			<li><img src="pic/pic46.jpg" alt="" /></li>
+			<li><img src="pic/pic47.jpg" alt="" /></li>
+			<li><img src="pic/pic48.jpg" alt="" /></li>
+			<li><img src="pic/pic49.jpg" alt="" /></li>
+			<li><img src="pic/pic50.jpg" alt="" /></li>
+		</ul>
+		<script>
+/*纪录点的集合
+在集合找一个最小（最短的点）
+找到是第几列
+排列图片
+更新这一列点的高点*/
+			$(window).load(water);
+			function water(){
+				var colum=4;	//列数
+				var picWidth=260;// 列宽
+				var gap=20;//	空隙
+				var lis=$("#water li")//所有要排列的元素
+				var points=[];//纪录每一点的高度
+				lis.each(function(index,elem){
+					if(index<=3){
+						$(this).css("left",index*(picWidth+gap));
+						points.push($(this).height());
+						
+					}else{
+						var min=Math.min.apply(null,points);//求出最小的点						
+						var col=mathCol(min);////求是第几列
+						$(this).css({"left":col*(picWidth+gap),"top":min+gap})//设置后面的left top						//更新这一列的高度
+						points[col]=min+gap+$(this).height();
+//						alert(points);
+						
+						
+						
+					}
+				})
+				
+				function mathCol(arg){
+					for(var i=0;i<points.length;i++){
+						if(arg==points[i]){
+							return i;
+						}
+					}
+				}//求出最小点（arg）在points里面的位置（列）
+				
+			
+			}
+		</script>
+	</body>
+</html>

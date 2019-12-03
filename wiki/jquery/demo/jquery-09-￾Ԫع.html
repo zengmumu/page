@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>侧边导航</title>
+ <style type="text/css">
+  *{ margin:0; padding:0;}
+ ul{ list-style:none;}
+ a{ text-decoration:none;}
+ a:hover{ text-decoration:underline;}
+ 
+.mark{ background-color:rgb(255,253,0); border:1px solid red; padding: 5px;}
+div{ padding:5px;}
+</style>
+<script src="js/jquery-1.4.2.min.js"></script>
+<script>
+$(function(){
+//$("table tr:odd").addClass("mark");
+//$("table tr:nth-child(2)").addClass("mark");
+//$("table tr:eq(2)").addClass("mark");
+//$("table tr:nth-child(2n)").addClass("mark");
+//$("table tr:nth-child(2n+1)").addClass("mark");
+// $("table tr:first-child").addClass("mark");  
+//$("table tr:first").addClass("mark");  
+//$("table tr:last-child").addClass("mark");  
+//$("ul li:nth-of-type(2)").addClass("mark");  
+//ul下面的第二个li
+//$("ul li:nth-child(2)").addClass("mark"); 
+//ul 下的li 元素 并且是ul的第二个子元素
+$("ul li:nth-of-type(2n)").addClass("mark");  
+	
+	})
+</script>
+
+
+</head>
+
+<body>
+
+<!--侧边导航-->
+<ul>
+	<li>Leron</li>
+	<p>this is a p</p>
+	<li>Leron</li>
+	<li>Leron</li>
+	<p>this is a p</p>
+	<li>Leron</li>
+	<li>Leron</li>
+</ul>
+
+<table width="40%" border="1">
+	<tr>
+		<td>is 1</td>
+	</tr>
+	<tr>
+		<td>is 2</td>
+	</tr>
+	<tr>
+		<td>is 3</td>
+	</tr>
+</table>	
+<br />
+<br />
+<br />
+<table width="40%" border="1">
+	<tr>
+		<td> num1</td>
+	</tr>
+	<tr>
+		<td> num2</td>
+	</tr>
+	<tr>
+		<td> num3</td>
+	</tr>
+	<tr>
+		<td> num4</td>
+	</tr>
+	<tr>
+		<td> num5</td>
+	</tr>
+	<tr>
+		<td> num6</td>
+	</tr>
+	<tr>
+		<td> num7</td>
+	</tr>
+	<tr>
+		<td> num8</td>
+	</tr>
+	<tr>
+		<td> num9</td>
+	</tr>
+	<tr>
+		<td> num10</td>
+	</tr>
+	<tr>
+		<td> num11</td>
+	</tr>
+</table>
+<br />
+<br />
+<br />
+<table width="40%" border="1">
+	<tr>
+		<td>my1</td>
+	</tr>
+	<tr>
+		<td>my2</td>
+	</tr>
+	<tr>
+		<td>my3</td>
+	</tr>
+	<tr>
+		<td>my4</td>
+	</tr>
+	<tr>
+		<td>my5</td>
+	</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; padding:0;}
+body{ padding:50px;}
+ul,ol{ list-style:none;}
+h3,div,ul,li,ol{ margin:0; padding:0;}
+.global_module h3{ height:35px; line-height:35px; text-align:center; background-color:#369; color:#f6f6f6;}
+.news ul li{ height:30px; line-height:30px; color:#666; border-bottom:1px dashed #d0d0d0; padding-left:15px; }
+.scrollNews{ height:150px; overflow:hidden; border: 1px solid red;}
+.news{ width:220px; border:1px solid #36C;}
+
+</style>
+<script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script>
+//1，ul整体 向上慢慢的走一个li的高度（margin-top为负值）
+//2，ul的第一个li放到最后个一个
+//3，ul整体突然快速margin-top：0；
+
+$(function(){
+	var timeid;
+	var h=$(".scrollNews ul li:eq(0)").outerHeight();//获取li元素的高
+	
+	function move(){
+		//1 最后一个function 是指 动画执行完毕后要做的函数
+		$(".scrollNews ul").animate({"margin-top":-h},500,function(){
+		//2,
+				var fi=$(".scrollNews ul li:eq(0)");
+				$(".scrollNews ul").append(fi);
+		//3
+				$(".scrollNews ul").css("margin-top",0);
+				timeid=setTimeout(function(){ move()},1500)
+			}// anmimated 回调函数 
+		); //animate ed
+	}//move ed
+	
+	$(".scrollNews").hover(function(){
+	clearTimeout(timeid);
+	},function(){
+		move();
+	}).trigger("mouseleave")
+	
+})
+</script>
+</head>
+
+<body>
+<div class="global_module news">
+			<h3>最新动态</h3>
+			<div class="scrollNews" >
+				<ul>
+					<li><a href="#" class="tooltip" title="甜美宽松毛衣今秋一定红.">甜美宽松毛衣今秋一定红.</a></li>
+					<li><a href="#" class="tooltip" title="秋装百搭小马甲不到50元.">秋装百搭小马甲不到50元.</a></li>
+					<li><a href="#" class="tooltip" title="修身韩版小西装万人疯抢.">修身韩版小西装万人疯抢.</a></li>
+					<li><a href="#" class="tooltip" title="夏末雪纺店主含泪大甩卖.">夏末雪纺店主含泪大甩卖.</a></li>
+					<li><a href="#" class="tooltip" title="瑞丽都疯狂推荐的秋装.">瑞丽都疯狂推荐的秋装.</a></li>
+					<li><a href="#" class="tooltip" title="48元长款针织小开衫卖疯啦.">48元长款针织小开衫卖疯啦.</a></li>
+					<li><a href="#" class="tooltip" title="长袖雪纺衫单穿内搭都超美.">长袖雪纺衫单穿内搭都超美.</a></li>
+				</ul>
+			</div>
+		
+		</div>
+</body>
+</html>

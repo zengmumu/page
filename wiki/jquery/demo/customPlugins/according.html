@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	.module{ width: 500px; height: 300px; background-color: #fff; border:8px solid rgba(0,0,0,.3); box-shadow:0 0 8px #999; position: fixed; left: 50%; top:50%; transform:translate(-50%,-50%);}
+	.active{ background-color:yellow ;}
+</style>
+<script src="jquery-1.8.3.min.js"></script>
+<!--<script src="jquery.according.js"></script>-->
+<!--<script src="jquery.dialog.js"></script>-->
+<script src="jquery.according0.1.js"></script>
+<script>
+
+
+
+
+$(function(){
+	$("#acc,#acc2").according({"start":2});
+//	$("").according({"start":1});	
+//	var opt1={"name":"mumu","age":18};
+//	var opt2={"name":"zql","job":"teacher"};
+//	var opt3=$.extend({},opt2,opt1);
+//	console.log(opt3);
+// $("#acc").accordion();
+// $("#acc2").accordion({"start":1});	
+});
+
+</script>
+<style>
+*{ margin:0; padding:0;}
+body{ padding:50px;}
+h3{ height:35px; line-height:35px; background-color:#CFF;}
+.acc div{ height:300px; background-color:#FCC;}
+</style>
+</head>
+
+<body>
+<span>弹出来</span>
+<span>弹出来2</span>
+<div class="acc" id="acc">
+<h3>header</h3>
+<div class="content">wo 是内容</div>
+<h3 >header2</h3>
+<div class="content">wo 是内容2</div>
+<h3>header3</h3>
+<div class="content">wo 是内容3</div>
+</div>
+
+<div class="acc" id="acc2" style="margin-top:50px;">
+<h3>header</h3>
+<div class="content">wo 是内容</div>
+<h3>header2</h3>
+<div class="content">wo 是内容2</div>
+<h3>header3</h3>
+<div class="content">wo 是内容3</div>
+</div>
+
+</body>
+</html>

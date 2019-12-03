@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.b{ border: 2px solid red;}
+	</style>
+	<script src="js/jquery-1.4.2.min.js"></script>
+	<script>
+		$(function(){
+	$("button").click(function(){
+		$("#inp").val("我爱我的祖国");
+	})
+	$("#inp").blur(function(){
+		alert($(this).val());
+	})
+			
+			
+		})
+	</script>
+</head>
+<body>
+		<button>按钮</button>
+用户名:	<input type="text" id="inp" />
+</body>
+</html>

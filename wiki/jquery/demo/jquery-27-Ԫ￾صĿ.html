@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.box{ height: 300px; width: 300px; padding: 50px; border:20px solid red; margin: 50px;}
+	</style> 
+	<script src="js/jquery-1.4.2.min.js"></script>
+	<script>
+	//当滚动条的距离大于一个屏幕的高时出现 否则 隐藏
+			$(function(){
+//				var w=$("div").width();
+//				var w=$("div").innerWidth();
+//				var w=$("div").outerWidth();
+				var w=$("div").outerWidth(true);
+				alert(w);
+			})
+	
+	</script>
+</head>
+<body>	
+
+		<div class="box">box
+		</div>
+</body>
+</html>
