@@ -170,8 +170,9 @@ setHTMLWithScript(element[0], element[0].innerHTML)
  			get:function(callback){
  				var that=this;
  				var host="";
- 				console.log("that.user",that.user)
- 				if(that.user.M_ID){return that.user}
+ 				if(!callback){callback=function(){}}
+ 				// console.log("that.user",that.user)
+ 				if(that.user.M_ID){callback(that.user);return that.user}
  				 $http.get(host+"/member/ajax_login.php")
 					.success(function(data){	
 						if(callback){callback(data)}						
@@ -241,8 +242,7 @@ setHTMLWithScript(element[0], element[0].innerHTML)
     	// console.log($rootScope);
 //  	console.log(config,config.url);
       if (
-      	config.url.indexOf('permission.php')!=-1||
-      	config.url.indexOf('get_unlock.php')!=-1||
+      	config.url.indexOf('permission.php')!=-1||      
       	config.url.indexOf('get_units.php')!=-1||
       	config.url.indexOf('getIT.php')!=-1||
       	config.url.indexOf('get_course.php')!=-1||

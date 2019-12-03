@@ -40,11 +40,11 @@
 								// 	console.log($scope.userData.user.M_LoginID,"M_LoginID")
 								// },1000)
 								$getUser.get(function(res){
-										console.log("登陆没有");
-										if(!res.M_Scores&&!res.M_LoginID&&!$scope.isBack&&toState.name=="main"){
+										if(!res.M_LoginID&&!$scope.isBack&&toState.name=="main"){
 											// alert("没有登陆")
 											$scope.isBack=true;
-											$state.go("login",{redirect:"/main/"+params.course});											
+											$state.go("login",{redirect:"/main/"+params.course});
+											
 
 										}
 										// if(!res.M_LoginID&&!$scope.isBack&&toState.name=="class"){
@@ -72,7 +72,7 @@
 					  };
 					  $scope.switchName=function(str){
 						if(str){
-							if(/^\d{7}$/.test(str)){
+							if(/^\d{13}$/.test(str)){
 							return "登录";
 							}else{
 								return "退出";
@@ -841,14 +841,14 @@ $ionicSlideBoxDelegate.enableSlide(false)
 								 }
 
 								if(parseInt($scope.data.user.M_Rank)>0){	
-
+																	 			 
 									// $scope.mixQuestion($scope.questions[index]);
 									// console.log($scope.questions[index]);
 
 									$ionicSlideBoxDelegate.slide(index)
 									$scope.current.showAnswerSheet=false;
 								}else{
-									/*$http.get($scope.host+"/start/permission.php?ptype=1&id="+ $scope.questions[index-1].id+"&typeid=3&uid="+$stateParams.id+"&user="+$scope.data.user.M_ID)
+									$http.get($scope.host+"/start/permission.php?ptype=1&id="+ $scope.questions[index-1].id+"&typeid=3&uid="+$stateParams.id+"&user="+$scope.data.user.M_ID)
 									.success(function(data){
 										if(data.status){
 											// $scope.mixQuestion($scope.questions[index]);
@@ -861,10 +861,7 @@ $ionicSlideBoxDelegate.enableSlide(false)
 											// alert(data.msg);
 										}
 
-									})*/
-									// 如果需要解锁
-									$ionicSlideBoxDelegate.slide(index)
-									$scope.current.showAnswerSheet=false;
+									})
 
 								}
 
@@ -930,16 +927,15 @@ $ionicSlideBoxDelegate.enableSlide(false)
 								 		question=$scope.questions[0];
 								 	}
 								 }
-								 question.unlock=true;
-								 // $http.post($scope.host+"/start/set_unlock.php",{
-									// 	"unlock":question.id,
-									// 	"user":$scope.data.user.M_ID,
-									// 	"type":1,			  
+								 $http.post($scope.host+"/start/set_unlock.php",{
+										"unlock":question.id,
+										"user":$scope.data.user.M_ID,
+										"type":1,			  
 
-								 // 	}).success(function(data){
+								 	}).success(function(data){
 
 
-								 // 	})
+								 	})
 								//
 							var index=$scope.questions.indexOf(question);
 //							if($scope.questions[index+1]){
@@ -1019,7 +1015,7 @@ $scope.checkAnswer=function(question){
 		// console.log(question.answer,question.currentAnswer,question.userAnswer)
 	if (question.answer==question.currentAnswer||question.answer.toLowerCase().trim()==question.userAnswer.toString().trim().toLowerCase().replace(/（/g,"(").replace(/）/g,")").replace(/；/g,";").replace(/。/g,".").replace(/”/g,"\"").replace(/”/g,"\"").replace(/？/g,"?").replace(/：/g,":").replace(/【/g,"[").replace(/】/g,"]")) {
 							
-		/*$http.post($scope.host+"/start/set_unlock.php",{
+		$http.post($scope.host+"/start/set_unlock.php",{
 			"unlock":question.id,
 			"user":$scope.data.user.M_ID,
 			"type":1,
@@ -1031,9 +1027,7 @@ $scope.checkAnswer=function(question){
 			question.unlock=true;	
 			//显示获得积分		 		
 			// $scope.alertServer.setMsg('2');
-		})*/
-			question.showErr=false;
-			question.unlock=true;	
+		})
 		var index=$scope.questions.indexOf(question);
 		
 		if($scope.questions[index+1]){
@@ -1073,15 +1067,14 @@ $scope.checkAnswer=function(question){
 				$scope.data.get();
 			})
 		}else{
-			// $http.post($scope.host+"/start/set_unlock.php",{
-			// 	"unlock":$scope.questions[index+1].id,
-			//     "user":$scope.data.user.M_ID,
-			//     "type":1,			  
-			// })
-			// .success(function(data){
+			$http.post($scope.host+"/start/set_unlock.php",{
+				"unlock":$scope.questions[index+1].id,
+			    "user":$scope.data.user.M_ID,
+			    "type":1,			  
+			})
+			.success(function(data){
 
-			// })
-			$scope.questions[index+1].unlock=true;
+			})
 		}
 						   
 
@@ -1138,7 +1131,7 @@ $scope.checkAnswer=function(question){
 						
 						var str=$scope.data.user.M_UserName;
 						if(str){
-							if(/^\d{7}$/.test(str)){
+							if(/^\d{13}$/.test(str)){
 							alert("请先登陆");
 							$state.go("login");
 							return;
@@ -1207,18 +1200,18 @@ $scope.checkAnswer=function(question){
 									setTimeout(function(){ getunlock()},50)
 								}
 						    }//fun ed;
-						    // getunlock()
-							// 获取解锁的id
+						    getunlock()
+
 						    $scope.$on("update",function($event,data){
 
-						    	// getunlock();
+						    	getunlock();
 						    })
 						//unlock
 						
 						$scope.unlockQuestion=function(question){
 							var str=$scope.data.user.M_UserName;
 							if(str){
-								if(/^\d{7}$/.test(str)){
+								if(/^\d{13}$/.test(str)){
 									var comfirm=window.confirm("登陆用户才能解锁\n现在去登陆");
 									if(comfirm){$state.go("login");	}				
 									return;
@@ -1234,7 +1227,7 @@ $scope.checkAnswer=function(question){
 					        if(confirm&&$scope.data.user.M_Scores>=10){
 					        	
 
-								$http.post($scope.host+"/start/set_unlock.php",{
+								$http.post($scope.host+"/set_unlock.php",{
 										"unlock":question.id,
 										"user":$scope.data.user.M_ID,
 										"type":1,
@@ -1270,7 +1263,7 @@ $scope.checkAnswer=function(question){
 
 
 								if(index==$scope.questions.length-1){						
-									$http.post($scope.host+"/start/set_unlock.php",{
+									$http.post($scope.host+"/set_unlock.php",{
 										"unlock":$stateParams.id,
 										"user":$scope.data.user.M_ID,
 										"type":2,
