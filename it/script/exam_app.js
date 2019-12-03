@@ -840,8 +840,9 @@ $ionicSlideBoxDelegate.enableSlide(false)
 								 	return;
 								 }
 
-								if(parseInt($scope.data.user.M_Rank)>0){									 			 
-									$scope.mixQuestion($scope.questions[index]);
+								if(parseInt($scope.data.user.M_Rank)>0){	
+																	 			 
+									// $scope.mixQuestion($scope.questions[index]);
 									// console.log($scope.questions[index]);
 
 									$ionicSlideBoxDelegate.slide(index)
@@ -850,7 +851,7 @@ $ionicSlideBoxDelegate.enableSlide(false)
 									$http.get($scope.host+"/start/permission.php?ptype=1&id="+ $scope.questions[index-1].id+"&typeid=3&uid="+$stateParams.id+"&user="+$scope.data.user.M_ID)
 									.success(function(data){
 										if(data.status){
-											$scope.mixQuestion($scope.questions[index]);
+											// $scope.mixQuestion($scope.questions[index]);
 											// console.log($scope.questions[index]);
 
 											$ionicSlideBoxDelegate.slide(index)
@@ -912,7 +913,8 @@ $ionicSlideBoxDelegate.enableSlide(false)
 							}
 							$scope.preSlide=function(question){
 								question.showErr=false;
-								$scope.mixQuestion(question);
+								// 混合题目
+								// $scope.mixQuestion(question);
 								$ionicSlideBoxDelegate.previous()
 							}
 
@@ -1308,7 +1310,7 @@ $scope.checkAnswer=function(question){
 						}])
 
 						.controller("loginCtrl",["$scope","$http","$state","$ionicHistory","$getUser","$localData","$rootScope","$stateParams",function($scope,$http,$state,$ionicHistory,$getUser,$localData,$rootScope,$stateParams){
-							console.log($stateParams,"stateParams")
+							 
 							$scope.redirect = $stateParams.redirect;
 							 $scope.goState=function(name,params){
 							
@@ -1344,7 +1346,9 @@ $scope.checkAnswer=function(question){
 											// window.localStorage.setItem("username",data.user.username);
 										$scope.login.help=data.msg;
 											
-										$scope.userData.getUser();//获取登陆信息
+										$scope.userData.getUser(function(){
+											$getUser.user = $scope.userData.user;
+										});//获取登陆信息
 
 										$scope.goback();
 										}else{
@@ -1394,6 +1398,10 @@ $scope.checkAnswer=function(question){
 										if(data.status){
 																	
 											$getUser.get();
+											$scope.userData.getUser(function(){
+												$getUser.user = $scope.userData.user;
+											});//获取登陆信息
+
 											
 												// alert("成功，即将跳转")
 											// userFactory.user=data.user;

@@ -1,18 +1,4 @@
-app.factory("$userData",["$http",function($http){
-	return {
-		getUser:function(callback){
-			var that = this;
-			$http.get("/member/ajax_login.php")
-			.success(function(data){
-				that.user = data;
-				if(callback){callback()}//如果存在回掉函数就执行回掉函数
-			})
-		},
-
-		user:{}
-	}
-}])
-.factory("userFactory",function(){
+app.factory("userFactory",function(){
 							return{
 								user:null,
 								gerUser:function(){return this.user}
@@ -164,11 +150,28 @@ setHTMLWithScript(element[0], element[0].innerHTML)
  		}
  	}
  }])
+ .factory("$userData",["$http",function($http){
+	return {
+		getUser:function(callback){
+			var that = this;
+			$http.get("/member/ajax_login.php")
+			.success(function(data){
+				that.user = data;
+				console.log("login","GET",that.user);
+				if(callback){callback()}//如果存在回掉函数就执行回掉函数
+			})
+		},
+
+		user:{}
+	}
+}])
  .factory("$getUser",function($http,$state,$localData){
  		return{
  			get:function(callback){
  				var that=this;
  				var host="";
+ 				console.log("that.user",that.user)
+ 				if(that.user.M_ID){return that.user}
  				 $http.get(host+"/member/ajax_login.php")
 					.success(function(data){	
 						if(callback){callback(data)}						
