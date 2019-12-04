@@ -1,0 +1,103 @@
+ <ion-view>
+<div ng-controller="indexCtrl" class="index-class course{{data.course.id}}" >
+
+<div class=" bar bar-header ">
+      
+    <button class="button button-icon icon  ion-ios-arrow-thin-left" ng-click="up2()"></button>
+    <h3 class="title">{{params.coursename}} </h3>		
+    </div>
+     <ion-content class="has-header has-footer article-ion"  overflow-scroll='false'  >
+
+
+      <div ng-repeat="item in chapters"  ng-class="{'unlock':item.unlock,'delock':item.delock}"  class="units"   ng-click=changeState3(item,$index) >
+      <span class='before'></span>
+      {{item.typename}}   
+      </div>
+    <style>
+    .units{   
+ height: 60px;
+ line-height: 60px;
+ border-bottom: 1px solid #fafafa;
+ position: relative;
+ color:#777;
+ position: relative;
+ padding-left:60px;
+ 
+}
+.units .before{
+  position: absolute;
+  left:30px;
+  display: block;
+  height: 60px;
+  width: 2px;
+  border-left:1px solid #eee;
+
+}
+.units .before:before{
+  
+  content: "";
+  display: block;
+  width: 29px;
+  height:29px;
+  position: absolute;
+  background-color:#ddd;
+  top:15px;
+  left:-15px;
+  border-radius:15px;
+  background-image: url('./images/lock.png');
+  background-size:cover;
+
+}
+
+.delock.unlock .before:before{
+  background-color:#38b9fd;
+  background-image: url('./images/unlock.png');
+}
+.delock .before:before{
+  background-color:#38b9fd;
+  background-image: url('./images/delock.png');
+}
+.delock {color:#000}
+
+.units:after{
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top:25px;
+  right:25px;
+  border-top:1px solid #ccc;
+  border-right:1px solid #ccc;
+  transform:rotate(45deg)
+}
+    </style>
+     
+       <!--  <div class="chapters" ng-repeat="item in chapters" ng-class-odd="'cha-odd'" ng-class-even="'cha-even'" ng-class="{'last':$last}">
+     
+            <a class="chapter"  id="chapters{{$index}}" ng-class="{'unlock':item.unlock,'delock':item.delock}" ng-click=changeState(item,$index)>
+        {{item.typename}}
+      </a>
+      
+        </div> -->
+        
+      </ion-content>
+     <!--  <div class="bar bar-footer" style="padding-left:15px;background:#fffbe8; line-height:44px; ">
+      <a class="v"><img width="100%"  src="http://wx.qlogo.cn/mmopen/DW5VLiaDMzMX8MHYfYghtoQriafqj5clISRnts4icZCib2owj3SFIv8kkPtMicDEA5Qn8ehUsXlQZFJOc2TP9zUZX0ebFW8HNKQ4e/64" alt=""></a>   &nbsp;公众账号:&nbsp; <a>IT入门</a> &nbsp; <span style="color:#777">学习资源免费下载 </span></div> -->
+<!--<div class="tabs tabs-icon-top">
+  <a class="tab-item tab-item-active" style="color: dodgerblue;"  >
+  	
+  	<i class="icon ion-ios-lightbulb" ></i>
+   课程
+  </a>
+  <a class="tab-item" href="#/book">
+  	<i class="icon ion-ios-book-outline"></i>
+    书籍
+  </a>
+  <a class="tab-item" href="#/tutorial/{{data.course.id}}">
+  	<i class="icon ion-ios-color-wand-outline"></i>
+    教程
+  </a>
+ 
+</div>-->
+</div>
+ </ion-view>

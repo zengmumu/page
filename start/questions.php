@@ -20,14 +20,14 @@ $channellistnext = '';*/
 // 	
 if($len){
 	$query = "
-	  SELECT ar.title,ar.id, addon.body,addon.subtitle,addon.type,addon.optiona,addon.optionb,addon.optionc,addon.optiond,addon.answer,addon.difficulty,addon.vocation FROM `qkt_archives`as ar left join `qkt_addonarticle30` as addon on addon.aid=ar.id WHERE ar.typeid=$type limit $len	       
+	  SELECT ar.title,ar.id, addon.body,addon.subtitle,addon.type,addon.optiona,addon.optionb,addon.optionc,addon.optiond,addon.answer,addon.difficulty,addon.vocation ,ar.channel FROM `qkt_archives`as ar left join `qkt_addonarticle30` as addon on addon.aid=ar.id WHERE ar.typeid=$type limit $len	       
 	  	";
 
 
 }else{
 
 	$query = "
-	  SELECT ar.title,ar.id, addon.body,addon.subtitle,addon.type,addon.optiona,addon.optionb,addon.optionc,addon.optiond,addon.answer,addon.difficulty,addon.vocation FROM `qkt_archives`as ar left join `qkt_addonarticle30` as addon on addon.aid=ar.id WHERE ar.typeid=$type	       
+	  SELECT ar.title,ar.id, addon.body,addon.subtitle,addon.type,addon.optiona,addon.optionb,addon.optionc,addon.optiond,addon.answer,addon.difficulty,addon.vocation,ar.channel FROM `qkt_archives`as ar left join `qkt_addonarticle30` as addon on addon.aid=ar.id WHERE ar.typeid=$type	       
 	  	";
 }
 

@@ -319,6 +319,11 @@ setHTMLWithScript(element[0], element[0].innerHTML)
 							templateUrl:"./templates/exam/que.html",
 							
 						})
+						.state("que3",{
+							url:"/que3/:id/:typename/:course/:coursename",
+							templateUrl:"./templates/exam/que3.html",
+							
+						})
 						.state("units",{
 							url:"/units/:typeid/:typename/:course",
 							templateUrl:"./templates/exam/units.html"
@@ -345,6 +350,11 @@ setHTMLWithScript(element[0], element[0].innerHTML)
 							templateUrl:"./templates/exam/classs.html",
 							
 						})
+						.state("queclass",{
+							url:"/queclass/:course/:coursename",
+							templateUrl:"./templates/exam/queclass.html",
+							
+						})
 						.state("book",{
 							url:"/book",
 							templateUrl:"./templates/exam/book.html",
@@ -368,6 +378,11 @@ setHTMLWithScript(element[0], element[0].innerHTML)
 						.state("front",{
 							url:"/front/:course",
 							templateUrl:"./templates/exam/front.html",
+							
+						})
+						.state("inter",{
+							url:"/inter/:course",
+							templateUrl:"./templates/exam/inter.html",
 							
 						})
 

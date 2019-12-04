@@ -90,15 +90,8 @@
     </div>
   
     <ion-content delegate-handle="ques" class="has-header article-ion" on-scroll="handelScroll()"  ng-class="{'has-footer':current.showbar}" overflow-scroll='false'>
-        <ion-slide-box disable-scroll="true" enable-slide="false" show-pager="false" on-slide-changed="slideHasChanged(index)">
-             <!--  <ion-slide>
-                <div class="box blue text-center">
-                    <br/><br/><br/><br/><br/>
-                    <img  src="http://statics.qikuedu.com/images/logo.png">
-                    <br/><br/><br/><br/><br/>
-                    <btton  class="button button-assertive button-outline " ng-click="slideTo(1)">开始答题</btton>
-                </div>
-              </ion-slide> -->
+        <ion-slide-box disable-scroll="true"  show-pager="false" on-slide-changed="slideHasChanged(index)">
+             
               <ion-slide ng-repeat="question in questions" >
                   
                   <div class="article" ng-if="question.channel==1">
