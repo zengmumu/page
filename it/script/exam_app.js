@@ -142,6 +142,12 @@
 							$state.go("inter",{"course":337});
 							
 						}
+						$scope.up3=function(){							
+							// $state.history.back();
+							// console.log( $ionicHistory);
+								window.history.back();
+							
+						}
 
 //						console.log($scope.data,"abc");
 						$rootScope.$on('$stateChangeSuccess', 
@@ -1063,6 +1069,7 @@ $scope.checkAnswer=function(question){
 			"user":$scope.data.user.M_ID,
 			"type":2,
 			"typeid":$stateParams.typeid,
+			"add":4,
 			})
 			.success(function(data){
 				// 如果最后一章
