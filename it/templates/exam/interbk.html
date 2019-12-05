@@ -1,0 +1,21 @@
+<ion-view>
+<div class="front"  ng-controller="frontCtrl" >
+	<div class=" bar  bar-light">
+    	<button menu-toggle="left" style="color：#38b9fd; margin-top: -3px;" class="button button-left button-icon icon ion-navicon"></button>
+        <h2 class="title">IT面试题</h2>
+    </div>
+    <ion-content class="has-header has-footer"  overflow-scroll='false'>
+    	<style>.row-wrap{ display:flex; flex-wrap: wrap;}</style>
+    	<div class="row row-wrap">
+
+		<div class="card no-marign col-50" ng-repeat="item in courselist" ng-click="goState('queclass',{course:item.id,coursename:item.typename})">    
+		  <div class="card-content">
+		    <img ng-src="{{item.typeimg}}" style="width:auto;height:45px;border-radius: 45px" mode="aspectFit"/>
+		    <div>{{item.typename}}</div>
+		  </div> 
+		  <!-- <div class="card-foot">开始学习 > </div>          -->
+		</div>  
+		</div>
+	</ion-content>
+</div>          
+</ion-view>

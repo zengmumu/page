@@ -1,21 +1,55 @@
 <ion-view>
-<div class="front"  ng-controller="frontCtrl" >
-	<div class=" bar  bar-light">
+<div class="inter"  ng-controller="interCtrl" >
+	<style> 
+	.bar img,.bar .v{    
+    vertical-align: middle;
+    overflow: hidden;
+    width: 22px;
+    width: 22px;
+    border-radius: 22px;}
+  .bar.bar-footer a{color:#ed6a0c;text-decoration: none;}
+  .hot{ text-align: center; font-size: 12px; }
+  .hot img{
+  	width: 50%;
+  }
+  .hot span{ display: block; }
+   .item-icon-right .icon:before{color: #aaa;}
+   .item-avatar>img:first-child{ border-radius: 0 !important; }
+   .hot-title{ margin-top: 30px; padding: 0 15px; }
+   .blockg{ height: 160px; width: 100%; }
+   .inter .slider-slide{ padding: 0 !important; }
+</style>
+	<!-- <div class=" bar  bar-light">
     	<button menu-toggle="left" style="color：#38b9fd; margin-top: -3px;" class="button button-left button-icon icon ion-navicon"></button>
         <h2 class="title">IT面试题</h2>
-    </div>
-    <ion-content class="has-header has-footer"  overflow-scroll='false'>
-    	<style>.row-wrap{ display:flex; flex-wrap: wrap;}</style>
-    	<div class="row row-wrap">
-
-		<div class="card no-marign col-50" ng-repeat="item in courselist" ng-click="goState('queclass',{course:item.id,coursename:item.typename})">    
-		  <div class="card-content">
-		    <img ng-src="{{item.typeimg}}" style="width:auto;height:45px;border-radius: 45px" mode="aspectFit"/>
-		    <div>{{item.typename}}</div>
-		  </div> 
-		  <!-- <div class="card-foot">开始学习 > </div>          -->
-		</div>  
+    </div> -->
+    <ion-content class=" has-footer"  overflow-scroll='false'>
+		<ion-slide-box>
+		  <ion-slide ng-repeat="item in gallery"  ng-click="goState('queclass',{course:item.id,coursename:item.typename})">
+		    <div class="blockg">
+		    	<img ng-src="{{item.typeimg}}"  width="100%" alt=""  />
+		    </div>
+		  </ion-slide> 		  
+		</ion-slide-box>
+		<div class="row hot">
+			<div class="col" ng-repeat="item in hot"  ng-click="goState('queclass',{course:item.id,coursename:item.typename})">
+				<img ng-src="{{item.typeimg}}" alt="">
+				<span>{{item.typename}}</span>
+			</div>
 		</div>
+		<h4 class="hot-title">热门题库</h4>
+		<div class="list">
+			<a class="item item-avatar item-icon-right" ng-repeat="item in courselist" ng-click="goState('queclass',{course:item.id,coursename:item.typename})">
+          		<img ng-src="{{item.typeimg}}">
+          		<div>{{item.typename}}</div>
+           		 <i class="icon ion-ios-arrow-right"></i>
+        	</a>
+		</div>
+
+    	 
+    
 	</ion-content>
+	 <div class="bar bar-footer" style="padding-left:15px;background:#fffbe8; line-height:44px; ">
+      <a class="v"><img width="100%"  src="http://wx.qlogo.cn/mmopen/DW5VLiaDMzMX8MHYfYghtoQriafqj5clISRnts4icZCib2owj3SFIv8kkPtMicDEA5Qn8ehUsXlQZFJOc2TP9zUZX0ebFW8HNKQ4e/64" alt=""></a>   &nbsp;公众账号:&nbsp; <a>IT入门</a> &nbsp; <span style="color:#777">学习资源免费下载 </span></div>
 </div>          
 </ion-view>

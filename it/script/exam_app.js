@@ -108,6 +108,25 @@
 						}
 
 					}])
+					.controller("interCtrl",["$scope","$state","$ionicHistory","$stateParams","$http","$getUser","$rootScope","$ionicScrollDelegate","$ionicSlideBoxDelegate",function($scope,$state,$ionicHistory,$stateParams,$http,$getUser,$rootScope,$ionicScrollDelegate,$ionicSlideBoxDelegate){
+						let type = $stateParams.course||377;
+						$http.get($scope.host+"/start/getChapter.php?type="+type).success(function(data){							
+							$scope.courselist=data
+
+						})
+						$http.get($scope.host+"/start/min_flag.php").success(function(data){							
+							$scope.gallery=data.gallery
+							$scope.hot=data.hot;
+							$ionicSlideBoxDelegate.update(1);
+
+						})
+						 $scope.goState=function(name,params){
+							
+									// console.log($state);
+									$state.go(name,params);
+							}
+					}])
+				 
 					.controller("frontCtrl",["$scope","$state","$ionicHistory","$stateParams","$http","$getUser","$rootScope","$ionicScrollDelegate",function($scope,$state,$ionicHistory,$stateParams,$http,$getUser,$rootScope,$ionicScrollDelegate){
 						let type = $stateParams.course||1;
 						$http.get($scope.host+"/start/getChapter.php?type="+type).success(function(data){
@@ -145,7 +164,7 @@
 						$scope.up3=function(){							
 							// $state.history.back();
 							// console.log( $ionicHistory);
-								window.history.back();
+							$state.go("inter",{"course":337});
 							
 						}
 

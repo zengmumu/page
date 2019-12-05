@@ -30,6 +30,9 @@ if($len){
 	  SELECT ar.title,ar.id, addon.body,addon.subtitle,addon.type,addon.optiona,addon.optionb,addon.optionc,addon.optiond,addon.answer,addon.difficulty,addon.vocation,ar.channel FROM `qkt_archives`as ar left join `qkt_addonarticle30` as addon on addon.aid=ar.id WHERE ar.typeid=$type	       
 	  	";
 }
+if($type<=232 && $type>137){
+	$query = "SELECT ar.typeid,ar.title,ar.id, addon.body,addon.subtitle,addon.type,addon.optiona,addon.optionb,addon.optionc,addon.optiond,addon.answer,addon.difficulty,addon.vocation,ar.channel FROM `qkt_archives`as ar left join `qkt_addonarticle30` as addon on addon.aid=ar.id left join `qkt_arctype` as t on t.id=ar.typeid WHERE ar.typeid=$type or t.reid=$type";
+}
 
 //顶级导航列表
 $dsql->SetQuery($query);
