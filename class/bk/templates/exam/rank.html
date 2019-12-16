@@ -1,0 +1,25 @@
+ <ion-view>
+<div ng-controller="rankCtrl">
+
+    <div class=" bar bar-header bar-positive">
+    <button class="button button-icon icon  ion-ios-arrow-thin-left" ng-click="goback()"></button>
+        <h2 class="title">排行榜</h2>
+    </div>
+    <ion-content class="has-header has-footer">
+
+           <style>
+       .even{ background-color: #eff8ff }
+       .row+.row{ margin-top: 0 !important; }
+   </style>     
+         <div class="row">
+             <div class="col-20 text-center"><b>排名</b></div><div class="col-50"><b>用户名</b></div> <div class="col-30"><b>积分</b></div>
+         </div>
+         <div class="row" ng-repeat="item in list track by $index" ng-class-even="'even'">
+             <div class="col-20 text-center">{{$index+1}}</div><div class="col-50">{{item.uname}}</div> <div class="col-30">{{item.scores}}</div>
+         </div>
+       
+
+
+
+    </ion-content>
+ </ion-view>

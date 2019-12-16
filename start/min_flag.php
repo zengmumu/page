@@ -30,7 +30,7 @@ $array2 = array(
      ),
     array(                       
     typeimg=>"/it/images/icon/html5.jpg",
-    id=>420,    
+    id=>138,    
     typename=>"前端",    
     ));
     

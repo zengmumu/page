@@ -14,7 +14,7 @@ if(!isset($reid)){
 
 
 $sql = "
-	 SELECT id,reid,typename FROM `#@__arctype` as arct WHERE arct.reid=$reid
+	 SELECT id,reid,typename FROM `#@__arctype` as arct WHERE arct.reid=$reid and arct.ishidden=0
 	  	";
 
 

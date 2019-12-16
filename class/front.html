@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html ng-app="examApp">
+	<head>
+		<meta charset="UTF-8">
+		<title ng-bind="$root.data.course.typename">前端编程指南</title>
+    <meta name="description" description="内容涵盖 、前端、UI设计、photoshop、vue、react、angular的基础教程和面试题目 ">
+		
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui,viewport-fit=cover">    
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="前端简明教程">
+    <link rel="apple-touch-icon" href="/uploads/it/python/front.png">
+    <!-- <meta name="msapplication-TileImage" content="/static/img/icons/msapplication-icon-144x144.png"> -->
+    <meta name="msapplication-TileColor" content="#000000">
+		 <style>
+         	ion-content{
+  overflow-scroll: true;
+}
+
+.scroll-content {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;}
+
+.selectable {
+  -webkit-user-select: auto;
+}
+
+*{
+  -webkit-touch-callout:default;
+  -webkit-user-select:auto;
+  -khtml-user-select:text;
+  -moz-user-select:text;
+  -ms-user-select:text;
+  user-select:text;
+  -o-user-select:default;
+}
+* {-webkit-user-select:auto;}
+/*注意：在html页面设置*/
+
+.selectable {
+  -webkit-user-select: text;
+}
+.selectable *{
+	  -webkit-user-select: text !important;
+}
+         	
+         </style>
+	</head>
+	<body ng-controller="mainCtrl" class=""  >
+		
+        <ion-side-menus >
+  <!-- 中间内容 -->
+  <ion-side-menu-content drag-content="true" >
+     <ion-nav-view>  
+     	...加载中   
+     </ion-nav-view>    
+  </ion-side-menu-content>
+    
+  <!-- 左侧菜单 -->
+  <ion-side-menu side="left">
+    <ion-content>
+    <div class="user-box bg-positive " style="background-color: #387ef5;
+    background-image: linear-gradient(90deg, #4e8cfd 0%, #2ac3fc 80%, #38b9fd 100%); ">
+    	<div class="avatar" ng-bind="data.user.M_UserName|limitTo:1"></div>
+      	<span ng-bind="data.user.M_UserName|limitTo:15"></span>
+      	<div class="r jf" style="color:#cef0fa"><span ng-bind="'积分:'+data.user.M_Scores"></span></div>
+     	<div class="row">
+      		<div class="col-75 col-center text-left" style="color:#cef0fa"><span ng-bind="data.user.fields.email"></span><br/></div> 
+	      	<div class="col-25"> 
+	      		<button class="button button-clear button-positive"  style="color:#cef0fa" ng-click="loginOut()" ng-bind="switchName(data.user.M_UserName)"></button>
+	      	</div>
+      	</div>
+     </div>  
+       <div class="list">
+       	 
+       			<!--<a href="/" class="item"> ← 返回IT入门首页</a>-->
+       		    
+              <!-- <a href="/it/front.html#/class/307" class="item" menu-toggle="left" >html教程</a>
+              <a href="/it/front.html#/class/314" class="item" menu-toggle="left" >css教程</a>
+              <a href="/it/front.html#/class/322" class="item" menu-toggle="left" >js教程</a>
+							<a href="/it/front.html#/class/269" class="item" menu-toggle="left" >Vue教程</a>
+							<a href="/it/front.html#/class/272" class="item" menu-toggle="left" >ES6教程</a>
+							<a href="/it/front.html#/class/296" class="item" menu-toggle="left" >React教程</a>
+              <a href="/it/front.html#/class/334" class="item" menu-toggle="left" >jquery教程</a>
+              <a href="/it/front.html#/class/2" class="item"  menu-toggle="left">python教程</a> -->
+   		      	<a href="/it/front.html#/err2" class="item" menu-toggle="left" >反馈</a>
+   		      	<!--<a href="" class="item" ng-click="share()">分享</a>-->
+   		      	
+
+       </div>
+       </ion-content>
+  </ion-side-menu>
+
+  <!-- 右侧菜单 -->
+ 
+</ion-side-menus>
+		<link rel="stylesheet" href="./css/ionic.min.css"/>
+		<script src="./js/ionic.bundle.min.js"></script>
+		<script src="./script/exam_app.js"></script>
+		<script src="./script/service.js"></script>	
+		<script src="./sh/shCore.js"></script>
+    <script src="./sh/shBrushXml.js"></script>
+    <script src="./sh/shAutoloader.js"></script>
+    <link rel="stylesheet" href="./sh/shCoreDefault.css"/>
+
+		
+         <script>
+         	function downLoadCss(url){
+        	var elem = document.createElement("link");
+        	elem.rel = "stylesheet";
+        	elem.type = "text/css";
+        	elem.href = url;
+        	document.body.appendChild(elem);
+    		}
+         	function downLoadJs(url){
+       			var elem = document.createElement("script");
+        		elem.src = url;
+       		 	document.body.appendChild(elem);
+   			 }
+
+/*    		setTimeout(function(){        	
+        	downLoadJs("./sh/shCore.js")
+//      	downLoadJs("./sh/shCore2.js")
+        	downLoadCss("sh/shCoreDefault.css");
+//      	downLoadJs("./sh/shBrushJScript.js");
+//      	downLoadJs("./sh/shBrushXml.js");
+    		},1000);
+    		
+    		setTimeout(function(){        	
+        	
+        	downLoadJs("./sh/shBrushXml.js");
+    		},2000);
+    		*/
+
+         </script>
+      <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?77857c56c6ef2fafe2a2135178b8d24f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>  
+	</body>
+</html>

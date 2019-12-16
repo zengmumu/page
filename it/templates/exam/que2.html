@@ -1,8 +1,8 @@
 <ion-view>
 <div ng-controller="homeCtrl" >
-	 <style>
-                  	html,body{ height: 100%;}
-                  	.myfix{position: fixed;left:0; bottom:0;z-index: 1000;}
+   <style>
+                    html,body{ height: 100%;}
+                    .myfix{position: fixed;left:0; bottom:0;z-index: 1000;}
                     ion-list .item{ line-height: initial; }
                     .fix-footer{ 
                       position:absolute; 
@@ -33,8 +33,7 @@
                      .fix-footer .button:hover{
                       color:#fff;
                     }
-
-    .precent{
+                    .precent{
             position: absolute;
     left: 15px;
     bottom: -22px;
@@ -78,34 +77,21 @@
                   
 <!-- on-drag="toggleLeft($event)" -->
     <alert  msg="alertServer.msg" class="addNote"></alert>
-    <div class=" bar bar-header ">
-    <button class="button button-icon icon  ion-ios-arrow-thin-left" ng-click="up()"></button>
-     <div class="col" style="padding-left: 15px; padding-right: 15px;">
+    <div class=" bar bar-header">
+    <button class="button button-icon icon  ion-ios-arrow-thin-left" ng-click="up2()"></button>
+      <div class="col" style="padding-left: 15px; padding-right: 15px;">
         <div class="bg" style="   position: relative;"> 
-          <div class="pre" style="width: {{current.page/questions.length}}%; "></div>
+          <div class="pre" style="width: {{current.page/questions.length*100}}%; "></div>
         </div>
       </div> 
 
            
 
     </div>
-    <!-- <div class="bar bar-subheader sub"> 
-     <ion-scroll zooming="true" direction="x" style="width: 100%; height: 36px">
-        <div style="width:{{questions.length*50}}px;margin-top:4px;margin-left: auto;margin-right: auto;"> <i class="" id="questons{{$index}}"  ng-click="slideTo($index,question)" ng-repeat="question in questions" ng-class="{'selected':question.currentAnswer,'unlock':question.unlock}">
-        <span ng-if="question.channel==1">
-          <svg focusable="false" width="28" height="28" viewBox="0 0 24 24" data-reactid="157"> <path fill="#{{current.page==$index?'ffffff':'316ad1'}}" d="M10.555 7.17l6 4a1 1 0 0 1 0 1.664l-6 4A1 1 0 0 1 9 16.002v-8a1 1 0 0 1 1.555-.832z
- M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0 2C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12z" data-reactid="158"></path></svg>
-        </span>
-         <span ng-if="question.channel==30">
-         <svg focusable="false" width="28" height="28" viewBox="0 0 24 24" data-reactid="141"><path fill="#{{current.page==$index?'ffffff':'316ad1'}}" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0 2C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12z
- M8.748 17.434a.5.5 0 0 1-.744-.496l.47-3.757-2.328-2.327a.5.5 0 0 1 .283-.849l3.258-.465 1.879-3.288a.5.5 0 0 1 .868 0l1.879 3.288 3.258.465a.5.5 0 0 1 .283.849l-2.328 2.327.47 3.757a.5.5 0 0 1-.744.496L12 15.576l-3.252 1.858z
- M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0 2C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12z" data-reactid="142"></path></svg>
-        </span>
- </i></div>
-</ion-scroll> -->
-    </div>
+  
     <ion-content delegate-handle="ques" class="has-header article-ion" on-scroll="handelScroll()"  ng-class="{'has-footer':current.showbar}" overflow-scroll='false'>
-        <ion-slide-box disable-scroll="true" enable-slide="false" show-pager="false" on-slide-changed="slideHasChanged(index)">
+        <div class="selectable">
+        <ion-slide-box  disable-scroll="false"  show-pager="false"  on-slide-changed="slideHasChanged($index)"  >
              <!--  <ion-slide>
                 <div class="box blue text-center">
                     <br/><br/><br/><br/><br/>
@@ -127,9 +113,9 @@
                     </div>
                     
                     <div class="row">
-                  <div class="col positive text-left">
+                  <!-- <div class="col positive text-left">
                    <button class="button button-small button-clear button-positive" ng-click="getComents(question)" >{{question.comentCount}}  <i class="icon ion-chatbubble-working placeholder-icon"></i></button> 
-                  </div>
+                  </div> -->
                   <!-- <div class="col text-right col-40 "><button class="button button-blue button-block" ng-click="nextSlide(question)">继续</button></div> -->
                     </div>
                   </div>
@@ -161,19 +147,19 @@
                      </div>
                   </div>
                   
-                  	
-                  	
+                    
+                    
                      
             </div>
             <ion-list  show-reorder="true"  ng-if="question.type==5" class="options" >
-					<ion-item ng-repeat="item in question.lists" class="answer-option ">
-						<ion-reorder-button 
-							class="ion-navicon"
-							on-reorder="moveItem(item,$fromIndex,$toIndex,question,this)"
-							>
-						</ion-reorder-button>
-						<span class="sh-block" ng-bind-html="item.text|to_trusted"></span>
-					</ion-item>
+          <ion-item ng-repeat="item in question.lists" class="answer-option ">
+            <ion-reorder-button 
+              class="ion-navicon"
+              on-reorder="moveItem(item,$fromIndex,$toIndex,question,this)"
+              >
+            </ion-reorder-button>
+            <span class="sh-block" ng-bind-html="item.text|to_trusted"></span>
+          </ion-item>
             </ion-list>      
                   <!--
                    <button class="button button-positive button-full" ng-click="mulHdNext(question)">确定</button>
@@ -200,7 +186,7 @@
                   </div>
                   <div class="row">
                     <div class="col text-left col-center"> 
-                    	<button class="button button-clear button-positive" ng-show="question.showErr" ng-click="getComents(question)">{{question.comentCount}} <i class="icon ion-chatbubble-working placeholder-icon"></i></button>
+                      <button class="button button-clear button-positive" ng-show="question.showErr" ng-click="getComents(question)">{{question.comentCount}} <i class="icon ion-chatbubble-working placeholder-icon"></i></button>
                     </div>
                     <div class="col col-40 text-right">
                     <!-- <button class="button  button-block button-blue " ng-click="checkAnswer(question)"  ng-show="!question.showErr" >检查</button>
@@ -227,7 +213,7 @@
            
 
         </ion-slide-box>
-
+      </div >
            <div class="coment-button" ng-hide="true">+</div>
     </ion-content>
     <div class="answer-sheet" ng-show="current.showAnswerSheet">

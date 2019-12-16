@@ -106,6 +106,22 @@
 								alert("没有api")
 							}
 						}
+						$scope.share2=function(){
+							 if(navigator.userAgent.indexOf("Html5Plus") > -1) {  
+							            //5+ 原生分享  
+							            window.plusShare({  
+							                title: "python教程",//应用名字  
+							                content: "一个IT入门的好地方",  
+							                href: location.href,//分享出去后，点击跳转地址  
+							                thumbs: ["http://520mg.com/uploads/190723/1-1ZH3231600B9.png"] //分享缩略图  
+							            }, function(result) {  
+							                //分享回调  
+							            });  
+							        } else {  
+							            //原有wap分享实现   
+										alert("分享失败")
+							        }  						
+						}
 
 					}])
 					.controller("interCtrl",["$scope","$state","$ionicHistory","$stateParams","$http","$getUser","$rootScope","$ionicScrollDelegate","$ionicSlideBoxDelegate",function($scope,$state,$ionicHistory,$stateParams,$http,$getUser,$rootScope,$ionicScrollDelegate,$ionicSlideBoxDelegate){
@@ -125,6 +141,23 @@
 									// console.log($state);
 									$state.go(name,params);
 							}
+					}])
+					.controller("phpCtrl",["$scope","$state","$ionicHistory","$stateParams","$http","$getUser","$rootScope","$ionicScrollDelegate","$ionicSlideBoxDelegate",function($scope,$state,$ionicHistory,$stateParams,$http,$getUser,$rootScope,$ionicScrollDelegate,$ionicSlideBoxDelegate){
+						// let type = $stateParams.course||377;
+						// $http.get($scope.host+"/start/getChapter.php?type="+type).success(function(data){							
+						// 	$scope.courselist=data
+
+						// })
+						$http.get($scope.host+"/start/php.php").success(function(data){							
+							$scope.gallery=data.gallery
+							$scope.hot=data.hot;
+							$ionicSlideBoxDelegate.update(1);
+
+						})
+						$scope.goState=function(name,params){							
+									
+									$state.go(name,params);
+						}
 					}])
 				 
 					.controller("frontCtrl",["$scope","$state","$ionicHistory","$stateParams","$http","$getUser","$rootScope","$ionicScrollDelegate",function($scope,$state,$ionicHistory,$stateParams,$http,$getUser,$rootScope,$ionicScrollDelegate){
@@ -152,9 +185,14 @@
 						$scope.data=$getUser;
 						$scope.data.get();
 						$scope.up=function(){
-							
+							if($stateParams.redirect){
+								$state.go($stateParams.redirect);
+							}else{
+								$state.go("front",{"course":1});
+							}
 							// console.log($stateParams);
-							$state.go("front",{"course":1});
+							// $state.go("front",{"course":1});
+
 							
 						},
 						$scope.up2=function(){							
@@ -314,7 +352,7 @@
 						$scope.changeState2=function(item,index){
 							if(parseInt($scope.data.user.M_Rank)>0){
 									 			 
-									 	$state.go("cells",{"typeid":item.id,typename:item.typename,course:$stateParams.course});
+									 	$state.go("cells",{"typeid":item.id,typename:item.typename,course:$stateParams.course,redirect:$stateParams.redirect});
 							}else{
 						// console.log($scope.data.course);
 								$http.get($scope.host+"/start/permission.php?ptype=3&id="+item.id+"&typeid="+item.reid+"&user="+$scope.data.user.M_ID)
@@ -327,10 +365,15 @@
 										 			return;
 										 	}
 										 }
-										$state.go("cells",{"typeid":item.id,typename:item.typename,course:$stateParams.course});
+										$state.go("cells",{"typeid":item.id,typename:item.typename,course:$stateParams.course,redirect:$stateParams.redirect});
 									}else{
 	//									$state.go("units",{"typeid":item.id,typename:item.typename,course:$stateParams.course});
-										alert(data.msg);
+										// php特权
+										if($stateParams.redirect==='php'){
+											$state.go("cells",{"typeid":item.id,typename:item.typename,course:$stateParams.course,redirect:$stateParams.redirect});
+										}else{
+											alert(data.msg);
+										}
 									}
 
 								})
@@ -338,7 +381,7 @@
 						}
 
 						$scope.changeState3=function(item,index){
-							console.log("state3",item,index);
+							// console.log("state3",item,index);
 							$state.go("que3",{"id":item.id,typename:item.typename,course:$stateParams.course,coursename:$stateParams.coursename});
 							// $state.go("que",{"typeid":item.typeid,"id":item.id,"unitname":item.title,"typename":$scope.typename,course:$stateParams.course});
 						}
@@ -365,7 +408,12 @@
 						}
 						$scope.up2=function(){
 							// console.log($stateParams);
-							$state.go("queclass",{"course":$stateParams.course,"coursename":$stateParams.coursename});
+							if($stateParams.redirect){
+								$state.go("class",{"course":$stateParams.course,"coursename":$stateParams.coursename,redirect:$stateParams.redirect});
+							}else{
+								$state.go("queclass",{"course":$stateParams.course,"coursename":$stateParams.coursename,redirect:$stateParams.redirect});
+							}
+							
 							
 						}
 						$scope.data=$getUser;
@@ -399,7 +447,7 @@
 						}
 						$scope.changeState2=function(item){
 							if(parseInt($scope.data.user.M_Rank)>0){									 			 
-								$state.go("que",{"typeid":item.typeid,"id":item.id,"unitname":item.title,"typename":$scope.typename,course:$stateParams.course});
+								$state.go("que2",{"typeid":item.typeid,"id":item.id,"unitname":item.title,"typename":$scope.typename,course:$stateParams.course,redirect:$stateParams.redirect});
 							}else{
 
 
@@ -408,10 +456,15 @@
 								.success(function(data){
 									// console.log("data",data);
 									if(data.status){
-										$state.go("que",{"typeid":item.typeid,"id":item.id,"unitname":item.title,"typename":$scope.typename,course:$stateParams.course});
+										$state.go("que2",{"typeid":item.typeid,"id":item.id,"unitname":item.title,"typename":$scope.typename,course:$stateParams.course,redirect:$stateParams.redirect});
 									}else{
 	//									$state.go("home",{"typeid":item.typeid,"id":item.id,"unitname":item.title,"typename":$scope.typename,course:$stateParams.course});
-										alert(data.msg);
+										
+										if($stateParams.redirect=='php'){
+											$state.go("que2",{"typeid":item.typeid,"id":item.id,"unitname":item.title,"typename":$scope.typename,course:$stateParams.course,redirect:$stateParams.redirect});
+										}else{
+											alert(data.msg);
+										}
 									}
 
 								})
@@ -543,7 +596,7 @@ $ionicSlideBoxDelegate.enableSlide(false)
 							}
 							$scope.up2=function(){
 								// console.log($stateParams);
-								$state.go("cells",{"typeid":$stateParams.typeid,typename:$stateParams.typename,course:$stateParams.course});
+								$state.go("cells",{"typeid":$stateParams.typeid,typename:$stateParams.typename,course:$stateParams.course,redirect:$stateParams.redirect});
 							}
 							
 						
@@ -635,7 +688,7 @@ $ionicSlideBoxDelegate.enableSlide(false)
 									template: '加载中...'
 								  });
 					                //optionA  optionB optionC optionD 交换顺序
-
+									 
 									 for(var i=0;i<data.data.length;i++) {
 					                     var optionData = [];
 					                     var temparr = []
@@ -741,7 +794,8 @@ $ionicSlideBoxDelegate.enableSlide(false)
 					                     
 					                 }
 									 $scope.questions=data.data
-									 $scope.questions[0].unlock=true;
+									  
+									 // $scope.questions[0].unlock=true;
 									 $scope.cquestion=$scope.questions[0];
 									 $ionicSlideBoxDelegate.update()
 									 $http.get($scope.host+"/start/get_coments_count.php?aid="+$scope.questions[0].id)
@@ -1096,6 +1150,8 @@ $scope.checkAnswer=function(question){
 					
 					if($state.current.name=='que'){
 						$state.go("class",{"course":$rootScope.data.course.id})
+					}else if($state.current.name=='que2'){
+						$state.go("class",{"course":$rootScope.data.course.id,redirect:$stateParams.redirect})
 					}else{
 						$state.go("main",{"course":$rootScope.data.course.id})
 					}
@@ -1103,6 +1159,8 @@ $scope.checkAnswer=function(question){
 
 					if($state.current.name=='que'){
 						$state.go("cells",{"typeid":$stateParams.typeid,typename:$stateParams.typename,course:$stateParams.course})
+					}else if($state.current.name=='que2'){
+						$state.go("cells",{"typeid":$stateParams.typeid,typename:$stateParams.typename,course:$stateParams.course,redirect:$stateParams.redirect})
 					}else{
 						$state.go("units",{"typeid":$stateParams.typeid,typename:$stateParams.typename,course:$stateParams.course});
 					}

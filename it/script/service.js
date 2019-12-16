@@ -319,6 +319,11 @@ setHTMLWithScript(element[0], element[0].innerHTML)
 							templateUrl:"./templates/exam/que.html",
 							
 						})
+						.state("que2",{
+							url:"/que2/:typeid/:id/:unitname/:typename/:course?redirect",
+							templateUrl:"./templates/exam/que2.html",
+							
+						})
 						.state("que3",{
 							url:"/que3/:id/:typename/:course/:coursename",
 							templateUrl:"./templates/exam/que3.html",
@@ -329,9 +334,10 @@ setHTMLWithScript(element[0], element[0].innerHTML)
 							templateUrl:"./templates/exam/units.html"
 						})	
 						.state("cells",{
-							url:"/cells/:typeid/:typename/:course",
+							url:"/cells/:typeid/:typename/:course?redirect",
 							templateUrl:"./templates/exam/cells.html"
-						})						
+						})	
+										
 						.state("login",{
 							url:"/login?redirect",
 							templateUrl:"./templates/exam/login.html"
@@ -346,7 +352,7 @@ setHTMLWithScript(element[0], element[0].innerHTML)
 							
 						})
 						.state("class",{
-							url:"/class/:course",
+							url:"/class/:course?redirect",
 							templateUrl:"./templates/exam/classs.html",
 							
 						})
@@ -380,9 +386,15 @@ setHTMLWithScript(element[0], element[0].innerHTML)
 							templateUrl:"./templates/exam/front.html",
 							
 						})
+
 						.state("inter",{
 							url:"/inter/:course",
 							templateUrl:"./templates/exam/inter.html",
+							
+						})
+						.state("php",{
+							url:"/php",
+							templateUrl:"./templates/exam/php.html",
 							
 						})
 
